@@ -1,0 +1,23 @@
+/* cyrillic-ext */
+/* @font-face {
+    font-family: 'Regular Brush';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Regular Brush'), local('Regular-Brush'), url('../fonts/RegularBrush-Rpnro.otf') format('otf');
+    unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+  } */
+  @font-face {
+    font-family: 'regular brush';
+    src: url('../fonts/RegularBrush-Rpnro.woff') format('woff')
+    /* Add other font properties like font-weight and font-style if needed */
+}
+@font-face {
+    font-family: 'satisfy regular';
+    src: url('../fonts/Satisfy-Regular.woff') format('woff')
+    /* Add other font properties like font-weight and font-style if needed */
+}
+@font-face {
+  font-family: 'mont heavy';
+  src: url('../fonts/Mont-Heavy.woff') format('woff')
+  /* Add other font properties like font-weight and font-style if needed */
+}

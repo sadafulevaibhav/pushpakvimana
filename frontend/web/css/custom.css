@@ -1,0 +1,292 @@
+.navbar-collapse
+{
+    justify-content: center !important;
+}
+.navbar {
+    padding-bottom: 10px; /* Adjust the padding as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+    height: 68px;
+}
+.upcoming-tours{
+  background : #F0E8E1;
+} 
+.btn-upcoming-tour {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 316px;
+    height: 32px;
+    background-color: #FF6600;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px; /* Adjust the margin as needed */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .navbar-brand {
+    margin-right: auto; /* Move to the left */
+  }
+
+  .navbar-nav {
+    margin-left: auto; /* Move to the right */
+  }
+
+  .carousel-item {
+    position: relative;
+    /* height: 100vh; */
+    background-image: url('temple.jpg'); /* Change the image URL */
+    background-size: cover;
+    background-position: center;
+  }
+  .container-carousal {
+    padding: 0px 0px 0px !important;
+ }
+ .custom-text{
+    font-family: 'satisfy regular';
+    font-size: 50px;
+  }
+  .card-text{
+    position: absolute;
+    bottom: 0;
+  }
+  .video-center{
+    border-radius: 40px !important;
+    width: 85%;
+  }
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'regular brush', sans-serif;
+    font-size: 7em; /* Adjust the font size */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    width: 1118px;
+    height: 233px;
+    -webkit-text-stroke: 0.2px black; /* Webkit (Safari, Chrome) */
+  }
+  @media (max-width: 768px) {
+    .btn-upcoming-tour {
+      width: 100%; /* Full width on mobile */
+      margin-left: 0; /* Remove margin on mobile */
+      margin-top: 10px; /* Add some top margin on mobile */
+    }
+  }
+  .gallery {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%;
+  }
+  
+  .gallery .pics {
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+  }
+  
+  .gallery .animation {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  .img-fluid {
+    border-radius: 20px;
+  }
+  
+  @media (max-width: 450px) {
+    .gallery {
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
+      -webkit-column-width: 100%;
+      -moz-column-width: 100%;
+      column-width: 100%;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .btn.filter {
+      padding-left: 1.1rem;
+      padding-right: 1.1rem;
+    }
+    
+  }
+  .about-card {
+    position: relative;
+    overflow: hidden;
+    width: 360px;
+    height: 400px;
+    margin: auto;
+    border-radius: 50px;
+  }
+
+  .about-card .card-header {
+    padding: 10px 0;
+    text-align: center;
+    background-color: #f0e8e1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #dee2e6;
+    position: relative;
+    transition: background-color 0.3s;
+  }
+
+  .about-card:hover .card-header {
+    background-color: #003f5a;
+  }
+
+  .about-card .card-header h2 {
+    color: #e98e3a;
+    width: 100%;
+    font-size: 40px; /* Updated font size */
+    font-weight: bold; /* Added font weight */
+    text-transform: uppercase;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: top 0.9s, transform 0.9s;
+  }
+
+  .about-card:hover .card-header h2 {
+    top: 25px;
+    transform: translate(-50%, 0);
+  }
+
+  .aboutus-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    top: 100px;
+    background-color: #003f5a;
+    color: white;
+    font-family: 'mont';
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 1;
+  }
+
+  .about-card:hover .card-body {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 576px) {
+    .about-card {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .testimonial-container {
+    position: relative;
+    height: 550px;
+    background-image: url('../siteimages/testimonials bg.png'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .testimonial-carousel {
+    width: 100%;
+  }
+
+  .testimonial-card {
+    position: relative;
+    overflow: hidden;
+    width: 380px;
+    height: 380px;
+    margin: auto;
+    opacity: 0.5;
+    background-color: white;
+    border-radius: 40px;
+  }
+
+  .testimonial-card .card-header {
+    padding: 10px 0;
+    text-align: center;
+    background-color: #f0e8e1;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #dee2e6;
+    position: relative;
+  }
+
+  .testimonial-card .card-header h2 {
+    color: #e98e3a;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .testimonial-card .card-body {
+    padding: 20px;
+    background-color: #003f5a;
+    color: white;
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .testimonial-card .card-body p {
+    margin: 0;
+    text-align: center;
+  }
+
+  .testimonial-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }  
+  .img-circle{
+    border-radius:100%;
+    height:5em;
+    width:5em;
+}
+.BorderCorner {
+  border: 2px solid #f6f3f3;
+  display: inline-block;
+  margin: 25px auto;
+  padding: 25px;
+  position: relative;
+  width: auto;
+}
+.BorderCorner::before {
+  width: calc(100% + 50px + 4px - 120px);
+  height: calc(100% + 4px);
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.BorderCorner::after {
+  height: calc(100% + 50px + 4px - 120px);
+  width: calc(100% + 4px);
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
