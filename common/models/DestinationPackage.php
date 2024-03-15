@@ -12,8 +12,6 @@ use Yii;
  * @property string $package_image
  * @property string $about_trip
  * @property string $max_no_guests
- * @property int $is_breakfast
- * @property int $is_pickupdrop_available
  * @property int $hotel_rating
  * @property string $key_locations
  * @property float $travel_expenses
@@ -39,8 +37,8 @@ class DestinationPackage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['package_name', 'package_image', 'about_trip', 'max_no_guests', 'is_breakfast', 'is_pickupdrop_available', 'hotel_rating', 'key_locations', 'travel_expenses', 'country_id', 'package_id'], 'required'],
-            [['is_breakfast', 'is_pickupdrop_available', 'hotel_rating', 'country_id', 'package_id'], 'integer'],
+            [['package_name', 'package_image', 'about_trip', 'max_no_guests', 'hotel_rating', 'key_locations', 'travel_expenses', 'country_id', 'package_id'], 'required'],
+            [['hotel_rating', 'country_id', 'package_id'], 'integer'],
             [['key_locations'], 'string'],
             [['travel_expenses'], 'number'],
             [['package_name', 'about_trip'], 'string', 'max' => 255],
@@ -62,8 +60,6 @@ class DestinationPackage extends \yii\db\ActiveRecord
             'package_image' => Yii::t('app', 'Package Image'),
             'about_trip' => Yii::t('app', 'About Trip'),
             'max_no_guests' => Yii::t('app', 'Max No Guests'),
-            'is_breakfast' => Yii::t('app', 'Breakfast Available'),
-            'is_pickupdrop_available' => Yii::t('app', 'Pickupdrop Available'),
             'hotel_rating' => Yii::t('app', 'Hotel Rating'),
             'key_locations' => Yii::t('app', 'Key Locations'),
             'travel_expenses' => Yii::t('app', 'Travel Expenses'),

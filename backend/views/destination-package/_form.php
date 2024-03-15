@@ -59,10 +59,6 @@ use kartik\file\FileInput;
 
     <?= $form->field($model, 'max_no_guests')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'is_breakfast')->checkbox() ?>
-
-    <?= $form->field($model, 'is_pickupdrop_available')->checkbox() ?>
-
     <?= $form->field($model, 'hotel_rating')->textInput() ?>
 
     <?= $form->field($model, 'key_locations')->widget(TagsInputWidget::className()) ?>

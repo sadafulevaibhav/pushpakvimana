@@ -17,6 +17,7 @@ use yii\widgets\DetailView;
             'max_no_guests',
             //'is_breakfast',
             //'is_pickupdrop_available',
+            /*
             [
                 'attribute' => 'is_breakfast',
                 'value' => function ($model) {
@@ -29,6 +30,7 @@ use yii\widgets\DetailView;
                     return $model->is_pickupdrop_available ? 'Yes' : 'No';
                 },
             ],
+            */
             'hotel_rating',
             'key_locations:ntext',
             'travel_expenses',
