@@ -19,7 +19,7 @@ class DestinationPackageSearch extends DestinationPackage
     {
         return [
             [['id', 'hotel_rating', 'country_id', 'package_id'], 'integer'],
-            [['package_name', 'package_image', 'about_trip', 'max_no_guests', 'is_breakfast', 'is_pickupdrop_available', 'key_locations'], 'safe'],
+            [['package_name', 'package_image', 'about_trip', 'max_no_guests', 'key_locations'], 'safe'],
             [['travel_expenses'], 'number'],
         ];
     }
@@ -68,8 +68,6 @@ class DestinationPackageSearch extends DestinationPackage
             ->andFilterWhere(['like', 'package_image', $this->package_image])
             ->andFilterWhere(['like', 'about_trip', $this->about_trip])
             ->andFilterWhere(['like', 'max_no_guests', $this->max_no_guests])
-            ->andFilterWhere(['like', 'is_breakfast', $this->is_breakfast])
-            ->andFilterWhere(['like', 'is_pickupdrop_available', $this->is_pickupdrop_available])
             ->andFilterWhere(['like', 'key_locations', $this->key_locations]);
 
         return $dataProvider;
