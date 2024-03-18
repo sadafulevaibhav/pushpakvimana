@@ -96,4 +96,18 @@ class DestinationPackage extends \yii\db\ActiveRecord
     {
         return new DestinationPackageQuery(get_called_class());
     }
+
+    public function getAddons()
+    {
+        return $this->hasMany(Addon::class, ['id' => 'addon_id'])
+            ->viaTable('destination_package', ['package_id' => 'id']);
+    }
+
+    public function saveAddons($addons)
+    {
+        $this->unlinkAll('addons', true);
+        foreach ($addons as $addon) {
+            $this->link('addons', Addon::findOne($addon));
+        }
+    }
 }
