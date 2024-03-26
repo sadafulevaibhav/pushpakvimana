@@ -1,0 +1,1234 @@
+@import "variables";
+@import "font";
+@import "mixin";
+
+// common css start
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #000;
+  font-family: $Mont-font;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+a {
+  text-decoration: none;
+}
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.common-form {
+  .form-control {
+    border-radius: 9px;
+    background: #fff;
+    height: 49px;
+    color: rgba(0, 0, 0, 0.6);
+    font-family: $Inter-font;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+  }
+  .primary-btn {
+    color: #fff;
+    font-family: $Inter-font;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 7px 13px;
+    display: inline-block;
+    border: 0;
+    background: $primary-color;
+  }
+}
+
+.secondary-heading {
+  color: #000;
+  text-align: center;
+  font-family: $Mont-font;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.h3 {
+  color: #000;
+  font-family: $Mont-font;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+// common css end
+
+// header start
+
+header {
+  .desktop-header {
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 13px 0 17px 0;
+    nav {
+      display: flex;
+      gap: 43px;
+      ul {
+        display: flex;
+        gap: 35px;
+        align-items: center;
+        a {
+          @include mont-para;
+          color: black;
+        }
+      }
+      .right-btn {
+        display: flex;
+        gap: 70px;
+        .myAccount-btn {
+          @include mont-para;
+          color: #000;
+          display: flex;
+          gap: 8px;
+          align-items: center;
+        }
+      }
+    }
+  }
+  .upcoming-btn {
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    padding: 7px 8px;
+    background-color: $primary-color;
+    border-radius: 10px;
+    color: #fff;
+    font-family: $Mont-bold-font;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    max-height: 51px;
+  }
+
+  .mobile-header {
+    padding: 16px;
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    .menu-btn {
+      padding: 10px;
+      border-radius: 4px;
+      background: $primary-color;
+      display: inline-block;
+      line-height: 0;
+    }
+  }
+}
+#menu-modal {
+  .btn-closed {
+    padding: 0px;
+    border-radius: 4px;
+    background: none;
+    display: inline-block;
+    line-height: 0;
+    border: 0;
+    img {
+      width: 42px;
+    }
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      a {
+        @include mont-para;
+        color: black;
+      }
+    }
+    .right-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      .myAccount-btn {
+        @include mont-para;
+        color: #000;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  .upcoming-btn {
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    padding: 7px 8px;
+    background-color: $primary-color;
+    border-radius: 10px;
+    color: #fff;
+    font-family: $Mont-bold-font;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+}
+// Header end
+
+// footer start
+
+footer {
+  background: #051721;
+  padding: 43px 0 30px 0;
+  .common-form {
+    margin: 23px 0 42px 0;
+    .primary-btn {
+      margin-top: 10px;
+    }
+  }
+  .para {
+    color: #fff;
+    font-family: $Inter-font;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+  }
+  .find-us-sec {
+    text-align: center;
+    width: 400px;
+    h3 {
+      color: #fff;
+      font-family: $Inter-font;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      margin-bottom: 20px;
+    }
+    .social-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 36px;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 11px;
+      }
+    }
+  }
+}
+
+// footer end
+
+// Home start
+
+.welcome-page {
+  position: relative;
+  .img-wrap {
+    position: relative;
+    .content-sec {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      text-align: center;
+      h1 {
+        color: #fff;
+        font-family: $Regular-font;
+        font-size: 150px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
+  video {
+    display: block;
+  }
+  .owl-nav {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    .owl-prev {
+      background: url(../images/owl-prev-icon.svg) no-repeat center !important;
+      background-size: cover !important;
+      width: 45px;
+      height: 39px;
+      span {
+        font-size: 0;
+      }
+    }
+    .owl-next {
+      background: url(../images/owl-next-icon.svg) no-repeat center !important;
+      background-size: cover !important;
+      width: 45px;
+      height: 39px;
+      span {
+        font-size: 0;
+      }
+    }
+  }
+}
+.our-services-sec {
+  max-width: 850px;
+  margin: auto;
+  border-radius: 40px;
+  background: #f6f4ef;
+  padding: 20px 0;
+  margin-top: -64px;
+  position: relative;
+  z-index: 1;
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #000;
+      text-align: center;
+      font-family: $Space-font;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      img{
+        max-height: 45px;
+      }
+    }
+  }
+}
+.tours-sec {
+  padding-top: 58px;
+  position: relative;
+  h2 {
+    color: rgba(236, 233, 222, 0.5);
+    text-align: center;
+    font-family: $NexaBlack-font;
+    font-size: 350px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  h4 {
+    max-width: 83%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    text-align: center;
+    font-family: $Satisfy-font;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.upcomming-tours-sec {
+  h2 {
+    margin-bottom: 30px;
+  }
+  .upcomming-tours-wrap {
+    background: #f0e8e1;
+    padding: 75px 40px;
+
+    .upcomming-tours-flex {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .upcomming-card {
+      position: relative;
+      span {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: #fff;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.7);
+        font-family: $Inter-font;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+  }
+}
+.main-video {
+  padding: 103px 0 130px 0;
+  video {
+    border-radius: 77px;
+  }
+}
+.category-sec {
+  padding-bottom: 100px;
+  .secondary-heading {
+    margin-bottom: 75px;
+  }
+  .category-flex {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .category-flex-wrap {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+    }
+    .cartegory-card {
+      position: relative;
+      width: fit-content;
+      border-radius: 28px;
+      overflow: hidden;
+      a {
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-family: $Uni-font;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.3);
+        &:hover {
+          background: none;
+          color: #f8bd25;
+        }
+      }
+    }
+  }
+}
+.gallery-sec {
+  padding: 130px 0 50px 0;
+  .secondary-heading {
+    margin-bottom: 50px;
+  }
+  .gallery-flex {
+    display: flex;
+    gap: 20px;
+    .img-wrap-first {
+      gap: 20px;
+      flex-direction: column;
+    }
+    .img-wrap {
+      gap: 20px;
+    }
+  }
+
+}
+.testimonials-sec {
+  .secondary-heading {
+    margin-bottom: 61px;
+  }
+  .testimonials-wrap {
+    padding: 116px 0;
+    background: url(../images/testimonilas-bg.png) no-repeat center;
+    background-size: cover;
+    .testimonial-card {
+      max-width: 485px;
+      margin: auto;
+      padding: 31px 24px 28px 22px;
+      border-radius: 26px;
+      border: 2px solid #fff;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      .user-img {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        h3 {
+          color: #fff;
+          font-family: $Nolan-font;
+          font-size: 25px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          margin-bottom: 0;
+        }
+        h4 {
+          color: #fff;
+          font-family: $Nolan-font;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin-bottom: 0;
+        }
+      }
+      .para {
+        position: relative;
+        p {
+          color: #fff;
+          font-family: $Metropolis-font;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+          text-align: justify;
+        }
+        .left-line {
+          position: absolute;
+          bottom: -10px;
+          left: -10px;
+        }
+        .right-line {
+          position: absolute;
+          top: -10px;
+          right: -10px;
+        }
+      }
+    }
+  }
+  .owl-carousel {
+    .owl-item {
+      img {
+        width: unset;
+        max-width: 70px;
+      }
+    }
+  }
+  .owl-dots {
+    transform: translatey(68px);
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    .owl-dot {
+      width: 15px;
+      height: 15px;
+      background: white;
+      border-radius: 50%;
+    }
+    .owl-dot.active {
+      background: black;
+    }
+  }
+}
+.our-client-sec {
+  padding: 57px 0 100px 0;
+  .item {
+    text-align: center;
+    padding: 50px 0;
+    .img-fluid {
+      background: #fff;
+      box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.3);
+      margin: auto;
+    }
+  }
+  .owl-carousel {
+    .owl-item {
+      img {
+        width: unset;
+        max-height: 120px;
+      }
+    }
+  }
+}
+.about-us-sec {
+  .secondary-heading {
+    margin-bottom: 62px;
+  }
+  .about-card {
+    max-width: 468px;
+    width: 100%;
+    min-height: 503px;
+    border-radius: 41px;
+    background: #f0e8e1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 41px;
+    overflow: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+    .about-card-content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+      text-align: center;
+      max-height: 90px;
+      overflow: hidden;
+      transition: all 0.9s ease-in-out;
+      background-color: #F0E8E1;
+      h6 {
+        color: #e98e3a;
+        font-family: $Montserrat-font;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      p {
+        transition: all 0.9s ease-in-out;
+        opacity: 0;
+        color: #000;
+      }
+    }
+    &:hover {
+      .about-card-content {
+        max-height: 100vh;
+        p {
+          opacity: 1;
+        }
+      }
+      // &::before {
+      //   background: linear-gradient(transparent, #000000bf);
+      // }
+    }
+    // &:nth-child(1) {
+    //   background: url(../images/adventerous-img.png) no-repeat center;
+    //   background-size: cover;
+    // }
+    // &:nth-child(2) {
+    //   background: url(../images/testimonilas-bg.png) no-repeat center;
+    //   background-size: cover;
+    // }
+    // &:nth-child(3) {
+    //   background: url(../images/honeymoon-img.png) no-repeat center;
+    //   background-size: cover;
+    // }
+  }
+  .about-us-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+// Home end
+
+// packages pages start
+
+.packages-main-section {
+  background: white;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  .top-tab-sec {
+    max-width: 1330px;
+    margin: auto;
+    ul {
+      display: flex;
+      gap: 10px;
+      li {
+        
+      }
+      .nav-link {
+        background: #515151;
+        padding: 16px 36px;
+        display: block;
+        color: white;
+        color: #fff;
+        font-family: $Mont-font;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-align: center;
+      }
+      .active {
+        color: black;
+        background: #ebd9c8;
+      }
+    }
+  }
+  .adventures-sec {
+    padding: 70px 32px 32px 32px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.6);
+    .activies-wrap{
+      .active-content{
+        ul{
+          display: block;
+          li{
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+    h2 {
+      color: #000;
+      font-family: $Mont-font;
+      text-align: center;
+      font-size: 45px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-bottom: 72px;
+    }
+    .adventures-img-flex {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+    }
+    .adventures-img-wrap {
+      display: flex;
+      gap: 20px;
+    }
+    .view-btn {
+      @include view-btn;
+      background: #515151;
+      margin-top: 40px;
+    }
+    .about-trip {
+      margin-bottom: 50px;
+      p{
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+    .packages-details-sec {
+      .h3 {
+        margin-bottom: 32px;
+      }
+      .packages-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        .packages-list-wrap {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          justify-content: start;
+          p{
+            margin: 0px;
+            font-size: 16px;
+          }
+          img{
+            max-width: 50px;
+          }
+        }
+      }
+    }
+    .flight-details-wrap {
+      margin-top: 52px;
+      .h3 {
+        margin-bottom: 42px;
+      }
+      .flight-card {
+        border-radius: 28px;
+        background: #ebd9c8;
+        padding: 40px 40px 139px 40px;
+        margin-bottom: 50px;
+        h3 {
+          color: #000;
+          font-family: $Mont-font;
+          font-size: 25px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          margin-bottom: 6px;
+        }
+        h4 {
+          color: #000;
+          font-family: $Mont-font;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+        h5 {
+          color: #000;
+          font-family: $Mont-font;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          margin-bottom: 6px;
+        }
+        h6 {
+          color: #000;
+          font-family: $Mont-font;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+      .travellers-wrap-flex {
+        display: flex;
+        gap: 24px;
+        .travellers-wrap {
+          max-width: 764px;
+          width: 100%;
+          .h3 {
+            margin-bottom: 24px;
+          }
+          h4 {
+            color: #000;
+            font-family: $Mont-font;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin-bottom: 4px;
+          }
+          h5 {
+            color: #000;
+            font-family: $Mont-font;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+        }
+        .travellers-date-wrap {
+          max-width: 177px;
+          width: 100%;
+          h6 {
+            color: #000;
+            font-family: $Mont-font;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+          }
+          p {
+            color: #000;
+            font-family: $Mont-font;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-bottom: 0;
+          }
+        }
+      }
+      .box-wrap {
+        border-radius: 13px;
+        background: #fff;
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.6);
+        padding: 12px;
+        display: inline-block;
+      }
+      .input-wrap {
+        display: flex;
+        button {
+          width: 20px;
+          background-color: transparent;
+          border: 0;
+        }
+        input {
+          width: 50px;
+          text-align: center;
+          padding: 0;
+          border: 0;
+        }
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        /* Firefox */
+        input[type="number"] {
+          -moz-appearance: textfield;
+        }
+      }
+      .box-table {
+        .box-wrap {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 24px;
+          .text-wrap {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            h5 {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      .things-packages-wrap {
+        padding: 30px;
+        border-radius: 36px;
+        background: rgba(235, 217, 200, 0.11);
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.6);
+        h3 {
+          color: #000;
+          font-family: $Mont-font;
+          font-size: 25px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        h6 {
+          color: #000;
+          font-family: $Mont-font;
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          margin-bottom: 8px;
+        }
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          margin-bottom: 66px;
+          li {
+            color: #000;
+            font-family: $Mont-font;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            padding-left: 25px;
+            background: url(../images/check.svg) no-repeat left center;
+            background-size: 16px;
+          }
+        }
+      }
+    }
+    .click-agree-sec {
+      a {
+        color: #025482;
+        font-family: $Mont-font;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 45px;
+      }
+      .btn-wrap {
+        display: flex;
+        border-radius: 25px;
+        background: #515151;
+        display: flex;
+        max-width: 400px;
+        margin-left: auto;
+        margin-top: 24px;
+        input,
+        button {
+          width: 50%;
+          color: #fff;
+          font-family: $Mont-font;
+          font-size: 24px;
+          padding: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          background: transparent;
+          border: 0;
+          text-align: center;
+          outline: 0;
+          &::placeholder {
+            color: #fff;
+          }
+        }
+        input {
+          border-right: 1px solid #fff;
+        }
+      }
+    }
+  }
+}
+
+// packages pages end
+
+// itinerary page start
+.activies-wrap {
+  display: flex;
+  .actives-num {
+    position: relative;
+    max-width: 539px;
+    width: 100%;
+    border-radius: 49px;
+    background: #fff;
+    box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    padding-bottom: 0;
+    h1 {
+      color: #515151;
+      font-family: $Mont-font;
+      font-size: 200px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100px;
+      margin-bottom: 0;
+    }
+    h2 {
+      color: #ebd9c8;
+      font-family: $Mont-font;
+      font-size: 200px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 200px;
+      margin-bottom: 0;
+      text-align: end;
+    }
+  }
+  .active-content {
+    flex: 1;
+    border-radius: 0px 49px 49px 0px;
+    background: #fff;
+    box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    padding-left: 100px;
+    margin-left: -50px;
+    h6 {
+      color: #000;
+      font-family: $Mont-font;
+      font-size: 42px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    ul {
+      list-style: disc;
+    }
+    li {
+      color: #000;
+      font-family: $Mont-font;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}
+// itinerary page end
+
+.view-btn {
+  @include view-btn;
+  margin-top: 31px;
+}
+#toursmenu {
+  position: absolute;
+  z-index: 9;
+  left: 50%;
+  width: 100%;
+  max-width: 1000px;
+  transform: translateX(-50%);
+  top: 81px;
+  .card-body{
+    display: grid;
+    gap: 20px;
+  }
+  ul{
+    gap: 20px;
+  }
+}
+.packages-welcome-sec{
+  position: relative;
+  overflow: hidden;
+  .owl-nav{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    .owl-prev{
+      left: 10px;
+      position: absolute;
+      span{
+        background: url(../images/left-arrow.svg) no-repeat top center;
+        width: 39px;
+        height: 45px;
+        display: block;
+        text-indent: -99999px;
+      }
+    }
+    .owl-next{
+      right: 10px;
+      position: absolute;
+      span{
+        background: url(../images/left-arrow.svg) no-repeat top center;
+        width: 39px;
+        height: 45px;
+        display: block;
+        text-indent: -99999px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+
+.loginbg{
+  background: url(../images/loginbg.png) no-repeat left center #FEB27D;
+  background-size: contain;
+  padding: 50px 0px;
+  .loginbox{
+    border-radius: 35px;
+    border: 2px solid #FFF;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    max-width: 450px;
+    padding: 40px;
+    h2{
+      color: #F25019;
+      font-weight: 700;
+    }
+    h4{
+      color: #000;
+    font-weight: 800;
+    }
+    form{
+      .form-label{
+        font-size: 15px;
+        margin-bottom: 5px;
+        a{
+          color: #000;
+          text-decoration: underline;
+          font-size: 12px;
+        }
+      }
+      .signbtn-grid{
+        display: grid;
+        .signinbtn{
+          border-radius: 9px;
+          background: #F25019;
+          text-align: center;
+          color: #fff;
+          width: 250px;
+          display: block;
+          margin: auto;
+          padding: 10px 30px;
+        }
+        .or {
+            text-align: center;
+            margin: 15px 0px;
+        }
+        .socialicons {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          a{
+            background: #fff;
+            border-radius: 100px;
+            padding: 10px;
+            img{
+              max-width: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.signupbg{
+  background: url(../images/signupbg.png) no-repeat top center #FEB27D;
+  background-size: contain;
+  padding: 50px 0px;
+  .loginbox{
+    border-radius: 35px;
+    border: 2px solid #FFF;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    padding: 40px;
+    margin: auto;
+    h2{
+      color: #F25019;
+      font-weight: 700;
+    }
+    h4{
+      color: #000;
+    font-weight: 800;
+    }
+    form{
+      .form-check{
+        label{
+          font-size: 15px;
+          a{
+            font-size: 15px;
+            color: #000;
+            text-decoration: underline;
+          }
+        }
+      }
+      .nameinfobox{
+        display: flex;
+        gap: 20px;
+        .firsname{
+          max-width: 70px;
+        }
+      }
+      .form-label{
+        font-size: 15px;
+        margin-bottom: 5px;
+        a{
+          color: #000;
+          text-decoration: underline;
+          font-size: 12px;
+        }
+      }
+      .signbtn-grid{
+        display: grid;
+        .signinbtn{
+          border-radius: 9px;
+          background: #F25019;
+          text-align: center;
+          color: #fff;
+          width: 250px;
+          display: block;
+          margin: auto;
+          padding: 10px 30px;
+        }
+        .or {
+            text-align: center;
+            margin: 15px 0px;
+        }
+      }
+    }
+  }
+}
+
+.form-check-input:checked{
+  background-color: #F25019;
+  border-color: #F25019;
+}

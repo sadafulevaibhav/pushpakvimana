@@ -1,0 +1,716 @@
+@import "variables";
+@import "font";
+@import "mixin";
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .signupbg{
+    .loginbox{
+      form{
+        .nameinfobox{
+          display: grid;
+        }
+        .firsname{
+          max-width: inherit !important;
+        }
+      }
+    }
+     
+  }
+  .packages-welcome-sec{
+    .owl-nav{
+      top: 35%;
+    }
+  }
+  .cateinnr{
+    .category-overflow{
+      overflow: auto;
+      .category-flex{
+        width: auto;
+        display: grid;
+        .cartegory-card{
+          width: 100%;
+          height: 100%;
+        }
+        .category-flex-wrap{
+          display: grid;
+          .cartegory-card{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        
+      }
+    }
+  }
+  .h3 {
+    font-size: 32px;
+  }
+  .view-btn {
+    font-size: 16px !important;
+  }
+  .secondary-heading {
+    font-size: 28px;
+  }
+  header {
+    .mobile-header {
+      .menu-btn {
+        padding: 6px;
+      }
+    }
+  }
+  #menu-modal {
+    .btn-closed {
+      img {
+        width: 34px;
+      }
+    }
+  }
+
+  // footer start
+  footer {
+    .find-us-sec {
+      margin-top: 32px;
+      width: 100%;
+    }
+  }
+  // footer end
+
+  //   home page start
+  .welcome-page {
+    .img-wrap {
+      video {
+        height: 300px;
+        object-fit: cover;
+      }
+      .content-sec {
+        h1 {
+          font-size: 38px;
+        }
+      }
+    }
+    .owl-nav {
+      padding: 0;
+      .owl-prev,
+      .owl-next {
+        width: 25px;
+        height: 21px;
+      }
+    }
+  }
+  .our-services-sec {
+    overflow: scroll;
+    ul {
+      width: 600px;
+      a {
+        width: fit-content;
+        font-size: 18px;
+        gap: 8px;
+        img {
+          width: 32px;
+        }
+      }
+    }
+  }
+  .tours-sec {
+    padding-top: 32px;
+    h2 {
+      font-size: 85px;
+    }
+    h4 {
+      font-size: 24px;
+      top: 59%;
+      max-width: 100%;
+    }
+  }
+  .upcomming-tours-sec {
+    h2 {
+      margin-bottom: 18px;
+    }
+    .upcomming-tours-wrap {
+      overflow: scroll;
+      padding: 24px 0;
+      .upcomming-tours-flex {
+        display: flex;
+        gap: 16px;
+        width: max-content;
+        .upcomming-card {
+          width: 200px;
+        }
+      }
+    }
+  }
+  .main-video {
+    padding: 32px 0;
+    video {
+      border-radius: 24px;
+    }
+  }
+  .category-sec {
+    padding-bottom: 30px;
+    .secondary-heading {
+      margin-bottom: 24px;
+    }
+    .category-overflow {
+      overflow: scroll;
+    }
+    .category-flex {
+      gap: 18px;
+      width: max-content;
+      .category-flex-wrap {
+        gap: 18px;
+        flex-direction: row;
+      }
+      .cartegory-card {
+        width: 250px;
+        height: 300px;
+        img {
+          object-fit: cover;
+          height: 100%;
+        }
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .gallery-sec {
+    padding: 32px 0;
+    .secondary-heading {
+      margin-bottom: 24px;
+    }
+    .gallery-flex {
+      gap: 16px;
+      flex-wrap: wrap;
+      .img-wrap-first {
+        gap: inherit;
+        flex-direction: column;
+      }
+      .img-wrap {
+        gap: inherit;
+      }
+    }
+  }
+  .testimonials-sec {
+    .secondary-heading {
+      margin-bottom: 24px;
+    }
+    .testimonials-wrap {
+      padding: 50px 0;
+      .testimonial-card {
+        padding: 31px 24px 28px 22px;
+        .user-img {
+          img {
+            width: 60px;
+          }
+        }
+        h3 {
+          font-size: 21px !important;
+        }
+        h4 {
+          font-size: 16px !important;
+        }
+      }
+      .owl-dots {
+        transform: translatey(24px);
+        gap: 16px;
+      }
+    }
+  }
+  .our-client-sec {
+    padding: 32px 0;
+
+    .item {
+      padding: 24px 0;
+      .img-fluid {
+        width: 103px !important;
+        box-shadow: 0 0 20px -1px rgb(0 0 0 / 22%);
+        margin: auto;
+      }
+    }
+  }
+  .about-us-sec {
+    .secondary-heading {
+      margin-bottom: 24px;
+    }
+    .about-flex-overflow {
+      overflow: scroll;
+    }
+    .about-us-flex {
+      width: max-content;
+      gap: 16px;
+    }
+    .about-card {
+      max-width: 265px;
+      width: 100%;
+      min-height: 277px;
+      border-radius: 16px !important;
+      .about-card-content {
+        padding: 16px;
+        h6 {
+          font-size: 23px;
+        }
+        p {
+          font-size: 16px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  // home page end
+  select#selectduration {
+    border: 1px solid #ccc;
+}
+  //   packages start
+  .packages-main-section {
+    padding-top: 75px;
+    border-radius: 24px 24px 0 0;
+    margin-top: -20px;
+    .top-tab-sec {
+      overflow: scroll;
+      ul {
+        width: max-content;
+        a {
+          border-radius: 16px;
+          padding: 12px;
+          font-size: 18px;
+          width: max-content;
+        }
+      }
+    }
+    .adventures-sec {
+      margin-top: 10px;
+      padding: 32px 16px 16px 16px;
+      box-shadow: none;
+      border: 1px solid #e6e6e6;
+      border-radius: 0;
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
+      .adventures-img-flex {
+        gap: 8px;
+      }
+      .view-btn {
+        margin: 24px 0 32px 0;
+      }
+      .about-trip {
+        margin-bottom: 32px;
+      }
+      .packages-details-sec {
+        .h3 {
+          margin-bottom: 12px;
+        }
+        .img-fluid {
+          width: 65px;
+        }
+        .packages-list {
+          gap: 12px;
+          p {
+            margin-bottom: 0;
+          }
+        }
+      }
+      .flight-details-wrap {
+        .flight-card { 
+            padding: 20px 16px 69px 15px; 
+        }
+        .h3 {
+          margin-bottom: 16px;
+        }
+        .travellers-wrap-flex {
+          flex-wrap: wrap;
+        }
+        .box-table{ 
+            overflow: scroll;
+            .box-wrap{
+                width: max-content;
+            }
+        } 
+      }
+      .things-packages-wrap {
+        padding: 32px !important;
+        h3 { 
+            font-size: 32px !important; 
+            margin-bottom: 24px !important;
+        }
+        h6{
+            font-size: 24px !important;
+        }
+        li{
+            font-size: 18px !important;
+        }
+        margin-top: 42px;
+        ul {
+          margin-bottom: 42px;
+        }
+      }
+    }
+  }
+  // packages end
+
+  //   itinerary start
+.activies-wrap{
+    flex-wrap: wrap;
+  .actives-num { 
+        max-width: 100%;  
+        h1,h2 { 
+            font-size: 42px;  
+            line-height: 1; 
+            text-align: center;
+        }
+    }
+     .active-content {
+        h6 { 
+            font-size: 32px; 
+            text-align: center;
+        }
+        flex: 1;
+        border-radius: 49px; 
+        padding-left: 0;
+        margin-left: 0;
+        padding: 50px;
+    }
+}
+// itineary end
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .view-btn {
+    font-size: 18px !important;
+  }
+  .h3 {
+    font-size: 32px;
+  }
+  .secondary-heading {
+    font-size: 30px;
+  }
+  // footer start
+  footer {
+    .find-us-sec {
+      margin-top: 32px;
+    }
+  }
+  // footer end
+
+  //   home page start
+  .welcome-page {
+    .img-wrap {
+      .content-sec {
+        h1 {
+          font-size: 50px;
+        }
+      }
+    }
+  }
+  .our-services-sec {
+    margin-top: -35px;
+  }
+  .tours-sec {
+    padding-top: 24px;
+    h2 {
+      font-size: 160px;
+    }
+    h4 {
+      font-size: 32px;
+      top: 60%;
+      max-width: 86%;
+    }
+  }
+  .upcomming-tours-sec {
+    .upcomming-tours-wrap {
+      padding: 35px 24px;
+      .upcomming-tours-flex {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+    }
+  }
+  .main-video {
+    padding: 50px 0;
+  }
+  .category-sec {
+    .secondary-heading {
+      margin-bottom: 32px;
+    }
+    .category-overflow {
+      overflow: scroll;
+    }
+    .category-flex {
+      gap: 18px;
+      width: max-content;
+      .cartegory-card {
+        a {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+  .gallery-sec {
+    padding: 50px 0;
+    .gallery-flex {
+      display: flex;
+      gap: 16px;
+      .img-wrap-first {
+        gap: inherit;
+        flex-direction: column;
+      }
+      .img-wrap {
+        gap: inherit;
+      }
+    }
+  }
+  .testimonials-sec {
+    .secondary-heading {
+      margin-bottom: 32px;
+    }
+  }
+  .our-client-sec {
+    padding: 57px 0 50px 0;
+  }
+  .about-us-sec {
+    .about-flex-overflow {
+      overflow: scroll;
+    }
+    .about-us-flex {
+      width: max-content;
+    }
+    .about-card {
+      .about-card-content {
+        h6 {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  // home page end
+
+  //   packages start
+
+  .packages-main-section {
+    .top-tab-sec {
+      max-width: 600px;
+      ul {
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+    .adventures-sec {
+      padding: 40px 24px;
+      h2 {
+        font-size: 32px;
+        margin-bottom: 32px;
+      }
+      .adventures-img-flex {
+        gap: 13px;
+      }
+      .about-trip {
+        margin-top: 32px;
+      }
+      .flight-details-wrap {
+        .h3 {
+          margin-bottom: 16px;
+        }
+        .travellers-wrap-flex {
+          flex-wrap: wrap;
+        }
+      }
+      .things-packages-wrap {
+        margin-top: 42px;
+        ul {
+          margin-bottom: 42px;
+        }
+      }
+    }
+  }
+  // packages end
+
+//   itinerary start
+.activies-wrap{
+    flex-wrap: wrap;
+  .actives-num { 
+        max-width: 100%;  
+        h1,h2 { 
+            font-size: 110px;  
+            line-height: 1; 
+            text-align: center;
+        }
+    }
+     .active-content {
+        flex: 1;
+        border-radius: 49px; 
+        padding-left: 0;
+        margin-left: 0;
+        padding: 50px;
+    }
+}
+// itineary end
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .secondary-heading {
+    font-size: 50px;
+  }
+
+  // header start
+
+  header {
+    .desktop-header {
+      nav {
+        gap: 24px;
+        ul {
+          gap: 24px;
+          a {
+            font-size: 16px;
+          }
+        }
+        .right-btn {
+          gap: 35px;
+          .myAccount-btn {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .upcoming-btn {
+      font-size: 18px;
+    }
+  }
+
+  // Header end
+
+  //   home page start
+  .welcome-page {
+    .img-wrap {
+      .content-sec {
+        h1 {
+          font-size: 100px;
+        }
+      }
+    }
+  }
+
+  .tours-sec {
+    h2 {
+      font-size: 290px;
+    }
+    h4 {
+      font-size: 50px;
+      top: 57%;
+    }
+  }
+
+  .category-sec {
+    .category-flex {
+      .cartegory-card {
+        a {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+  .about-us-sec {
+    .about-card {
+      .about-card-content {
+        h6 {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  // home page end
+
+  //   packages start
+  .packages-main-section {
+    .top-tab-sec {
+      max-width: 1000px;
+    }
+    .adventures-sec {
+      .flight-details-wrap {
+        .things-packages-wrap {
+          h3 {
+            font-size: 25px;
+            margin-bottom: 32px;
+          }
+          h6 {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+  // packages end
+
+  //   itinerary start
+.activies-wrap{
+    .actives-num {
+        h1 {  
+            line-height: 170px; 
+        }
+    }
+}
+// itineary end
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1599px) {
+  // header start
+
+  header {
+    .desktop-header {
+      nav {
+        gap: 24px;
+        ul {
+          gap: 24px;
+        }
+        .right-btn {
+          gap: 35px;
+        }
+      }
+    }
+  }
+
+  // Header end
+
+  //   home start
+  .tours-sec {
+    h2 {
+      font-size: 310px;
+    }
+    h4 {
+      font-size: 50px;
+    }
+  }
+  .category-sec {
+    .category-flex {
+      .cartegory-card {
+        a {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+  // home end
+
+  //   packages start
+  .packages-main-section {
+    .top-tab-sec {
+      
+    }
+    .adventures-sec {
+      .flight-details-wrap {
+        .things-packages-wrap {
+          h3 {
+            font-size: 32px;
+          }
+        }
+      }
+    }
+  }
+  // packages end
+}
+
+@media screen and (min-width: 1800px) {
+  .container {
+    max-width: 1616px;
+  }
+}

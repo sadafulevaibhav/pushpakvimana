@@ -1,0 +1,816 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Satisfy&family=Space+Grotesk:wght@300..700&display=swap");
+@font-face {
+  font-family: "Mont ExtraLight DEMO";
+  src: url("../fonts/Mont-ExtraLightDEMO.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mont Heavy DEMO";
+  src: url("../fonts/Mont-HeavyDEMO.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Regular Brush";
+  src: url("../fonts/RegularBrush.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NexaBlack";
+  src: url("../fonts/NexaBlack.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uni Sans";
+  src: url("../fonts/UniSansHeavyCAPS.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uni Sans";
+  src: url("../fonts/UniSansThinItalicCAPS.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uni Sans";
+  src: url("../fonts/UniSansThinCAPS.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uni Sans";
+  src: url("../fonts/UniSansHeavyItalicCAPS.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-HeavyItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan Book";
+  src: url("../fonts/Nolan-Book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan Book";
+  src: url("../fonts/Nolan-BookItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan Extra";
+  src: url("../fonts/Nolan-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan Extra";
+  src: url("../fonts/Nolan-ExtraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Extra";
+  src: url("../fonts/Metropolis-ExtraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Extra";
+  src: url("../fonts/Metropolis-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Semi";
+  src: url("../fonts/Metropolis-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Extra";
+  src: url("../fonts/Metropolis-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Semi";
+  src: url("../fonts/Metropolis-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Extra";
+  src: url("../fonts/Metropolis-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .signupbg .loginbox form .nameinfobox {
+    display: grid;
+  }
+  .signupbg .loginbox form .firsname {
+    max-width: inherit !important;
+  }
+  .packages-welcome-sec .owl-nav {
+    top: 35%;
+  }
+  .cateinnr .category-overflow {
+    overflow: auto;
+  }
+  .cateinnr .category-overflow .category-flex {
+    width: auto;
+    display: grid;
+  }
+  .cateinnr .category-overflow .category-flex .cartegory-card {
+    width: 100%;
+    height: 100%;
+  }
+  .cateinnr .category-overflow .category-flex .category-flex-wrap {
+    display: grid;
+  }
+  .cateinnr .category-overflow .category-flex .category-flex-wrap .cartegory-card {
+    width: 100%;
+    height: 100%;
+  }
+  .h3 {
+    font-size: 32px;
+  }
+  .view-btn {
+    font-size: 16px !important;
+  }
+  .secondary-heading {
+    font-size: 28px;
+  }
+  header .mobile-header .menu-btn {
+    padding: 6px;
+  }
+  #menu-modal .btn-closed img {
+    width: 34px;
+  }
+  footer .find-us-sec {
+    margin-top: 32px;
+    width: 100%;
+  }
+  .welcome-page .img-wrap video {
+    height: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .welcome-page .img-wrap .content-sec h1 {
+    font-size: 38px;
+  }
+  .welcome-page .owl-nav {
+    padding: 0;
+  }
+  .welcome-page .owl-nav .owl-prev,
+  .welcome-page .owl-nav .owl-next {
+    width: 25px;
+    height: 21px;
+  }
+  .our-services-sec {
+    overflow: scroll;
+  }
+  .our-services-sec ul {
+    width: 600px;
+  }
+  .our-services-sec ul a {
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 18px;
+    gap: 8px;
+  }
+  .our-services-sec ul a img {
+    width: 32px;
+  }
+  .tours-sec {
+    padding-top: 32px;
+  }
+  .tours-sec h2 {
+    font-size: 85px;
+  }
+  .tours-sec h4 {
+    font-size: 24px;
+    top: 59%;
+    max-width: 100%;
+  }
+  .upcomming-tours-sec h2 {
+    margin-bottom: 18px;
+  }
+  .upcomming-tours-sec .upcomming-tours-wrap {
+    overflow: scroll;
+    padding: 24px 0;
+  }
+  .upcomming-tours-sec .upcomming-tours-wrap .upcomming-tours-flex {
+    display: flex;
+    gap: 16px;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .upcomming-tours-sec .upcomming-tours-wrap .upcomming-tours-flex .upcomming-card {
+    width: 200px;
+  }
+  .main-video {
+    padding: 32px 0;
+  }
+  .main-video video {
+    border-radius: 24px;
+  }
+  .category-sec {
+    padding-bottom: 30px;
+  }
+  .category-sec .secondary-heading {
+    margin-bottom: 24px;
+  }
+  .category-sec .category-overflow {
+    overflow: scroll;
+  }
+  .category-sec .category-flex {
+    gap: 18px;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .category-sec .category-flex .category-flex-wrap {
+    gap: 18px;
+    flex-direction: row;
+  }
+  .category-sec .category-flex .cartegory-card {
+    width: 250px;
+    height: 300px;
+  }
+  .category-sec .category-flex .cartegory-card img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+  }
+  .category-sec .category-flex .cartegory-card a {
+    font-size: 18px;
+  }
+  .gallery-sec {
+    padding: 32px 0;
+  }
+  .gallery-sec .secondary-heading {
+    margin-bottom: 24px;
+  }
+  .gallery-sec .gallery-flex {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .gallery-sec .gallery-flex .img-wrap-first {
+    gap: inherit;
+    flex-direction: column;
+  }
+  .gallery-sec .gallery-flex .img-wrap {
+    gap: inherit;
+  }
+  .testimonials-sec .secondary-heading {
+    margin-bottom: 24px;
+  }
+  .testimonials-sec .testimonials-wrap {
+    padding: 50px 0;
+  }
+  .testimonials-sec .testimonials-wrap .testimonial-card {
+    padding: 31px 24px 28px 22px;
+  }
+  .testimonials-sec .testimonials-wrap .testimonial-card .user-img img {
+    width: 60px;
+  }
+  .testimonials-sec .testimonials-wrap .testimonial-card h3 {
+    font-size: 21px !important;
+  }
+  .testimonials-sec .testimonials-wrap .testimonial-card h4 {
+    font-size: 16px !important;
+  }
+  .testimonials-sec .testimonials-wrap .owl-dots {
+    transform: translatey(24px);
+    gap: 16px;
+  }
+  .our-client-sec {
+    padding: 32px 0;
+  }
+  .our-client-sec .item {
+    padding: 24px 0;
+  }
+  .our-client-sec .item .img-fluid {
+    width: 103px !important;
+    box-shadow: 0 0 20px -1px rgba(0, 0, 0, 0.22);
+    margin: auto;
+  }
+  .about-us-sec .secondary-heading {
+    margin-bottom: 24px;
+  }
+  .about-us-sec .about-flex-overflow {
+    overflow: scroll;
+  }
+  .about-us-sec .about-us-flex {
+    width: -moz-max-content;
+    width: max-content;
+    gap: 16px;
+  }
+  .about-us-sec .about-card {
+    max-width: 265px;
+    width: 100%;
+    min-height: 277px;
+    border-radius: 16px !important;
+  }
+  .about-us-sec .about-card .about-card-content {
+    padding: 16px;
+  }
+  .about-us-sec .about-card .about-card-content h6 {
+    font-size: 23px;
+  }
+  .about-us-sec .about-card .about-card-content p {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+  select#selectduration {
+    border: 1px solid #ccc;
+  }
+  .packages-main-section {
+    padding-top: 75px;
+    border-radius: 24px 24px 0 0;
+    margin-top: -20px;
+  }
+  .packages-main-section .top-tab-sec {
+    overflow: scroll;
+  }
+  .packages-main-section .top-tab-sec ul {
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .packages-main-section .top-tab-sec ul a {
+    border-radius: 16px;
+    padding: 12px;
+    font-size: 18px;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .packages-main-section .adventures-sec {
+    margin-top: 10px;
+    padding: 32px 16px 16px 16px;
+    box-shadow: none;
+    border: 1px solid #e6e6e6;
+    border-radius: 0;
+  }
+  .packages-main-section .adventures-sec h2 {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+  .packages-main-section .adventures-sec .adventures-img-flex {
+    gap: 8px;
+  }
+  .packages-main-section .adventures-sec .view-btn {
+    margin: 24px 0 32px 0;
+  }
+  .packages-main-section .adventures-sec .about-trip {
+    margin-bottom: 32px;
+  }
+  .packages-main-section .adventures-sec .packages-details-sec .h3 {
+    margin-bottom: 12px;
+  }
+  .packages-main-section .adventures-sec .packages-details-sec .img-fluid {
+    width: 65px;
+  }
+  .packages-main-section .adventures-sec .packages-details-sec .packages-list {
+    gap: 12px;
+  }
+  .packages-main-section .adventures-sec .packages-details-sec .packages-list p {
+    margin-bottom: 0;
+  }
+  .packages-main-section .adventures-sec .flight-details-wrap .flight-card {
+    padding: 20px 16px 69px 15px;
+  }
+  .packages-main-section .adventures-sec .flight-details-wrap .h3 {
+    margin-bottom: 16px;
+  }
+  .packages-main-section .adventures-sec .flight-details-wrap .travellers-wrap-flex {
+    flex-wrap: wrap;
+  }
+  .packages-main-section .adventures-sec .flight-details-wrap .box-table {
+    overflow: scroll;
+  }
+  .packages-main-section .adventures-sec .flight-details-wrap .box-table .box-wrap {
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .packages-main-section .adventures-sec .things-packages-wrap {
+    padding: 32px !important;
+    margin-top: 42px;
+  }
+  .packages-main-section .adventures-sec .things-packages-wrap h3 {
+    font-size: 32px !important;
+    margin-bottom: 24px !important;
+  }
+  .packages-main-section .adventures-sec .things-packages-wrap h6 {
+    font-size: 24px !important;
+  }
+  .packages-main-section .adventures-sec .things-packages-wrap li {
+    font-size: 18px !important;
+  }
+  .packages-main-section .adventures-sec .things-packages-wrap ul {
+    margin-bottom: 42px;
+  }
+  .activies-wrap {
+    flex-wrap: wrap;
+  }
+  .activies-wrap .actives-num {
+    max-width: 100%;
+  }
+  .activies-wrap .actives-num h1, .activies-wrap .actives-num h2 {
+    font-size: 42px;
+    line-height: 1;
+    text-align: center;
+  }
+  .activies-wrap .active-content {
+    flex: 1;
+    border-radius: 49px;
+    padding-left: 0;
+    margin-left: 0;
+    padding: 50px;
+  }
+  .activies-wrap .active-content h6 {
+    font-size: 32px;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .view-btn {
+    font-size: 18px !important;
+  }
+  .h3 {
+    font-size: 32px;
+  }
+  .secondary-heading {
+    font-size: 30px;
+  }
+  footer .find-us-sec {
+    margin-top: 32px;
+  }
+  .welcome-page .img-wrap .content-sec h1 {
+    font-size: 50px;
+  }
+  .our-services-sec {
+    margin-top: -35px;
+  }
+  .tours-sec {
+    padding-top: 24px;
+  }
+  .tours-sec h2 {
+    font-size: 160px;
+  }
+  .tours-sec h4 {
+    font-size: 32px;
+    top: 60%;
+    max-width: 86%;
+  }
+  .upcomming-tours-sec .upcomming-tours-wrap {
+    padding: 35px 24px;
+  }
+  .upcomming-tours-sec .upcomming-tours-wrap .upcomming-tours-flex {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .main-video {
+    padding: 50px 0;
+  }
+  .category-sec .secondary-heading {
+    margin-bottom: 32px;
+  }
+  .category-sec .category-overflow {
+    overflow: scroll;
+  }
+  .category-sec .category-flex {
+    gap: 18px;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .category-sec .category-flex .cartegory-card a {
+    font-size: 28px;
+  }
+  .gallery-sec {
+    padding: 50px 0;
+  }
+  .gallery-sec .gallery-flex {
+    display: flex;
+    gap: 16px;
+  }
+  .gallery-sec .gallery-flex .img-wrap-first {
+    gap: inherit;
+    flex-direction: column;
+  }
+  .gallery-sec .gallery-flex .img-wrap {
+    gap: inherit;
+  }
+  .testimonials-sec .secondary-heading {
+    margin-bottom: 32px;
+  }
+  .our-client-sec {
+    padding: 57px 0 50px 0;
+  }
+  .about-us-sec .about-flex-overflow {
+    overflow: scroll;
+  }
+  .about-us-sec .about-us-flex {
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .about-us-sec .about-card .about-card-content h6 {
+    font-size: 30px;
+  }
+  .packages-main-section .top-tab-sec {
+    max-width: 600px;
+  }
+  .packages-main-section .top-tab-sec ul a {
+    font-size: 18px;
+  }
+  .packages-main-section .adventures-sec {
+    padding: 40px 24px;
+  }
+  .packages-main-section .adventures-sec h2 {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+  .packages-main-section .adventures-sec .adventures-img-flex {
+    gap: 13px;
+  }
+  .packages-main-section .adventures-sec .about-trip {
+    margin-top: 32px;
+  }
+  .packages-main-section .adventures-sec .flight-details-wrap .h3 {
+    margin-bottom: 16px;
+  }
+  .packages-main-section .adventures-sec .flight-details-wrap .travellers-wrap-flex {
+    flex-wrap: wrap;
+  }
+  .packages-main-section .adventures-sec .things-packages-wrap {
+    margin-top: 42px;
+  }
+  .packages-main-section .adventures-sec .things-packages-wrap ul {
+    margin-bottom: 42px;
+  }
+  .activies-wrap {
+    flex-wrap: wrap;
+  }
+  .activies-wrap .actives-num {
+    max-width: 100%;
+  }
+  .activies-wrap .actives-num h1, .activies-wrap .actives-num h2 {
+    font-size: 110px;
+    line-height: 1;
+    text-align: center;
+  }
+  .activies-wrap .active-content {
+    flex: 1;
+    border-radius: 49px;
+    padding-left: 0;
+    margin-left: 0;
+    padding: 50px;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .secondary-heading {
+    font-size: 50px;
+  }
+  header .desktop-header nav {
+    gap: 24px;
+  }
+  header .desktop-header nav ul {
+    gap: 24px;
+  }
+  header .desktop-header nav ul a {
+    font-size: 16px;
+  }
+  header .desktop-header nav .right-btn {
+    gap: 35px;
+  }
+  header .desktop-header nav .right-btn .myAccount-btn {
+    font-size: 16px;
+  }
+  header .upcoming-btn {
+    font-size: 18px;
+  }
+  .welcome-page .img-wrap .content-sec h1 {
+    font-size: 100px;
+  }
+  .tours-sec h2 {
+    font-size: 290px;
+  }
+  .tours-sec h4 {
+    font-size: 50px;
+    top: 57%;
+  }
+  .category-sec .category-flex .cartegory-card a {
+    font-size: 28px;
+  }
+  .about-us-sec .about-card .about-card-content h6 {
+    font-size: 30px;
+  }
+  .packages-main-section .top-tab-sec {
+    max-width: 1000px;
+  }
+  .packages-main-section .adventures-sec .flight-details-wrap .things-packages-wrap h3 {
+    font-size: 25px;
+    margin-bottom: 32px;
+  }
+  .packages-main-section .adventures-sec .flight-details-wrap .things-packages-wrap h6 {
+    font-size: 24px;
+  }
+  .activies-wrap .actives-num h1 {
+    line-height: 170px;
+  }
+}
+@media screen and (min-width: 1400px) and (max-width: 1599px) {
+  header .desktop-header nav {
+    gap: 24px;
+  }
+  header .desktop-header nav ul {
+    gap: 24px;
+  }
+  header .desktop-header nav .right-btn {
+    gap: 35px;
+  }
+  .tours-sec h2 {
+    font-size: 310px;
+  }
+  .tours-sec h4 {
+    font-size: 50px;
+  }
+  .category-sec .category-flex .cartegory-card a {
+    font-size: 28px;
+  }
+  .packages-main-section .adventures-sec .flight-details-wrap .things-packages-wrap h3 {
+    font-size: 32px;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .container {
+    max-width: 1616px;
+  }
+}/*# sourceMappingURL=responsive.css.map */
