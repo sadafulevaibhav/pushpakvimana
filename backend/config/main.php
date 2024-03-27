@@ -15,6 +15,9 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+            'class' => 'common\components\Request',
+            'web'=> '/frontend/web',
+            'cookieValidationKey' => 'fasdsad557574dfsdsxxxsdsfnklc58',
         ],
     //     'view' => [
     //         'theme' => [
@@ -44,14 +47,10 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-            ],
         ],
-        */
     ],
     'params' => $params,
 ];

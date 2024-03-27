@@ -116,7 +116,7 @@ AppAsset::register($this);
     
 </main>
 
-<footer class="footer mt-auto py-3 text-muted">
+<footer class="">
 <div class="container-fluid">
       <div class="row align-items-center justify-content-center justify-content-lg-between">
         <div class="col-auto">
