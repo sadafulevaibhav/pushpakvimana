@@ -1,0 +1,22 @@
+
+
+@mixin mont-para{ 
+font-family: $Mont-font;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}   
+
+@mixin view-btn{
+    color: #FFF;
+font-family: $Montserrat-font;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+display: inline-block;
+border-radius: 26px;
+background: #EF7A38;
+padding: 15px 25px;
+}

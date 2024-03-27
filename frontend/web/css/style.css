@@ -1,0 +1,1483 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Satisfy&family=Space+Grotesk:wght@300..700&display=swap");
+@font-face {
+  font-family: "Mont ExtraLight DEMO";
+  src: url("../fonts/Mont-ExtraLightDEMO.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mont Heavy DEMO";
+  src: url("../fonts/Mont-HeavyDEMO.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Regular Brush";
+  src: url("../fonts/RegularBrush.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NexaBlack";
+  src: url("../fonts/NexaBlack.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uni Sans";
+  src: url("../fonts/UniSansHeavyCAPS.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uni Sans";
+  src: url("../fonts/UniSansThinItalicCAPS.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uni Sans";
+  src: url("../fonts/UniSansThinCAPS.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uni Sans";
+  src: url("../fonts/UniSansHeavyItalicCAPS.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-HeavyItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan Book";
+  src: url("../fonts/Nolan-Book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan Book";
+  src: url("../fonts/Nolan-BookItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan Extra";
+  src: url("../fonts/Nolan-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan Extra";
+  src: url("../fonts/Nolan-ExtraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nolan";
+  src: url("../fonts/Nolan-Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Extra";
+  src: url("../fonts/Metropolis-ExtraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Extra";
+  src: url("../fonts/Metropolis-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Semi";
+  src: url("../fonts/Metropolis-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Extra";
+  src: url("../fonts/Metropolis-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Semi";
+  src: url("../fonts/Metropolis-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis Extra";
+  src: url("../fonts/Metropolis-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Metropolis";
+  src: url("../fonts/Metropolis-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.common-form .form-control {
+  border-radius: 9px;
+  background: #fff;
+  height: 49px;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+}
+.common-form .primary-btn {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 7px 13px;
+  display: inline-block;
+  border: 0;
+  background: #F60;
+}
+
+.secondary-heading {
+  color: #000;
+  text-align: center;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.h3 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+header .desktop-header {
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 13px 0 17px 0;
+}
+header .desktop-header nav {
+  display: flex;
+  gap: 43px;
+}
+header .desktop-header nav ul {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+}
+header .desktop-header nav ul a {
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: black;
+}
+header .desktop-header nav .right-btn {
+  display: flex;
+  gap: 70px;
+}
+header .desktop-header nav .right-btn .myAccount-btn {
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: #000;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+header .upcoming-btn {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  padding: 7px 8px;
+  background-color: #F60;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Mont Heavy DEMO";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  max-height: 51px;
+}
+header .mobile-header {
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+header .mobile-header .menu-btn {
+  padding: 10px;
+  border-radius: 4px;
+  background: #F60;
+  display: inline-block;
+  line-height: 0;
+}
+
+#menu-modal .btn-closed {
+  padding: 0px;
+  border-radius: 4px;
+  background: none;
+  display: inline-block;
+  line-height: 0;
+  border: 0;
+}
+#menu-modal .btn-closed img {
+  width: 42px;
+}
+#menu-modal nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+#menu-modal nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+#menu-modal nav ul a {
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: black;
+}
+#menu-modal nav .right-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+#menu-modal nav .right-btn .myAccount-btn {
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: #000;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+#menu-modal .upcoming-btn {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  padding: 7px 8px;
+  background-color: #F60;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Mont Heavy DEMO";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+footer {
+  background: #051721;
+  padding: 43px 0 30px 0;
+}
+footer .common-form {
+  margin: 23px 0 42px 0;
+}
+footer .common-form .primary-btn {
+  margin-top: 10px;
+}
+footer .para {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+}
+footer .find-us-sec {
+  text-align: center;
+  width: 400px;
+}
+footer .find-us-sec h3 {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+footer .find-us-sec .social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 36px;
+}
+footer .find-us-sec ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+footer .find-us-sec ul a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+}
+
+.welcome-page {
+  position: relative;
+}
+.welcome-page .img-wrap {
+  position: relative;
+}
+.welcome-page .img-wrap .content-sec {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+.welcome-page .img-wrap .content-sec h1 {
+  color: #fff;
+  font-family: "Regular Brush";
+  font-size: 150px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.welcome-page video {
+  display: block;
+}
+.welcome-page .owl-nav {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+.welcome-page .owl-nav .owl-prev {
+  background: url(../images/owl-prev-icon.svg) no-repeat center !important;
+  background-size: cover !important;
+  width: 45px;
+  height: 39px;
+}
+.welcome-page .owl-nav .owl-prev span {
+  font-size: 0;
+}
+.welcome-page .owl-nav .owl-next {
+  background: url(../images/owl-next-icon.svg) no-repeat center !important;
+  background-size: cover !important;
+  width: 45px;
+  height: 39px;
+}
+.welcome-page .owl-nav .owl-next span {
+  font-size: 0;
+}
+
+.our-services-sec {
+  max-width: 850px;
+  margin: auto;
+  border-radius: 40px;
+  background: #f6f4ef;
+  padding: 20px 0;
+  margin-top: -64px;
+  position: relative;
+  z-index: 1;
+}
+.our-services-sec ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.our-services-sec ul a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #000;
+  text-align: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.our-services-sec ul a img {
+  max-height: 45px;
+}
+
+.tours-sec {
+  padding-top: 58px;
+  position: relative;
+}
+.tours-sec h2 {
+  color: rgba(236, 233, 222, 0.5);
+  text-align: center;
+  font-family: "NexaBlack";
+  font-size: 350px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.tours-sec h4 {
+  max-width: 83%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  text-align: center;
+  font-family: "Satisfy", cursive;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.upcomming-tours-sec h2 {
+  margin-bottom: 30px;
+}
+.upcomming-tours-sec .upcomming-tours-wrap {
+  background: #f0e8e1;
+  padding: 75px 40px;
+}
+.upcomming-tours-sec .upcomming-tours-wrap .upcomming-tours-flex {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.upcomming-tours-sec .upcomming-tours-wrap .upcomming-card {
+  position: relative;
+}
+.upcomming-tours-sec .upcomming-tours-wrap .upcomming-card span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.7);
+  font-family: "Inter", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.main-video {
+  padding: 103px 0 130px 0;
+}
+.main-video video {
+  border-radius: 77px;
+}
+
+.category-sec {
+  padding-bottom: 100px;
+}
+.category-sec .secondary-heading {
+  margin-bottom: 75px;
+}
+.category-sec .category-flex {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.category-sec .category-flex .category-flex-wrap {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.category-sec .category-flex .cartegory-card {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 28px;
+  overflow: hidden;
+}
+.category-sec .category-flex .cartegory-card a {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Uni Sans";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+.category-sec .category-flex .cartegory-card a:hover {
+  background: none;
+  color: #f8bd25;
+}
+
+.gallery-sec {
+  padding: 130px 0 50px 0;
+}
+.gallery-sec .secondary-heading {
+  margin-bottom: 50px;
+}
+.gallery-sec .gallery-flex {
+  display: flex;
+  gap: 20px;
+}
+.gallery-sec .gallery-flex .img-wrap-first {
+  gap: 20px;
+  flex-direction: column;
+}
+.gallery-sec .gallery-flex .img-wrap {
+  gap: 20px;
+}
+
+.testimonials-sec .secondary-heading {
+  margin-bottom: 61px;
+}
+.testimonials-sec .testimonials-wrap {
+  padding: 116px 0;
+  background: url(../images/testimonilas-bg.png) no-repeat center;
+  background-size: cover;
+}
+.testimonials-sec .testimonials-wrap .testimonial-card {
+  max-width: 485px;
+  margin: auto;
+  padding: 31px 24px 28px 22px;
+  border-radius: 26px;
+  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.testimonials-sec .testimonials-wrap .testimonial-card .user-img {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.testimonials-sec .testimonials-wrap .testimonial-card .user-img h3 {
+  color: #fff;
+  font-family: "Nolan";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 0;
+}
+.testimonials-sec .testimonials-wrap .testimonial-card .user-img h4 {
+  color: #fff;
+  font-family: "Nolan";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 0;
+}
+.testimonials-sec .testimonials-wrap .testimonial-card .para {
+  position: relative;
+}
+.testimonials-sec .testimonials-wrap .testimonial-card .para p {
+  color: #fff;
+  font-family: "Metropolis";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: justify;
+}
+.testimonials-sec .testimonials-wrap .testimonial-card .para .left-line {
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+}
+.testimonials-sec .testimonials-wrap .testimonial-card .para .right-line {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+.testimonials-sec .owl-carousel .owl-item img {
+  width: unset;
+  max-width: 70px;
+}
+.testimonials-sec .owl-dots {
+  transform: translatey(68px);
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+.testimonials-sec .owl-dots .owl-dot {
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-radius: 50%;
+}
+.testimonials-sec .owl-dots .owl-dot.active {
+  background: black;
+}
+
+.our-client-sec {
+  padding: 57px 0 100px 0;
+}
+.our-client-sec .item {
+  text-align: center;
+  padding: 50px 0;
+}
+.our-client-sec .item .img-fluid {
+  background: #fff;
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.3);
+  margin: auto;
+}
+.our-client-sec .owl-carousel .owl-item img {
+  width: unset;
+  max-height: 120px;
+}
+
+.about-us-sec .secondary-heading {
+  margin-bottom: 62px;
+}
+.about-us-sec .about-card {
+  max-width: 468px;
+  width: 100%;
+  min-height: 503px;
+  border-radius: 41px;
+  background: #f0e8e1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 41px;
+  overflow: hidden;
+}
+.about-us-sec .about-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.about-us-sec .about-card .about-card-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  text-align: center;
+  max-height: 90px;
+  overflow: hidden;
+  transition: all 0.9s ease-in-out;
+  background-color: #F0E8E1;
+}
+.about-us-sec .about-card .about-card-content h6 {
+  color: #e98e3a;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.about-us-sec .about-card .about-card-content p {
+  transition: all 0.9s ease-in-out;
+  opacity: 0;
+  color: #000;
+}
+.about-us-sec .about-card:hover .about-card-content {
+  max-height: 100vh;
+}
+.about-us-sec .about-card:hover .about-card-content p {
+  opacity: 1;
+}
+.about-us-sec .about-us-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.packages-main-section {
+  background: white;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+}
+.packages-main-section .top-tab-sec {
+  max-width: 1330px;
+  margin: auto;
+}
+.packages-main-section .top-tab-sec ul {
+  display: flex;
+  gap: 10px;
+}
+.packages-main-section .top-tab-sec ul .nav-link {
+  background: #515151;
+  padding: 16px 36px;
+  display: block;
+  color: white;
+  color: #fff;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+.packages-main-section .top-tab-sec ul .active {
+  color: black;
+  background: #ebd9c8;
+}
+.packages-main-section .adventures-sec {
+  padding: 70px 32px 32px 32px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.6);
+}
+.packages-main-section .adventures-sec .activies-wrap .active-content ul {
+  display: block;
+}
+.packages-main-section .adventures-sec .activies-wrap .active-content ul li {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+}
+.packages-main-section .adventures-sec h2 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  text-align: center;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 72px;
+}
+.packages-main-section .adventures-sec .adventures-img-flex {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.packages-main-section .adventures-sec .adventures-img-wrap {
+  display: flex;
+  gap: 20px;
+}
+.packages-main-section .adventures-sec .view-btn {
+  color: #FFF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: inline-block;
+  border-radius: 26px;
+  background: #EF7A38;
+  padding: 15px 25px;
+  background: #515151;
+  margin-top: 40px;
+}
+.packages-main-section .adventures-sec .about-trip {
+  margin-bottom: 50px;
+}
+.packages-main-section .adventures-sec .about-trip p {
+  font-size: 16px;
+  line-height: 26px;
+}
+.packages-main-section .adventures-sec .packages-details-sec .h3 {
+  margin-bottom: 32px;
+}
+.packages-main-section .adventures-sec .packages-details-sec .packages-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.packages-main-section .adventures-sec .packages-details-sec .packages-list .packages-list-wrap {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+}
+.packages-main-section .adventures-sec .packages-details-sec .packages-list .packages-list-wrap p {
+  margin: 0px;
+  font-size: 16px;
+}
+.packages-main-section .adventures-sec .packages-details-sec .packages-list .packages-list-wrap img {
+  max-width: 50px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap {
+  margin-top: 52px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .h3 {
+  margin-bottom: 42px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .flight-card {
+  border-radius: 28px;
+  background: #ebd9c8;
+  padding: 40px 40px 139px 40px;
+  margin-bottom: 50px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .flight-card h3 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 6px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .flight-card h4 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .flight-card h5 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 6px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .flight-card h6 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .travellers-wrap-flex {
+  display: flex;
+  gap: 24px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .travellers-wrap-flex .travellers-wrap {
+  max-width: 764px;
+  width: 100%;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .travellers-wrap-flex .travellers-wrap .h3 {
+  margin-bottom: 24px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .travellers-wrap-flex .travellers-wrap h4 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .travellers-wrap-flex .travellers-wrap h5 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .travellers-wrap-flex .travellers-date-wrap {
+  max-width: 177px;
+  width: 100%;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .travellers-wrap-flex .travellers-date-wrap h6 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .travellers-wrap-flex .travellers-date-wrap p {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 0;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .box-wrap {
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.6);
+  padding: 12px;
+  display: inline-block;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .input-wrap {
+  display: flex;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.packages-main-section .adventures-sec .flight-details-wrap .input-wrap button {
+  width: 20px;
+  background-color: transparent;
+  border: 0;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .input-wrap input {
+  width: 50px;
+  text-align: center;
+  padding: 0;
+  border: 0;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .input-wrap input::-webkit-outer-spin-button,
+.packages-main-section .adventures-sec .flight-details-wrap .input-wrap input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .input-wrap input[type=number] {
+  -moz-appearance: textfield;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .box-table .box-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .box-table .box-wrap .text-wrap {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .box-table .box-wrap .text-wrap h5 {
+  margin-bottom: 0;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .things-packages-wrap {
+  padding: 30px;
+  border-radius: 36px;
+  background: rgba(235, 217, 200, 0.11);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.6);
+}
+.packages-main-section .adventures-sec .flight-details-wrap .things-packages-wrap h3 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .things-packages-wrap h6 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .things-packages-wrap ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 66px;
+}
+.packages-main-section .adventures-sec .flight-details-wrap .things-packages-wrap ul li {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-left: 25px;
+  background: url(../images/check.svg) no-repeat left center;
+  background-size: 16px;
+}
+.packages-main-section .adventures-sec .click-agree-sec a {
+  color: #025482;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 45px;
+}
+.packages-main-section .adventures-sec .click-agree-sec .btn-wrap {
+  display: flex;
+  border-radius: 25px;
+  background: #515151;
+  display: flex;
+  max-width: 400px;
+  margin-left: auto;
+  margin-top: 24px;
+}
+.packages-main-section .adventures-sec .click-agree-sec .btn-wrap input,
+.packages-main-section .adventures-sec .click-agree-sec .btn-wrap button {
+  width: 50%;
+  color: #fff;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 24px;
+  padding: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background: transparent;
+  border: 0;
+  text-align: center;
+  outline: 0;
+}
+.packages-main-section .adventures-sec .click-agree-sec .btn-wrap input::-moz-placeholder, .packages-main-section .adventures-sec .click-agree-sec .btn-wrap button::-moz-placeholder {
+  color: #fff;
+}
+.packages-main-section .adventures-sec .click-agree-sec .btn-wrap input::placeholder,
+.packages-main-section .adventures-sec .click-agree-sec .btn-wrap button::placeholder {
+  color: #fff;
+}
+.packages-main-section .adventures-sec .click-agree-sec .btn-wrap input {
+  border-right: 1px solid #fff;
+}
+
+.activies-wrap {
+  display: flex;
+}
+.activies-wrap .actives-num {
+  position: relative;
+  max-width: 539px;
+  width: 100%;
+  border-radius: 49px;
+  background: #fff;
+  box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.2);
+  padding: 50px;
+  padding-bottom: 0;
+}
+.activies-wrap .actives-num h1 {
+  color: #515151;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 200px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100px;
+  margin-bottom: 0;
+}
+.activies-wrap .actives-num h2 {
+  color: #ebd9c8;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 200px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 200px;
+  margin-bottom: 0;
+  text-align: end;
+}
+.activies-wrap .active-content {
+  flex: 1;
+  border-radius: 0px 49px 49px 0px;
+  background: #fff;
+  box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.2);
+  padding: 50px;
+  padding-left: 100px;
+  margin-left: -50px;
+}
+.activies-wrap .active-content h6 {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.activies-wrap .active-content ul {
+  list-style: disc;
+}
+.activies-wrap .active-content li {
+  color: #000;
+  font-family: "Mont ExtraLight DEMO";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.view-btn {
+  color: #FFF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: inline-block;
+  border-radius: 26px;
+  background: #EF7A38;
+  padding: 15px 25px;
+  margin-top: 31px;
+}
+
+#toursmenu {
+  position: absolute;
+  z-index: 9;
+  left: 50%;
+  width: 100%;
+  max-width: 1000px;
+  transform: translateX(-50%);
+  top: 81px;
+}
+#toursmenu .card-body {
+  display: grid;
+  gap: 20px;
+}
+#toursmenu ul {
+  gap: 20px;
+}
+
+.packages-welcome-sec {
+  position: relative;
+  overflow: hidden;
+}
+.packages-welcome-sec .owl-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.packages-welcome-sec .owl-nav .owl-prev {
+  left: 10px;
+  position: absolute;
+}
+.packages-welcome-sec .owl-nav .owl-prev span {
+  background: url(../images/left-arrow.svg) no-repeat top center;
+  width: 39px;
+  height: 45px;
+  display: block;
+  text-indent: -99999px;
+}
+.packages-welcome-sec .owl-nav .owl-next {
+  right: 10px;
+  position: absolute;
+}
+.packages-welcome-sec .owl-nav .owl-next span {
+  background: url(../images/left-arrow.svg) no-repeat top center;
+  width: 39px;
+  height: 45px;
+  display: block;
+  text-indent: -99999px;
+  transform: rotate(180deg);
+}
+
+.loginbg {
+  background: url(../images/loginbg.png) no-repeat left center #FEB27D;
+  background-size: contain;
+  padding: 50px 0px;
+}
+.loginbg .loginbox {
+  border-radius: 35px;
+  border: 2px solid #FFF;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  max-width: 450px;
+  padding: 40px;
+}
+.loginbg .loginbox h2 {
+  color: #F25019;
+  font-weight: 700;
+}
+.loginbg .loginbox h4 {
+  color: #000;
+  font-weight: 800;
+}
+.loginbg .loginbox form .form-label {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.loginbg .loginbox form .form-label a {
+  color: #000;
+  text-decoration: underline;
+  font-size: 12px;
+}
+.loginbg .loginbox form .signbtn-grid {
+  display: grid;
+}
+.loginbg .loginbox form .signbtn-grid .signinbtn {
+  border-radius: 9px;
+  background: #F25019;
+  text-align: center;
+  color: #fff;
+  width: 250px;
+  display: block;
+  margin: auto;
+  padding: 10px 30px;
+}
+.loginbg .loginbox form .signbtn-grid .or {
+  text-align: center;
+  margin: 15px 0px;
+}
+.loginbg .loginbox form .signbtn-grid .socialicons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.loginbg .loginbox form .signbtn-grid .socialicons a {
+  background: #fff;
+  border-radius: 100px;
+  padding: 10px;
+}
+.loginbg .loginbox form .signbtn-grid .socialicons a img {
+  max-width: 30px;
+}
+
+.signupbg {
+  background: url(../images/signupbg.png) no-repeat top center #FEB27D;
+  background-size: contain;
+  padding: 50px 0px;
+}
+.signupbg .loginbox {
+  border-radius: 35px;
+  border: 2px solid #FFF;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  max-width: 600px;
+  padding: 40px;
+  margin: auto;
+}
+.signupbg .loginbox h2 {
+  color: #F25019;
+  font-weight: 700;
+}
+.signupbg .loginbox h4 {
+  color: #000;
+  font-weight: 800;
+}
+.signupbg .loginbox form .form-check label {
+  font-size: 15px;
+}
+.signupbg .loginbox form .form-check label a {
+  font-size: 15px;
+  color: #000;
+  text-decoration: underline;
+}
+.signupbg .loginbox form .nameinfobox {
+  display: flex;
+  gap: 20px;
+}
+.signupbg .loginbox form .nameinfobox .firsname {
+  max-width: 70px;
+}
+.signupbg .loginbox form .form-label {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.signupbg .loginbox form .form-label a {
+  color: #000;
+  text-decoration: underline;
+  font-size: 12px;
+}
+.signupbg .loginbox form .signbtn-grid {
+  display: grid;
+}
+.signupbg .loginbox form .signbtn-grid .signinbtn {
+  border-radius: 9px;
+  background: #F25019;
+  text-align: center;
+  color: #fff;
+  width: 250px;
+  display: block;
+  margin: auto;
+  padding: 10px 30px;
+}
+.signupbg .loginbox form .signbtn-grid .or {
+  text-align: center;
+  margin: 15px 0px;
+}
+
+.form-check-input:checked {
+  background-color: #F25019;
+  border-color: #F25019;
+}/*# sourceMappingURL=style.css.map */

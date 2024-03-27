@@ -8,226 +8,568 @@ use yii\bootstrap5\Carousel;
 // use yii\bootstrap5\CardBody;
 use yii\bootstrap5\CarouselItem;
 // use yii\grid\GridView;
-$this->title = 'My Yii Application';
+$this->title = 'Pushpaka Vimana';
 ?>
-<div class="container-fluid w-100 container-carousal">
-<?php
-      echo Carousel::widget([
-        'items' => [
-          [
-            'content' => Html::img('siteimages/temple2.jpg',['class'=>'d-block w-100', 'alt'=>"Temple 1"]).'<div class="text-overlay">Pushpaka Vimana</div>',
-            'options' => ['class' => 'carousel-item active'],
-          ],
-          [
-            'content' => Html::img('siteimages/temple1.jpg',['class'=>'d-block w-100', 'alt'=>"Temple 3"]).'<div class="text-overlay">Pushpaka Vimana</div>',
-            'options' => ['class' => 'carousel-item'],
-            // 'caption' => '<h4>This is title</h4><p>This is the caption text</p>'
-          ],
-          [
-            'content' => Html::img('siteimages/temple2.jpg',['class'=>'d-block w-100', 'alt'=>"Temple 3"]).'<div class="text-overlay">Pushpaka Vimana</div>',
-            'options' => ['class' => 'carousel-item'],
-          ],
-        ],
-        'showIndicators'=>false,
-        // 'crossfade'=>true
-        // 'options' => [],
-      ]);
-?>
-</div>
-<div class="container">
-  <div class="text-center custom-text">
-          "Embark on a Mythical Journey with Pushpaka Vimana
-          Your Gateway to Timeless Travel Experiences!"
-  </div>
-</div>
-<div class="container">
-  <div class="text-center display-6">
-    UPCOMMING TOURS IN <?=date("Y")?>
-  </div>
-</div>  
-<div class="container-flex px-4 upcoming-tours">
-<?php
- $data = [
-  ['image' => 'siteimages/dubai.jpeg', 'title' => 'Card 1', 'content' => 'Dubai'],
-  ['image' => 'siteimages/paris.jpg', 'title' => 'Card 2', 'content' => 'Paris'],
-  ['image' => 'siteimages/japan.jpg', 'title' => 'Card 3', 'content' => 'Japan'],
-  ['image' => 'siteimages/srilanka.jpg', 'title' => 'Card 3', 'content' => 'Srilanka']
-  // Add more data as needed
-];
+  <!-- ********* Home page start ********* -->
 
-$cards = '<div class="row row-cols-1 row-cols-md-4 g-4 m-100">'; // 3 cards per row on medium and larger screens
-foreach ($data as $item) {
-  $cards.='<div class="col"><div class="card h-100 position-relative">'.Html::img($item['image'], ['class' => 'card-img-top', 'alt' => 'Card Image']).'<div class="card-img-overlay">';
-  // echo '<h5 class="card-title text-white">' . Html::encode($item['title']) . '</h5>';
-  $cards.='<p class="card-text text-white">' . Html::encode($item['content']) . '</p></div></div></div>';
-}
-$cards.= '</div>';
-echo $cards;
-?>
-</div>
-<div class="container text-center">
-<video class="video-center" autoplay loop muted>
-  <source src="https://mdbootstrap.com/img/video/animation-intro.mp4" type="video/mp4" />
-</video>
-</div>
-<div class="container">
-  <div class="text-center display-6">
-    CATEGORY  
-  </div>
-</div>
-<div class="container">
-  <!-- Grid row -->
-  <div class="gallery" id="gallery">
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 2">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.webp" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.webp" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 2">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).webp" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 2">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).webp" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.webp" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-  </div>  
-</div>
-<div class="container">
-  <div class="text-center display-6">
-    ABOUT US  
-  </div>
-</div>
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="about-card card">
-        <div class="card-body aboutus-card">
-                        <p class="text-center h-2">hello, this is a dummy text  gener
-              ated for dummy purpose abchd
-              girms jims fjaopjoas fiuhradlrfad
-              dadhn jdismsp jfiedj jddddpdfs
-              dnapdjom.
-              dnaodja djoamdp rfjd9e mokidd
-              hndjsl;dpfmfpa, kiljd, jhdid,jglgo
-              djhand  jfioal fholafnoam.</p>
-        </div>
-        <div class="card-header">
-          <h2>OUR STORY</h2>
+  <div class="welcome-page">
+    <div class="owl-carousel welcome-carousel owl-theme">
+      <div class="item">
+        <div class="img-wrap">
+          <!-- <img src="images/main-hero-slider-1.png" class="img-fluid" alt=""> -->
+          <video loop muted autoplay class="d-block w-100">
+            <source src="videos/about-top-video.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="about-card card">
-        <div class="card-body aboutus-card">
-        <p class="text-center h-2">hello, this is a dummy text  gener
-ated for dummy purpose abchd
-girms jims fjaopjoas fiuhradlrfad
-dadhn jdismsp jfiedj jddddpdfs
-dnapdjom.
-dnaodja djoamdp rfjd9e mokidd
-hndjsl;dpfmfpa, kiljd, jhdid,jglgo
-djhand  jfioal fholafnoam.</p>
-        </div>
-        <div class="card-header">
-          <h2>WHY CHOSE US?</h2>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="about-card card">
-        <div class="card-body aboutus-card">
-          <p class="text-center h-2">hello, this is a dummy text  gener
-ated for dummy purpose abchd
-girms jims fjaopjoas fiuhradlrfad
-dadhn jdismsp jfiedj jddddpdfs
-dnapdjom.
-dnaodja djoamdp rfjd9e mokidd
-hndjsl;dpfmfpa, kiljd, jhdid,jglgo
-djhand  jfioal fholafnoam.</p>
-        </div>
-        <div class="card-header">
-          <h2>OUR STORY</h2>
+      <div class="item">
+        <div class="img-wrap">
+          <!-- <img src="images/main-hero-slider-1.png" class="img-fluid" alt=""> -->
+          <video loop muted autoplay class="d-block w-100">
+            <source src="videos/about-top-video.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="testimonial-container">
-  <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="row">
-          <div class="col">
-            <div class="testimonial-card card">
-              <div class="card-body">
-                <div class="row w-100">
-                  <div class="col-sm-4">
-                    <img class='img-circle' src="../testimonials/johndoe1.jpg" alt="Person" class="img-fluid1">
-                  </div>
-                  <div class="col-sm-8">
-                    <h2>John Doe</h2>
-                    <p class="designation">CEO, Company Name</p>
-                  </div>
-                </div>
-                <div class="row BorderCorner">
-                  <div class="details">
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis libero eu elit laoreet, vitae commodo velit elementum."</p>
-                  </div>
-                </div>
-              </div>
+  <div class="container">
+    <div class="our-services-sec">
+      <ul>
+        <li>
+          <a href="#"><img src="images/airplane-icon.svg" class="img-fluid" alt="" />Flights</a>
+        </li>
+        <li>
+          <a href="#"><img src="images/high-Speed-Train-icon.svg" class="img-fluid" alt="" />Trains</a>
+        </li>
+        <li>
+          <a href="#"><img src="images/building-icon.svg" class="img-fluid" alt="" />Hotels</a>
+        </li>
+        <li>
+          <a href="#"><img src="images/passport-icon.svg" class="img-fluid" alt="" />Visa</a>
+        </li>
+        <li>
+          <a href="#"><img src="images/insurance-Agent-icon.svg" class="img-fluid" alt="" />Travel Insurance</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="tours-sec">
+    <div class="container">
+      <h2>TOURS</h2>
+      <h4>
+        "Embark on a Mythical Journey with Pushpaka Vimana Your Gateway to
+        Timeless Travel Experiences!"
+      </h4>
+    </div>
+  </div>
+  <div class="upcomming-tours-sec">
+    <h2 class="secondary-heading">UPCOMMING TOURS IN 2024</h2>
+    <div class="upcomming-tours-wrap">
+      <div class="container-fluid">
+        <div class="upcomming-tours-flex">
+          <div class="upcomming-card">
+            <img src="images/dubai-img.png" class="img-fluid" alt="" />
+            <span>DUBAI</span>
+          </div>
+          <div class="upcomming-card">
+            <img src="images/japan-img.png" class="img-fluid" alt="" />
+            <span>JAPAN</span>
+          </div>
+          <div class="upcomming-card">
+            <img src="images/paris-img.png" class="img-fluid" alt="" />
+            <span>PARIS</span>
+          </div>
+          <div class="upcomming-card">
+            <img src="images/london-img.png" class="img-fluid" alt="" />
+            <span>LONDON</span>
+          </div>
+          <div class="upcomming-card">
+            <img src="images/paris-img.png" class="img-fluid" alt="" />
+            <span>PARIS</span>
+          </div>
+          <div class="upcomming-card">
+            <img src="images/dubai-img.png" class="img-fluid" alt="" />
+            <span>DUBAI</span>
+          </div>
+          <div class="upcomming-card">
+            <img src="images/london-img.png" class="img-fluid" alt="" />
+            <span>LONDON</span>
+          </div>
+          <div class="upcomming-card">
+            <img src="images/japan-img.png" class="img-fluid" alt="" />
+            <span>JAPAN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="category-sec pt-5">
+    <h2 class="secondary-heading">CATEGORY</h2>
+    <div class="container">
+      <div class="category-overflow">
+        <div class="category-flex">
+          <div class="category-flex-wrap">
+            <div class="cartegory-card">
+              <img src="images/honeymoon-img.png" class="img-fluid" alt="" />
+              <a href="#">HONEYMOON PACKAGE</a>
+            </div>
+            <div class="cartegory-card">
+              <img src="images/treking-img.png" class="img-fluid" alt="" />
+              <a href="#">TREKING PACKAGE</a>
             </div>
           </div>
-          <div class="col">
-            <div class="testimonial-card card">
-              <div class="card-body">
-                <img class='img-circle' src="../testimonials/johndoe2.jpg" alt="Person" class="img-fluid1">
-                <h2>John Doe</h2>
-                <p class="designation">CEO, Company Name</p>
-                <div class="details">
-                  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis libero eu elit laoreet, vitae commodo velit elementum."</p>
-                </div>
-              </div>
+          <div class="cartegory-card">
+            <img src="images/domestic-img.png" class="img-fluid" alt="" />
+            <a href="#">DOMESTIC PACKAGE</a>
+          </div>
+          <div class="category-flex-wrap">
+            <div class="cartegory-card">
+              <img src="images/adventerous-img.png" class="img-fluid" alt="" />
+              <a href="#">ADVENTEROUS PACKAGE</a>
+            </div>
+            <div class="cartegory-card">
+              <img src="images/family-img.png" class="img-fluid" alt="" />
+              <a href="#"> FAMILY PACKAGE</a>
             </div>
           </div>
-          <div class="col">
-            <div class="testimonial-card card">
-               <div class="card-body">
-                <img class='img-circle' src="../testimonials/johndoe3.jpg" alt="Person" class="img-fluid1">
-                <h2>John Doe</h2>
-                <p class="designation">CEO, Company Name</p>
-                <div class="details">
-                  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis libero eu elit laoreet, vitae commodo velit elementum."</p>
-                </div>
-              </div>
+        </div>
+        <div class="text-center text-lg-end">
+          <a href="#" class="view-btn">VIEW ALL</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-us-sec">
+    <div class="container">
+      <h2 class="secondary-heading">ABOUT US</h2>
+      <div class="about-flex-overflow">
+        <div class="about-us-flex">
+          <div class="about-card">
+            <div class="about-card-content">
+              <h6>OUR STORY</h6>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsa consectetur, enim ratione nostrum amet odit corrupti earum cupiditate iure!</p>
+            </div>
+          </div>
+          <div class="about-card">
+            <div class="about-card-content">
+              <h6>WHY CHOOSE US ?</h6>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsa consectetur, enim ratione nostrum amet odit corrupti earum cupiditate iure!</p>
+            </div>
+          </div>
+          <div class="about-card">
+            <div class="about-card-content">
+              <h6>OUR STORY</h6>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsa consectetur, enim ratione nostrum amet odit corrupti earum cupiditate iure!</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="gallery-sec">
+    <div class="container">
+      <h2 class="secondary-heading">GALLERY</h2>
+      <div class="gallery-flex">
+        <div class="img-wrap-first d-flex">
+          <div class="img-wrap d-flex">
+            <div class="img">
+              <img src="images/gallery1.png" class="img-fluid" alt="" />
+            </div>
+            <div class="img">
+              <img src="images/gallery2.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+          <div class="img">
+            <img src="images/gallery3.png" class="img-fluid" alt="" />
+          </div>
+        </div>
+        <div class="img">
+          <img src="images/gallery4.png" class="img-fluid" alt="" />
+        </div>
+      </div>
+      <div class="text-center text-lg-end">
+        <a href="#" class="view-btn">VIEW MORE</a>
+      </div>
     </div>
-</div>
+  </div>
+  <div class="testimonials-sec">
+    <h2 class="secondary-heading">TESTIMONIALS</h2>
+    <div class="testimonials-wrap">
+      <div class="container">
+        <div class="owl-carousel testimonials-owl owl-theme">
+          <div class="item">
+            <div class="testimonial-card">
+              <div class="user-img">
+                <img src="images/user-1.png" class="img-fluid" alt="" />
+                <div class="text-wrap">
+                  <h3>Arun Kumar</h3>
+                  <h4>Software Developer</h4>
+                </div>
+              </div>
+              <ul class="d-flex justify-content-center mt-0 mb-4">
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+              </ul>
+              <div class="para">
+                <p>
+                  ‘lorem Ipsum is simply dummy text of the printing and try.
+                  gorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a gale of type
+                  and scrambled it to make a type specimen books has been the
+                  industry's standard dummy text nasd snreia ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book. ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book’
+                </p>
+                <img src="images/right-line.svg" class="img-fluid right-line" alt="" />
+                <img src="images/left-line.svg" class="img-fluid left-line" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-card">
+              <div class="user-img">
+                <img src="images/user-2.png" class="img-fluid" alt="" />
+                <div class="text-wrap">
+                  <h3>Yashas Faltu</h3>
+                  <h4>Graphic Designer</h4>
+                </div>
+              </div>
+              <ul class="d-flex justify-content-center mt-0 mb-4">
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+              </ul>
+              <div class="para">
+                <p>
+                  ‘lorem Ipsum is simply dummy text of the printing and try.
+                  gorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a gale of type
+                  and scrambled it to make a type specimen books has been the
+                  industry's standard dummy text nasd snreia ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book. ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book’
+                </p>
+                <img src="images/right-line.svg" class="img-fluid right-line" alt="" />
+                <img src="images/left-line.svg" class="img-fluid left-line" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-card">
+              <div class="user-img">
+                <img src="images/user-3.png" class="img-fluid" alt="" />
+                <div class="text-wrap">
+                  <h3>Saleena Gomez</h3>
+                  <h4>House Wife</h4>
+                </div>
+              </div>
+              <ul class="d-flex justify-content-center mt-0 mb-4">
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+              </ul>
+              <div class="para">
+                <p>
+                  ‘lorem Ipsum is simply dummy text of the printing and try.
+                  gorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a gale of type
+                  and scrambled it to make a type specimen books has been the
+                  industry's standard dummy text nasd snreia ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book. ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book’
+                </p>
+                <img src="images/right-line.svg" class="img-fluid right-line" alt="" />
+                <img src="images/left-line.svg" class="img-fluid left-line" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-card">
+              <div class="user-img">
+                <img src="images/user-1.png" class="img-fluid" alt="" />
+                <div class="text-wrap">
+                  <h3>Arun Kumar</h3>
+                  <h4>Software Developer</h4>
+                </div>
+              </div>
+              <ul class="d-flex justify-content-center mt-0 mb-4">
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+              </ul>
+              <div class="para">
+                <p>
+                  ‘lorem Ipsum is simply dummy text of the printing and try.
+                  gorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a gale of type
+                  and scrambled it to make a type specimen books has been the
+                  industry's standard dummy text nasd snreia ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book. ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book’
+                </p>
+                <img src="images/right-line.svg" class="img-fluid right-line" alt="" />
+                <img src="images/left-line.svg" class="img-fluid left-line" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-card">
+              <div class="user-img">
+                <img src="images/user-1.png" class="img-fluid" alt="" />
+                <div class="text-wrap">
+                  <h3>Arun Kumar</h3>
+                  <h4>Software Developer</h4>
+                </div>
+              </div>
+              <ul class="d-flex justify-content-center mt-0 mb-4">
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+              </ul>
+              <div class="para">
+                <p>
+                  ‘lorem Ipsum is simply dummy text of the printing and try.
+                  gorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a gale of type
+                  and scrambled it to make a type specimen books has been the
+                  industry's standard dummy text nasd snreia ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book. ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book’
+                </p>
+                <img src="images/right-line.svg" class="img-fluid right-line" alt="" />
+                <img src="images/left-line.svg" class="img-fluid left-line" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-card">
+              <div class="user-img">
+                <img src="images/user-2.png" class="img-fluid" alt="" />
+                <div class="text-wrap">
+                  <h3>Yashas Faltu</h3>
+                  <h4>Graphic Designer</h4>
+                </div>
+              </div>
+              <ul class="d-flex justify-content-center mt-0 mb-4">
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+              </ul>
+              <div class="para">
+                <p>
+                  ‘lorem Ipsum is simply dummy text of the printing and try.
+                  gorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a gale of type
+                  and scrambled it to make a type specimen books has been the
+                  industry's standard dummy text nasd snreia ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book. ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book’
+                </p>
+                <img src="images/right-line.svg" class="img-fluid right-line" alt="" />
+                <img src="images/left-line.svg" class="img-fluid left-line" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-card">
+              <div class="user-img">
+                <img src="images/user-3.png" class="img-fluid" alt="" />
+                <div class="text-wrap">
+                  <h3>Saleena Gomez</h3>
+                  <h4>House Wife</h4>
+                </div>
+              </div>
+              <ul class="d-flex justify-content-center mt-0 mb-4">
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+              </ul>
+              <div class="para">
+                <p>
+                  ‘lorem Ipsum is simply dummy text of the printing and try.
+                  gorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a gale of type
+                  and scrambled it to make a type specimen books has been the
+                  industry's standard dummy text nasd snreia ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book. ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book’
+                </p>
+                <img src="images/right-line.svg" class="img-fluid right-line" alt="" />
+                <img src="images/left-line.svg" class="img-fluid left-line" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-card">
+              <div class="user-img">
+                <img src="images/user-1.png" class="img-fluid" alt="" />
+                <div class="text-wrap">
+                  <h3>Arun Kumar</h3>
+                  <h4>Software Developer</h4>
+                </div>
+              </div>
+              <ul class="d-flex justify-content-center mt-0 mb-4">
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+                <li>
+                  <img src="images/star-icon.svg" class="img-fluid" alt="" />
+                </li>
+              </ul>
+              <div class="para">
+                <p>
+                  ‘lorem Ipsum is simply dummy text of the printing and try.
+                  gorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a gale of type
+                  and scrambled it to make a type specimen books has been the
+                  industry's standard dummy text nasd snreia ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book. ever since the
+                  1500s, when an unknown printer took a gs of type and
+                  scrambled it to make a type specimen book’
+                </p>
+                <img src="images/right-line.svg" class="img-fluid right-line" alt="" />
+                <img src="images/left-line.svg" class="img-fluid left-line" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="our-client-sec">
+    <div class="container-fluid g-0">
+      <h2 class="secondary-heading">OUR CLIENTS</h2>
+      <div class="owl-carousel client_carousel owl-theme">
+        <div class="item">
+          <img src="images/client-1.png" class="img-fluid" alt="">
+        </div> 
+        <div class="item">
+          <img src="images/client-2.png" class="img-fluid" alt="">
+        </div> 
+        <div class="item">
+          <img src="images/client-3.png" class="img-fluid" alt="">
+        </div> 
+        <div class="item">
+          <img src="images/client-4.png" class="img-fluid" alt="">
+        </div> 
+        <div class="item">
+          <img src="images/client-5.png" class="img-fluid" alt="">
+        </div> 
+
+    </div>
+  
+    </div>
+  </div>
+  <!-- ********* Home page end ********* -->
+
+ 
