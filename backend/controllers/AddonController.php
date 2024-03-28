@@ -3,22 +3,19 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\DestinationPackage;
-use common\models\DestinationPackageSearch;
 use common\models\Addon;
+use common\models\AddonSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
 use yii\helpers\Html;
 use yii\web\UploadedFile;
-use yii\helpers\ArrayHelper;
-use common\components\ImageHelper;
 
 /**
- * DestinationPackageController implements the CRUD actions for DestinationPackage model.
+ * AddonController implements the CRUD actions for Addon model.
  */
-class DestinationPackageController extends Controller
+class AddonController extends Controller
 {
     /**
      * @inheritdoc
@@ -37,12 +34,12 @@ class DestinationPackageController extends Controller
     }
 
     /**
-     * Lists all DestinationPackage models.
+     * Lists all Addon models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new DestinationPackageSearch();
+        $searchModel = new AddonSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -53,7 +50,7 @@ class DestinationPackageController extends Controller
 
 
     /**
-     * Displays a single DestinationPackage model.
+     * Displays a single Addon model.
      * @param integer $id
      * @return mixed
      */
@@ -63,7 +60,7 @@ class DestinationPackageController extends Controller
         if ($request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             return [
-                'title' => "DestinationPackage #" . $id,
+                'title' => "Addon #" . $id,
                 'content' => $this->renderAjax('view', [
                     'model' => $this->findModel($id),
                 ]),
@@ -78,7 +75,7 @@ class DestinationPackageController extends Controller
     }
 
     /**
-     * Creates a new DestinationPackage model.
+     * Creates a new Addon model.
      * For ajax request will return json object
      * and for non-ajax request if creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -86,9 +83,7 @@ class DestinationPackageController extends Controller
     public function actionCreate()
     {
         $request = Yii::$app->request;
-        $model = new DestinationPackage();
-        $addons = Addon::find()->all(); // Assuming 'Addon' is your model name
-        $addonList = ArrayHelper::map($addons, 'id', 'title'); // Replace 'id' and 'name' with the actual column names
+        $model = new Addon();
 
         if ($request->isAjax) {
             /*
@@ -97,46 +92,26 @@ class DestinationPackageController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             if ($request->isGet) {
                 return [
-                    'title' => "Create new DestinationPackage",
+                    'title' => "Create new Addon",
                     'content' => $this->renderAjax('create', [
                         'model' => $model,
-                        'addonList' => $addonList,
                     ]),
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
-            } else if ($model->load($request->post())) {
-                $image = UploadedFile::getInstance($model, 'package_image');
-                if (!is_null($image)) {
-                    $model->package_image = $image->name;
-                    $doc_name = $image->name;
-                    $ext = $image->getExtension();
-                    // generate a unique file name to prevent duplicate filenames
-                    $model->package_image = date('YmdHis') . $image->name;
-                    // the path to save file, you can set an uploadPath
-                    $path = Yii::$app->basePath . '/web/uploads/DestinationPackageImage/';
-                    $path = $path . $model->package_image;
-                    $image->saveAs($path);
-                }
-
-                // Access submitted data
-                $model->package_addons = implode(',', $model->package_addons);
-
-                // Store is_active as 1
-                $model->is_active = 1;
-                $model->save();
+            } else if ($model->load($request->post()) && $model->save()) {
                 return [
                     'forceReload' => '#crud-datatable-pjax',
-                    'title' => "Create new DestinationPackage",
-                    'content' => '<span class="text-success">Create DestinationPackage success</span>',
+                    'title' => "Create new Addon",
+                    'content' => '<span class="text-success">Create Addon success</span>',
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::a('Create More', ['create'], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
 
                 ];
             } else {
                 return [
-                    'title' => "Create new DestinationPackage",
+                    'title' => "Create new Addon",
                     'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
@@ -154,14 +129,13 @@ class DestinationPackageController extends Controller
             } else {
                 return $this->render('create', [
                     'model' => $model,
-                    'addonList' => $addonList,
                 ]);
             }
         }
     }
 
     /**
-     * Updates an existing DestinationPackage model.
+     * Updates an existing Addon model.
      * For ajax request will return json object
      * and for non-ajax request if update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
@@ -171,8 +145,6 @@ class DestinationPackageController extends Controller
     {
         $request = Yii::$app->request;
         $model = $this->findModel($id);
-        $addons = Addon::find()->all(); // Assuming 'Addon' is your model name
-        $addonList = ArrayHelper::map($addons, 'id', 'title'); // Replace 'id' and 'name' with the
 
         if ($request->isAjax) {
             /*
@@ -180,38 +152,29 @@ class DestinationPackageController extends Controller
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
             if ($request->isGet) {
-                $model->package_addons = explode(',', $model->package_addons);
                 return [
-                    'title' => "Update DestinationPackage #" . $id,
+                    'title' => "Update Addon #" . $id,
                     'content' => $this->renderAjax('update', [
                         'model' => $model,
-                        'addonList' => $addonList,
                     ]),
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                 ];
-            } else if ($model->load($request->post())) {
-                $model->package_addons = implode(',', $model->package_addons);
-                $model->package_image = 'new.jpg';
-                if ($model->save()) {
-                    return [
-                        'forceReload' => '#crud-datatable-pjax',
-                        'title' => "DestinationPackage #" . $id,
-                        'content' => $this->renderAjax('view', [
-                            'model' => $model,
-                        ]),
-                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
-                            Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
-                    ];
-                }
-            } else {
-                $model->package_addons = explode(',', $model->package_addons);
-
+            } else if ($model->load($request->post()) && $model->save()) {
                 return [
-                    'title' => "Update DestinationPackage #" . $id,
+                    'forceReload' => '#crud-datatable-pjax',
+                    'title' => "Addon #" . $id,
+                    'content' => $this->renderAjax('view', [
+                        'model' => $model,
+                    ]),
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+                ];
+            } else {
+                return [
+                    'title' => "Update Addon #" . $id,
                     'content' => $this->renderAjax('update', [
                         'model' => $model,
-                        'addonList' => $addonList,
                     ]),
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
@@ -232,7 +195,7 @@ class DestinationPackageController extends Controller
     }
 
     /**
-     * Delete an existing DestinationPackage model.
+     * Delete an existing Addon model.
      * For ajax request will return json object
      * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
@@ -258,7 +221,7 @@ class DestinationPackageController extends Controller
     }
 
     /**
-     * Delete multiple existing DestinationPackage model.
+     * Delete multiple existing Addon model.
      * For ajax request will return json object
      * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
@@ -284,22 +247,6 @@ class DestinationPackageController extends Controller
             *   Process for non-ajax request
             */
             return $this->redirect(['index']);
-        }
-    }
-
-    /**
-     * Finds the DestinationPackage model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return DestinationPackage the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = DestinationPackage::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
 }

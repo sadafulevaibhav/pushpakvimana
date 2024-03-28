@@ -36,7 +36,8 @@ class DestinationMedia extends \yii\db\ActiveRecord
             [['country_id', 'package_id', 'media_file', 'media_type'], 'required'],
             [['country_id', 'package_id'], 'integer'],
             [['content_text'], 'string', 'max' => 255],
-            [['media_file', 'media_type'], 'string', 'max' => 50],
+            [['media_file', 'media_type'], 'string', 'max' => 100],
+            [['media_file'], 'file', 'extensions' => ['jpg', 'png', 'gif', 'mp4']],
             [['country_id'], 'exist', 'skipOnError' => true, 'targetClass' => DestinationCountry::class, 'targetAttribute' => ['country_id' => 'id']],
             [['package_id'], 'exist', 'skipOnError' => true, 'targetClass' => TourPackage::class, 'targetAttribute' => ['package_id' => 'id']],
         ];

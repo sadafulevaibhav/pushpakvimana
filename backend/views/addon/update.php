@@ -3,13 +3,12 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\DestinationPackage */
+/* @var $model common\models\Addon */
 ?>
-<div class="destination-package-update">
+<div class="addon-update">
 
     <?= $this->render('_form', [
         'model' => $model,
-        'addonList' => $addonList,
     ]) ?>
 
 </div>

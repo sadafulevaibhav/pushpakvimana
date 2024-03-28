@@ -4,8 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\models\DestinationCountry;
 use common\models\TourPackage;
+use common\models\Addon;
 use mludvik\tagsinput\TagsInputWidget;
 use kartik\file\FileInput;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model common\models\DestinationPackage */
 /* @var $form yii\widgets\ActiveForm */
@@ -60,6 +63,19 @@ use kartik\file\FileInput;
     <?= $form->field($model, 'max_no_guests')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'hotel_rating')->textInput() ?>
+
+    <?php
+    echo $form->field($model, 'package_addons')->widget(Select2::classname(), [
+        'data' => $addonList, // $addonList should be an array of addon IDs and names
+        'options' => ['placeholder' => 'Select addons...', 'multiple' => true],
+        'pluginOptions' => [
+            'allowClear' => true,
+            'tags' => true,
+            'maximumInputLength' => 10
+        ],
+    ]);
+
+    ?>
 
     <?= $form->field($model, 'key_locations')->widget(TagsInputWidget::className()) ?>
 
