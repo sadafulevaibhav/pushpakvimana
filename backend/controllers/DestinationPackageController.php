@@ -5,12 +5,14 @@ namespace backend\controllers;
 use Yii;
 use common\models\DestinationPackage;
 use common\models\DestinationPackageSearch;
+use common\models\Addon;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
 use yii\helpers\Html;
 use yii\web\UploadedFile;
+use yii\helpers\ArrayHelper;
 use common\components\ImageHelper;
 
 /**
@@ -85,6 +87,8 @@ class DestinationPackageController extends Controller
     {
         $request = Yii::$app->request;
         $model = new DestinationPackage();
+        $addons = Addon::find()->all(); // Assuming 'Addon' is your model name
+        $addonList = ArrayHelper::map($addons, 'id', 'title'); // Replace 'id' and 'name' with the actual column names
 
         if ($request->isAjax) {
             /*
@@ -96,6 +100,7 @@ class DestinationPackageController extends Controller
                     'title' => "Create new DestinationPackage",
                     'content' => $this->renderAjax('create', [
                         'model' => $model,
+                        'addonList' => $addonList,
                     ]),
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
@@ -115,6 +120,11 @@ class DestinationPackageController extends Controller
                     $image->saveAs($path);
                 }
 
+                // Access submitted data
+                $model->package_addons = implode(',', $model->package_addons);
+
+                // Store is_active as 1
+                $model->is_active = 1;
                 $model->save();
                 return [
                     'forceReload' => '#crud-datatable-pjax',
@@ -144,6 +154,7 @@ class DestinationPackageController extends Controller
             } else {
                 return $this->render('create', [
                     'model' => $model,
+                    'addonList' => $addonList,
                 ]);
             }
         }
@@ -160,6 +171,8 @@ class DestinationPackageController extends Controller
     {
         $request = Yii::$app->request;
         $model = $this->findModel($id);
+        $addons = Addon::find()->all(); // Assuming 'Addon' is your model name
+        $addonList = ArrayHelper::map($addons, 'id', 'title'); // Replace 'id' and 'name' with the
 
         if ($request->isAjax) {
             /*
@@ -167,29 +180,38 @@ class DestinationPackageController extends Controller
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
             if ($request->isGet) {
+                $model->package_addons = explode(',', $model->package_addons);
                 return [
                     'title' => "Update DestinationPackage #" . $id,
                     'content' => $this->renderAjax('update', [
                         'model' => $model,
+                        'addonList' => $addonList,
                     ]),
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                 ];
-            } else if ($model->load($request->post()) && $model->save()) {
-                return [
-                    'forceReload' => '#crud-datatable-pjax',
-                    'title' => "DestinationPackage #" . $id,
-                    'content' => $this->renderAjax('view', [
-                        'model' => $model,
-                    ]),
-                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
-                        Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
-                ];
+            } else if ($model->load($request->post())) {
+                $model->package_addons = implode(',', $model->package_addons);
+                $model->package_image = 'new.jpg';
+                if ($model->save()) {
+                    return [
+                        'forceReload' => '#crud-datatable-pjax',
+                        'title' => "DestinationPackage #" . $id,
+                        'content' => $this->renderAjax('view', [
+                            'model' => $model,
+                        ]),
+                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                            Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+                    ];
+                }
             } else {
+                $model->package_addons = explode(',', $model->package_addons);
+
                 return [
                     'title' => "Update DestinationPackage #" . $id,
                     'content' => $this->renderAjax('update', [
                         'model' => $model,
+                        'addonList' => $addonList,
                     ]),
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])

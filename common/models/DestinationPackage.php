@@ -39,6 +39,7 @@ class DestinationPackage extends \yii\db\ActiveRecord
         return [
             [['package_name', 'package_image', 'about_trip', 'max_no_guests', 'hotel_rating', 'key_locations', 'travel_expenses', 'country_id', 'package_id'], 'required'],
             [['hotel_rating', 'country_id', 'package_id'], 'integer'],
+            [['package_addons'], 'safe'],
             [['key_locations'], 'string'],
             [['travel_expenses'], 'number'],
             [['package_name', 'about_trip'], 'string', 'max' => 255],
@@ -95,19 +96,5 @@ class DestinationPackage extends \yii\db\ActiveRecord
     public static function find()
     {
         return new DestinationPackageQuery(get_called_class());
-    }
-
-    public function getAddons()
-    {
-        return $this->hasMany(Addon::class, ['id' => 'addon_id'])
-            ->viaTable('destination_package', ['package_id' => 'id']);
-    }
-
-    public function saveAddons($addons)
-    {
-        $this->unlinkAll('addons', true);
-        foreach ($addons as $addon) {
-            $this->link('addons', Addon::findOne($addon));
-        }
     }
 }

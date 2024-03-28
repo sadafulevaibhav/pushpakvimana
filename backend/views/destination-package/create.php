@@ -10,5 +10,6 @@ use yii\helpers\Html;
 <div class="destination-package-create">
     <?= $this->render('_form', [
         'model' => $model,
+        'addonList' => $addonList,
     ]) ?>
 </div>
