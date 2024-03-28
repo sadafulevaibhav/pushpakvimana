@@ -1,0 +1,33 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+
+# deal with admin first
+RewriteCond %{REQUEST_URI} ^/pushpakvimana/(admin) 
+RewriteRule ^admin/assets/(.*)$ backend/web/assets/$1 [L]
+RewriteRule ^admin/css/(.*)$ backend/web/css/$1 [L]
+RewriteRule ^admin/js/(.*)$ backend/web/js/$1 [L]
+RewriteRule ^admin/uploads/(.*)$ backend/web/uploads/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css)/  
+RewriteCond %{REQUEST_URI} ^/pushpakvimana/(admin)  
+RewriteRule ^.*$ backend/web/index.php [L]
+
+
+
+RewriteCond %{REQUEST_URI} ^/pushpakvimana/(assets|css)  
+RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
+RewriteRule ^fonts/(.*)$ frontend/web/fonts/$1 [L]
+RewriteRule ^images/(.*)$ frontend/web/images/$1 [L]
+RewriteRule ^videos/(.*)$ frontend/web/videos/$1 [L]
+RewriteRule ^siteimages/(.*)$ frontend/web/siteimages/$1 [L]
+RewriteRule ^icons/(.*)$ frontend/web/icons/$1 [L]
+RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
+RewriteRule ^admin/uploads/(.*)$ backend/web/uploads/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/pushpakvimana/(frontend|backend)/web/(assets|css)/  
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ frontend/web/index.php

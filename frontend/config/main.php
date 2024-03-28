@@ -15,6 +15,9 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'class' => 'common\components\Request',
+            'web'=> '/frontend/web',
+            'cookieValidationKey' => 'fasdsad557574dfsdsxxxsdsfnklc58',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -37,12 +40,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => false,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //     ],
-        // ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'rules' => [
+                // ...
+            ],
+        ],
     ],
     'params' => $params,
 ];
