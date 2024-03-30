@@ -12,15 +12,14 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/bootstrap.min.css',
         'css/site.css',
         // 'css/custom.css',
         'css/owl.carousel.min.css',
+        'css/style.css',
         'css/responsive.css',
         'css/responsive.min.css',
-        'css/style.css',
         'css/style.min.css',
-        'css/bootstrap.min.css',
-        // 'css/fonts.css?family=Regular+Brush:400,700'
     ];
     public $js = [
         'js/bootstrap.bundle.min.js',

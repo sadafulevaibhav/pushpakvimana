@@ -8,34 +8,49 @@ use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
 
 $this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+// $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="loginbg">
+        <div class="container">
+            <div class="loginbox">
+                <h2>PUSHPAKA VIMANA</h2>
+                <h4>Sign In</h4>
+                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                    <div class="mb-3">
+                      <!-- <label class="form-label">Email</label>
+                      <input type="text" class="form-control"> -->
+                      <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label('Email') ?> 
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label class="form-label">Password</label> -->
+                        <!-- <input type="password" class="form-control"> -->
+                        <?= $form->field($model, 'password')->passwordInput() ?>
+                        <label class="form-label"><a href="#">Forgot Password?</a></label>
+                    </div>
+                    <div class="signbtn-grid">
+                        <?= Html::submitButton('Login', ['class' => 'signinbtn', 'name' => 'login-button']) ?>    
+                    <!-- <a href="#" class="signinbtn">Sign In</a> -->
+                            <div class="or">OR</div>
+                        <a href="<?=Yii::$app->homeUrl.'site/signup'?>" class="signinbtn">Sign UP</a>
+                        <div class="or">Login With</div>
+                        <div class="socialicons"> 
+                            <a href="#">
+                                <img src="images/google.svg" class="img-fluid" alt="">
+                            </a>
 
-    <p>Please fill out the following fields to login:</p>
+                            <a href="#">
+                                <img src="images/facebook.svg" class="img-fluid" alt="">
+                            </a>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div class="my-1 mx-0" style="color:#999;">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                    <br>
-                    Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
+                            <a href="#">
+                                <img src="images/apple.svg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                    </div>
+           
                 </div>
+<?php ActiveForm::end(); ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
         </div>
     </div>
-</div>
+

@@ -35,7 +35,7 @@ AppAsset::register($this);
         <div class="container-fluid">
           <div class="row align-items-center justify-content-between">
             <div class="col-auto">
-              <a href="index.html"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
+              <a href="<?=Yii::$app->homeUrl?>"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
             </div>
             <div class="col-auto">
               <nav>
@@ -80,8 +80,13 @@ AppAsset::register($this);
                     UPCOMING TOURS
                     <img src="images/map-icon.svg" class="img-fluid" alt="" />
                   </a>
-                  <a href="#" class="myAccount-btn">MY ACCOUNT
+                  <?php if(Yii::$app->user->isGuest) { ?>
+                   <a href="<?=Yii::$app->homeUrl.'site/login'?>" class="myAccount-btn">LOGIN
                     <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                  <?php }else {?>
+                    <a href="#" class="myAccount-btn">MY ACCOUNT
+                    <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                  <?php }?>
                 </div>
               </nav>
             </div>
@@ -162,7 +167,7 @@ AppAsset::register($this);
           <div class="container-fluid">
             <div class="row align-items-center justify-content-between">
               <div class="col-auto">
-                <a href="index.html"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
+                <a href="<?=Yii::$app->homeUrl?>"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
               </div>
               <div class="col-auto text-end">
                 <button type="button" class="btn-closed" data-bs-dismiss="modal" aria-label="Close">
@@ -175,7 +180,7 @@ AppAsset::register($this);
         <div class="modal-body">
           <nav>
             <ul>
-              <li><a href="index.html">HOME</a></li>
+              <li><a href="<?=Yii::$app->homeUrl?>">HOME</a></li>
               <li><a href="index.html">ABOUT US</a></li>
               <li><a href="index.html">CONTACT US</a></li>
               <li><a href="index.html">TOURS</a></li>
@@ -186,8 +191,13 @@ AppAsset::register($this);
                 UPCOMING TOURS
                 <img src="images/map-icon.svg" class="img-fluid" alt="" />
               </a>
-              <a href="#" class="myAccount-btn">MY ACCOUNT
+              <?php if(Yii::$app->user->isGuest) { ?>
+              <a href="#" class="myAccount-btn">LOGIN
                 <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                <?php }else {?>
+                  <a href="#" class="myAccount-btn">MY ACCOUNT
+                    <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                <?php }?>
             </div>
           </nav>
         </div>

@@ -4,32 +4,64 @@
 /** @var yii\bootstrap5\ActiveForm $form */
 /** @var \frontend\models\SignupForm $model */
 
+use PhpParser\Node\Stmt\Label;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
 
 $this->title = 'Signup';
-$this->params['breadcrumbs'][] = $this->title;
+// echo "<pre>";print_r($model);exit;
 ?>
-<div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to signup:</p>
+<div class="signupbg">
+        <div class="container">
+            <div class="loginbox">
+                <h2>PUSHPAKA VIMANA</h2>
+                <h4>Sign Up</h4>
+                <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+                    <div class="mb-3 nameinfobox">
+                        <div class="nameinfo firsname">
+                            <?= $form->field($model, 'title')->textInput(['autofocus' => true]); ?>
+                        </div>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+                        <div class="nameinfo">
+                            <?= $form->field($model, 'firstname')->textInput(['autofocus' => true]) ?>
+                        </div>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                        <div class="nameinfo">
+                        <?= $form->field($model, 'lastname')->textInput(['autofocus' => true]) ?>
+                        </div>
+                        
+                      </div>
+                    <div class="mb-3">
+                        <?= $form->field($model, 'email')->label('Your Email Address') ?>
+                    </div>
 
-                <?= $form->field($model, 'email') ?>
+                    <div class="mb-3">
+                       <?= $form->field($model, 'mobile') ?>
+                    </div>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+                    <div class="mb-3">
+                        <?= $form->field($model, 'password')->passwordInput() ?>
+                    </div>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-                </div>
+                    <div class="mb-3">
+                        <?= $form->field($model, 'rpassword')->passwordInput()->label('Confirm Password') ?>
+                    </div>
 
-            <?php ActiveForm::end(); ?>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            I would like to be kept informed of special Promotions and offers. 
+                            I hereby accept the <a href="#">Privacy Policy</a> authorize pushpaka vimana to contact me.
+                        </label>
+                      </div>
+
+                    <div class="signbtn-grid">
+                        <?= Html::submitButton('Register', ['class' => 'signinbtn', 'name' => 'signup-button']) ?>    
+                       <div class="or">Already have an account?</div>
+                        <a href="<?=Yii::$app->homeUrl.'site/login'?>" class="signinbtn">Log in</a>                        
+                    </div>
+                    <?php ActiveForm::end(); ?>
+            </div>
         </div>
     </div>
-</div>
