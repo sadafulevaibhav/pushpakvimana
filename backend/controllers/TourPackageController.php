@@ -56,17 +56,17 @@ class TourPackageController extends Controller
     public function actionView($id)
     {
         $request = Yii::$app->request;
-        if($request->isAjax){
+        if ($request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             return [
-                    'title'=> "TourPackage #".$id,
-                    'content'=>$this->renderAjax('view', [
-                        'model' => $this->findModel($id),
-                    ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
-                ];
-        }else{
+                'title' => "TourPackage #" . $id,
+                'content' => $this->renderAjax('view', [
+                    'model' => $this->findModel($id),
+                ]),
+                'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                    Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+            ];
+        } else {
             return $this->render('view', [
                 'model' => $this->findModel($id),
             ]);
@@ -84,42 +84,42 @@ class TourPackageController extends Controller
         $request = Yii::$app->request;
         $model = new TourPackage();
 
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            if($request->isGet){
+            if ($request->isGet) {
                 return [
-                    'title'=> "Create new TourPackage",
-                    'content'=>$this->renderAjax('create', [
+                    'title' => "Create new TourPackage",
+                    'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
-            }else if($model->load($request->post()) && $model->save()){
+            } else if ($model->load($request->post()) && $model->save()) {
                 return [
-                    'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "Create new TourPackage",
-                    'content'=>'<span class="text-success">Create TourPackage success</span>',
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a('Create More',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'forceReload' => '#crud-datatable-pjax',
+                    'title' => "Create new TourPackage",
+                    'content' => '<span class="text-success">Create TourPackage success</span>',
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::a('Create More', ['create'], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
 
                 ];
-            }else{
+            } else {
                 return [
-                    'title'=> "Create new TourPackage",
-                    'content'=>$this->renderAjax('create', [
+                    'title' => "Create new TourPackage",
+                    'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
             }
-        }else{
+        } else {
             /*
             *   Process for non-ajax request
             */
@@ -131,7 +131,6 @@ class TourPackageController extends Controller
                 ]);
             }
         }
-
     }
 
     /**
@@ -146,41 +145,41 @@ class TourPackageController extends Controller
         $request = Yii::$app->request;
         $model = $this->findModel($id);
 
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            if($request->isGet){
+            if ($request->isGet) {
                 return [
-                    'title'=> "Update TourPackage #".$id,
-                    'content'=>$this->renderAjax('update', [
+                    'title' => "Update TourPackage #" . $id,
+                    'content' => $this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                 ];
-            }else if($model->load($request->post()) && $model->save()){
+            } else if ($model->load($request->post()) && $model->save()) {
                 return [
-                    'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "TourPackage #".$id,
-                    'content'=>$this->renderAjax('view', [
+                    'forceReload' => '#crud-datatable-pjax',
+                    'title' => "TourPackage #" . $id,
+                    'content' => $this->renderAjax('view', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
                 ];
-            }else{
-                 return [
-                    'title'=> "Update TourPackage #".$id,
-                    'content'=>$this->renderAjax('update', [
+            } else {
+                return [
+                    'title' => "Update TourPackage #" . $id,
+                    'content' => $this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                 ];
             }
-        }else{
+        } else {
             /*
             *   Process for non-ajax request
             */
@@ -206,23 +205,21 @@ class TourPackageController extends Controller
         $request = Yii::$app->request;
         $this->findModel($id)->delete();
 
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            return ['forceClose'=>true,'forceReload'=>'#crud-datatable-pjax'];
-        }else{
+            return ['forceClose' => true, 'forceReload' => '#crud-datatable-pjax'];
+        } else {
             /*
             *   Process for non-ajax request
             */
             return $this->redirect(['index']);
         }
-
-
     }
 
-     /**
+    /**
      * Delete multiple existing TourPackage model.
      * For ajax request will return json object
      * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
@@ -232,25 +229,24 @@ class TourPackageController extends Controller
     public function actionBulkdelete()
     {
         $request = Yii::$app->request;
-        $pks = explode(',', $request->post( 'pks' )); // Array or selected records primary keys
-        foreach ( $pks as $pk ) {
+        $pks = explode(',', $request->post('pks')); // Array or selected records primary keys
+        foreach ($pks as $pk) {
             $model = $this->findModel($pk);
             $model->delete();
         }
 
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            return ['forceClose'=>true,'forceReload'=>'#crud-datatable-pjax'];
-        }else{
+            return ['forceClose' => true, 'forceReload' => '#crud-datatable-pjax'];
+        } else {
             /*
             *   Process for non-ajax request
             */
             return $this->redirect(['index']);
         }
-
     }
 
     /**
