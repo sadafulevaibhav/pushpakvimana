@@ -10,6 +10,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
 use yii\helpers\Html;
+use yii\web\UploadedFile;
+use common\components\ImageHelper;
 
 /**
  * DestinationCountryController implements the CRUD actions for DestinationCountry model.
@@ -56,17 +58,17 @@ class DestinationCountryController extends Controller
     public function actionView($id)
     {
         $request = Yii::$app->request;
-        if($request->isAjax){
+        if ($request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             return [
-                    'title'=> "DestinationCountry #".$id,
-                    'content'=>$this->renderAjax('view', [
-                        'model' => $this->findModel($id),
-                    ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
-                ];
-        }else{
+                'title' => "DestinationCountry #" . $id,
+                'content' => $this->renderAjax('view', [
+                    'model' => $this->findModel($id),
+                ]),
+                'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                    Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+            ];
+        } else {
             return $this->render('view', [
                 'model' => $this->findModel($id),
             ]);
@@ -84,42 +86,62 @@ class DestinationCountryController extends Controller
         $request = Yii::$app->request;
         $model = new DestinationCountry();
 
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            if($request->isGet){
+            if ($request->isGet) {
                 return [
-                    'title'=> "Create new DestinationCountry",
-                    'content'=>$this->renderAjax('create', [
+                    'title' => "Create new DestinationCountry",
+                    'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
-            }else if($model->load($request->post()) && $model->save()){
+            } else if ($model->load($request->post())) {
+                $image = UploadedFile::getInstance($model, 'destination_media');
+                // Check if the destination folder exists, and create it if not
+                $destinationFolder = Yii::getAlias('@webroot/uploads/DestinationCountry/');
+                if (!is_dir($destinationFolder)) {
+                    mkdir($destinationFolder, 0755, true);
+                }
+
+                if (!is_null($image)) {
+                    $model->destination_media = $image->destination_media;
+                    $doc_name = $image->destination_media;
+                    $ext = $image->getExtension();
+                    // generate a unique file name to prevent duplicate filenames
+                    $model->destination_media = date('YmdHis') . $image->destination_media;
+                    // the path to save file, you can set an uploadPath
+                    $path = Yii::$app->basePath . '/web/uploads/DestinationCountry/';
+                    $path = $path . $model->destination_media;
+                    $image->saveAs($path);
+                }
+
+                $model->save();
                 return [
-                    'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "Create new DestinationCountry",
-                    'content'=>'<span class="text-success">Create DestinationCountry success</span>',
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a('Create More',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'forceReload' => '#crud-datatable-pjax',
+                    'title' => "Create new DestinationCountry",
+                    'content' => '<span class="text-success">Create DestinationCountry success</span>',
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::a('Create More', ['create'], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
 
                 ];
-            }else{
+            } else {
                 return [
-                    'title'=> "Create new DestinationCountry",
-                    'content'=>$this->renderAjax('create', [
+                    'title' => "Create new DestinationCountry",
+                    'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
             }
-        }else{
+        } else {
             /*
             *   Process for non-ajax request
             */
@@ -131,7 +153,6 @@ class DestinationCountryController extends Controller
                 ]);
             }
         }
-
     }
 
     /**
@@ -146,51 +167,147 @@ class DestinationCountryController extends Controller
         $request = Yii::$app->request;
         $model = $this->findModel($id);
 
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            if($request->isGet){
+
+            if ($request->isGet) {
                 return [
-                    'title'=> "Update DestinationCountry #".$id,
-                    'content'=>$this->renderAjax('update', [
+                    'title' => "Update DestinationCountry #" . $id,
+                    'content' => $this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                 ];
-            }else if($model->load($request->post()) && $model->save()){
+            } else if ($model->load($request->post())) {
+                // Get the old image path
+                $oldImagePath = $model->oldAttributes['destination_media']; // Replace with your actual image attribute name
+                $oldFullImagePath = Yii::getAlias('@webroot/uploads/DestinationCountry/' . $oldImagePath);
+
+                // Get the new uploaded image
+                $newImage = UploadedFile::getInstance($model, 'destination_media');
+                // Check if the destination folder exists, and create it if not
+                $destinationFolder = Yii::getAlias('@webroot/uploads/DestinationCountry/');
+                if (!is_dir($destinationFolder)) {
+                    mkdir($destinationFolder, 0755, true);
+                }
+
+                if ($newImage) {
+                    // Generate a new unique file name
+                    $newImageName = Yii::$app->security->generateRandomString() . '.' . $newImage->extension;
+                    $newFullImagePath = Yii::getAlias('@webroot/uploads/DestinationCountry/' . $newImageName);
+
+                    // Move the uploaded image to the designated folder
+                    if ($newImage->saveAs($newFullImagePath)) {
+                        // Update the model with the new image path
+                        $model->destination_media = $newImageName;
+
+                        if ($model->save()) {
+                            // Delete the old image if it exists
+                            if (!empty($oldImagePath) && file_exists($oldFullImagePath)) {
+                                ImageHelper::deleteImage($oldFullImagePath);
+                            }
+
+                            return [
+                                'forceReload' => '#crud-datatable-pjax',
+                                'title' => "DestinationCountry #" . $id,
+                                'content' => $this->renderAjax('view', [
+                                    'model' => $model,
+                                ]),
+                                'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                                    Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+                            ];
+                        }
+                    }
+                } else {
+                    if ($model->save()) {
+                        return [
+                            'forceReload' => '#crud-datatable-pjax',
+                            'title' => "DestinationCountry #" . $id,
+                            'content' => $this->renderAjax('view', [
+                                'model' => $model,
+                            ]),
+                            'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                                Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+                        ];
+                    }
+                }
+
                 return [
-                    'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "DestinationCountry #".$id,
-                    'content'=>$this->renderAjax('view', [
+                    'forceReload' => '#crud-datatable-pjax',
+                    'title' => "DestinationCountry #" . $id,
+                    'content' => $this->renderAjax('view', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
                 ];
-            }else{
-                 return [
-                    'title'=> "Update DestinationCountry #".$id,
-                    'content'=>$this->renderAjax('update', [
+            } else {
+                return [
+                    'title' => "Update DestinationCountry #" . $id,
+                    'content' => $this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                 ];
             }
-        }else{
+        } else {
             /*
             *   Process for non-ajax request
             */
-            if ($model->load($request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            } else {
-                return $this->render('update', [
-                    'model' => $model,
-                ]);
+            if ($model->load($request->post())) {
+                // Get the old image path
+                $oldImagePath = $model->oldAttributes['destination_media']; // Replace with your actual image attribute name
+                $oldFullImagePath = Yii::getAlias('@webroot/uploads/DestinationCountry/' . $oldImagePath);
+
+                // Get the new uploaded image
+                $newImage = UploadedFile::getInstance($model, 'destination_media');
+                // Check if the destination folder exists, and create it if not
+                $destinationFolder = Yii::getAlias('@webroot/uploads/DestinationCountry/');
+                if (!is_dir($destinationFolder)) {
+                    mkdir($destinationFolder, 0755, true);
+                }
+
+
+                if ($newImage) {
+                    // Generate a new unique file name
+                    $newImageName = Yii::$app->security->generateRandomString() . '.' . $newImage->extension;
+                    $newFullImagePath = Yii::getAlias('@webroot/uploads/DestinationCountry/' . $newImageName);
+
+                    // Move the uploaded image to the designated folder
+                    if ($newImage->saveAs($newFullImagePath)) {
+                        // Update the model with the new image path
+                        $model->image = $newImageName;
+                        $model->updated_at = date('Y-m-d H:i:s'); // Update the updated_at field
+                        $model->updated_by = Yii::$app->user->id; // Update the updated_by field
+
+                        if ($model->save()) {
+                            // Delete the old image if it exists
+                            if (!empty($oldImagePath) && file_exists($oldFullImagePath)) {
+                                ImageHelper::deleteImage($oldFullImagePath);
+                            }
+
+                            return $this->redirect(['view', 'id' => $model->id]);
+                        }
+                    }
+                } else {
+                    // No new image uploaded, just save the model
+                    $model->updated_at = date('Y-m-d H:i:s'); // Update the updated_at field
+                    $model->updated_by = Yii::$app->user->id; // Update the updated_by field
+
+                    if ($model->save()) {
+                        return $this->redirect(['view', 'id' => $model->id]);
+                    }
+                }
             }
+
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
     }
 
@@ -203,26 +320,26 @@ class DestinationCountryController extends Controller
      */
     public function actionDelete($id)
     {
-        $request = Yii::$app->request;
-        $this->findModel($id)->delete();
+        $model = DestinationCountry::findOne($id);
 
-        if($request->isAjax){
-            /*
-            *   Process for ajax request
-            */
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            return ['forceClose'=>true,'forceReload'=>'#crud-datatable-pjax'];
-        }else{
-            /*
-            *   Process for non-ajax request
-            */
-            return $this->redirect(['index']);
+        if ($model) {
+            // Get the image path from the model attribute
+            $imagePath = $model->destination_media; // Replace with your actual image attribute name
+
+            // Build the full image path
+            $fullImagePath = Yii::getAlias('@webroot/uploads/DestinationCountry/' . $imagePath);
+
+            // Delete the image
+            ImageHelper::deleteImage($fullImagePath);
+
+            // Delete the model instance if needed
+            $model->delete();
         }
 
-
+        return $this->redirect(['index']);
     }
 
-     /**
+    /**
      * Delete multiple existing DestinationCountry model.
      * For ajax request will return json object
      * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
@@ -232,25 +349,24 @@ class DestinationCountryController extends Controller
     public function actionBulkdelete()
     {
         $request = Yii::$app->request;
-        $pks = explode(',', $request->post( 'pks' )); // Array or selected records primary keys
-        foreach ( $pks as $pk ) {
+        $pks = explode(',', $request->post('pks')); // Array or selected records primary keys
+        foreach ($pks as $pk) {
             $model = $this->findModel($pk);
             $model->delete();
         }
 
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            return ['forceClose'=>true,'forceReload'=>'#crud-datatable-pjax'];
-        }else{
+            return ['forceClose' => true, 'forceReload' => '#crud-datatable-pjax'];
+        } else {
             /*
             *   Process for non-ajax request
             */
             return $this->redirect(['index']);
         }
-
     }
 
     /**

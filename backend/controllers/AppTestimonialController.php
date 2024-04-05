@@ -115,8 +115,10 @@ class AppTestimonialController extends Controller
                     $image->saveAs($path);
                 }
                 $model->created_at = date('Y-m-d H:i:s'); // Update the created_at field
-                $model->created_by = Yii::$app->user->id; // Update the created_by field
-                $model->company_id = Yii::$app->user->id; // Update the company_id field
+                //$model->created_by = Yii::$app->user->id; // Update the created_by field
+                //$model->company_id = Yii::$app->user->id; // Update the company_id field
+                $model->created_by = 1; // Update the created_by field
+                $model->company_id = 1; // Update the company_id field
 
                 $model->save();
                 return [
@@ -186,6 +188,11 @@ class AppTestimonialController extends Controller
 
                 // Get the new uploaded image
                 $newImage = UploadedFile::getInstance($model, 'image');
+                // Check if the destination folder exists, and create it if not
+                $destinationFolder = Yii::getAlias('@webroot/uploads/AppTestimonial/');
+                if (!is_dir($destinationFolder)) {
+                    mkdir($destinationFolder, 0755, true);
+                }
 
                 if ($newImage) {
                     // Generate a new unique file name
@@ -254,6 +261,11 @@ class AppTestimonialController extends Controller
 
                 // Get the new uploaded image
                 $newImage = UploadedFile::getInstance($model, 'image');
+                // Check if the destination folder exists, and create it if not
+                $destinationFolder = Yii::getAlias('@webroot/uploads/AppTestimonial/');
+                if (!is_dir($destinationFolder)) {
+                    mkdir($destinationFolder, 0755, true);
+                }
 
                 if ($newImage) {
                     // Generate a new unique file name

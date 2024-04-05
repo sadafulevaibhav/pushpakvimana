@@ -32,8 +32,8 @@ class AboutUs extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['content', 'created_by', 'updated_by', 'company_id'], 'required'],
-            [['created_by', 'updated_by', 'company_id'], 'integer'],
+            [['content', 'created_by'], 'required'],
+            [['created_by', 'updated_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 150],
             [['content'], 'string', 'max' => 500],

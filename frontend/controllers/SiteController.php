@@ -11,10 +11,16 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\DestinationCountry;
+use common\models\AboutUs;
+use common\models\DestinationMedia;
+use backend\models\AppTestimonial;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\data\ActiveDataProvider;
+
 
 /**
  * Site controller
@@ -75,8 +81,30 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
-        
+        $dataCountryProvider = new ActiveDataProvider([
+            'query' => DestinationCountry::find(),
+        ]);
+
+        $dataAboutUsProvider = new ActiveDataProvider([
+            'query' => AboutUs::find(),
+        ]);
+
+        $dataDestinationMediaProvider = new ActiveDataProvider([
+            'query' => DestinationMedia::find(),
+        ]);
+
+        $dataAppTestimonialsProvider = new ActiveDataProvider([
+            'query' => AppTestimonial::find(),
+        ]);
+
+        //return $this->render('index');
+
+        return $this->render('index', [
+            'dataCountryProvider' => $dataCountryProvider,
+            'dataAboutUsProvider' => $dataAboutUsProvider,
+            'dataDestinationMediaProvider' => $dataDestinationMediaProvider,
+            'dataAppTestimonialsProvider' => $dataAppTestimonialsProvider,
+        ]);
     }
 
     /**
