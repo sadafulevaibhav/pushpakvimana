@@ -10,6 +10,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
 use yii\helpers\Html;
+use yii\web\UploadedFile;
+use common\components\ImageHelper;
 
 /**
  * TourPackageController implements the CRUD actions for TourPackage model.
@@ -99,7 +101,20 @@ class TourPackageController extends Controller
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
-            } else if ($model->load($request->post()) && $model->save()) {
+            } else if ($model->load($request->post())) {
+                $image = UploadedFile::getInstance($model, 'image');
+                if (!is_null($image)) {
+                    // $model->package_media = $image->name;
+                    $doc_name = $image->name;
+                    $ext = $image->getExtension();
+                    // generate a unique file name to prevent duplicate filenames
+                    $model->package_media = date('YmdHis') . $image->name;
+                    // the path to save file, you can set an uploadPath
+                    $path = Yii::$app->basePath . '/web/uploads/TourPackage/';
+                    $path = $path . $model->image;
+                    $image->saveAs($path);
+                }
+                $model->save();
                 return [
                     'forceReload' => '#crud-datatable-pjax',
                     'title' => "Create new TourPackage",
@@ -110,7 +125,7 @@ class TourPackageController extends Controller
                 ];
             } else {
                 return [
-                    'title' => "Create new TourPackage",
+                    'title' => "Create new TourdfdfdfdfPackage",
                     'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
