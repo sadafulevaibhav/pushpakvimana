@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use \yii\web\Response;
 use yii\helpers\Html;
 use yii\web\UploadedFile;
+use common\components\ImageHelper;
 
 /**
  * AddonController implements the CRUD actions for Addon model.
@@ -100,7 +101,24 @@ class AddonController extends Controller
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
-            } else if ($model->load($request->post()) && $model->save()) {
+            } else if ($model->load($request->post())) {
+                $image = UploadedFile::getInstance($model, 'icon_image');
+                if (!is_null($image)) {
+                    $model->icon_image = $image->name;
+                    // generate a unique file name to prevent duplicate filenames
+                    $model->icon_image = date('YmdHis') . $image->name;
+                    // the path to save file, you can set an uploadPath
+                    $path = Yii::$app->basePath . '/web/uploads/AddonIcon/';
+                    // Check if the destination folder exists, and create it if not
+                    $destinationFolder = Yii::getAlias('@webroot/uploads/AddonIcon/');
+                    if (!is_dir($destinationFolder)) {
+                        mkdir($destinationFolder, 0755, true);
+                    }
+                    $path = $path . $model->icon_image;
+                    $image->saveAs($path);
+                }
+
+                $model->save();
                 return [
                     'forceReload' => '#crud-datatable-pjax',
                     'title' => "Create new Addon",
@@ -160,7 +178,62 @@ class AddonController extends Controller
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                 ];
-            } else if ($model->load($request->post()) && $model->save()) {
+            } else if ($model->load($request->post())) {
+                // Get the old image path
+                $oldImagePath = $model->oldAttributes['icon_image']; // Replace with your actual image attribute name
+                $oldFullImagePath = Yii::getAlias('@webroot/uploads/AddonIcon/' . $oldImagePath);
+
+                // Get the new uploaded image
+                $newImage = UploadedFile::getInstance($model, 'icon_image');
+                // Check if the destination folder exists, and create it if not
+                $destinationFolder = Yii::getAlias('@webroot/uploads/AddonIcon/');
+                if (!is_dir($destinationFolder)) {
+                    mkdir($destinationFolder, 0755, true);
+                }
+
+                if ($newImage) {
+                    // Generate a new unique file name
+                    $newImageName = Yii::$app->security->generateRandomString() . '.' . $newImage->extension;
+                    $newFullImagePath = Yii::getAlias('@webroot/uploads/AddonIcon/' . $newImageName);
+
+                    // Move the uploaded image to the designated folder
+                    if ($newImage->saveAs($newFullImagePath)) {
+                        // Update the model with the new image path
+                        $model->icon_image = $newImageName;
+
+                        if ($model->save()) {
+                            // Delete the old image if it exists
+                            if (!empty($oldImagePath) && file_exists($oldFullImagePath)) {
+                                ImageHelper::deleteImage($oldFullImagePath);
+                            }
+
+                            return [
+                                'forceReload' => '#crud-datatable-pjax',
+                                'title' => "Addon #" . $id,
+                                'content' => $this->renderAjax('view', [
+                                    'model' => $model,
+                                ]),
+                                'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                                    Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+                            ];
+                        }
+                    }
+                } else {
+                    // No new image uploaded, just save the model
+
+                    if ($model->save()) {
+                        return [
+                            'forceReload' => '#crud-datatable-pjax',
+                            'title' => "Addon #" . $id,
+                            'content' => $this->renderAjax('view', [
+                                'model' => $model,
+                            ]),
+                            'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                                Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+                        ];
+                    }
+                }
+
                 return [
                     'forceReload' => '#crud-datatable-pjax',
                     'title' => "Addon #" . $id,
@@ -170,27 +243,54 @@ class AddonController extends Controller
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
                 ];
-            } else {
-                return [
-                    'title' => "Update Addon #" . $id,
-                    'content' => $this->renderAjax('update', [
-                        'model' => $model,
-                    ]),
-                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
-                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
-                ];
             }
         } else {
             /*
             *   Process for non-ajax request
             */
-            if ($model->load($request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            } else {
-                return $this->render('update', [
-                    'model' => $model,
-                ]);
+            if ($model->load($request->post())) {
+                // Get the old image path
+                $oldImagePath = $model->oldAttributes['icon_image']; // Replace with your actual image attribute name
+                $oldFullImagePath = Yii::getAlias('@webroot/uploads/AddonIcon/' . $oldImagePath);
+
+                // Get the new uploaded image
+                $newImage = UploadedFile::getInstance($model, 'icon_image');
+                // Check if the destination folder exists, and create it if not
+                $destinationFolder = Yii::getAlias('@webroot/uploads/AddonIcon/');
+                if (!is_dir($destinationFolder)) {
+                    mkdir($destinationFolder, 0755, true);
+                }
+
+                if ($newImage) {
+                    // Generate a new unique file name
+                    $newImageName = Yii::$app->security->generateRandomString() . '.' . $newImage->extension;
+                    $newFullImagePath = Yii::getAlias('@webroot/uploads/AddonIcon/' . $newImageName);
+
+                    // Move the uploaded image to the designated folder
+                    if ($newImage->saveAs($newFullImagePath)) {
+                        // Update the model with the new image path
+                        $model->icon_image = $newImageName;
+
+                        if ($model->save()) {
+                            // Delete the old image if it exists
+                            if (!empty($oldImagePath) && file_exists($oldFullImagePath)) {
+                                ImageHelper::deleteImage($oldFullImagePath);
+                            }
+
+                            return $this->redirect(['view', 'id' => $model->id]);
+                        }
+                    }
+                } else {
+
+                    if ($model->save()) {
+                        return $this->redirect(['view', 'id' => $model->id]);
+                    }
+                }
             }
+
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
     }
 
@@ -203,21 +303,23 @@ class AddonController extends Controller
      */
     public function actionDelete($id)
     {
-        $request = Yii::$app->request;
-        $this->findModel($id)->delete();
+        $model = Addon::findOne($id);
 
-        if ($request->isAjax) {
-            /*
-            *   Process for ajax request
-            */
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            return ['forceClose' => true, 'forceReload' => '#crud-datatable-pjax'];
-        } else {
-            /*
-            *   Process for non-ajax request
-            */
-            return $this->redirect(['index']);
+        if ($model) {
+            // Get the image path from the model attribute
+            $imagePath = $model->icon_image; // Replace with your actual image attribute name
+
+            // Build the full image path
+            $fullImagePath = Yii::getAlias('@webroot/uploads/AddonIcon/' . $imagePath);
+
+            // Delete the image
+            ImageHelper::deleteImage($fullImagePath);
+
+            // Delete the model instance if needed
+            $model->delete();
         }
+
+        return $this->redirect(['index']);
     }
 
     /**
@@ -250,7 +352,7 @@ class AddonController extends Controller
         }
     }
 
-     /**
+    /**
      * Finds the Addon model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id

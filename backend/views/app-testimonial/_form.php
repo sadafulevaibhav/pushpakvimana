@@ -22,17 +22,17 @@ use kartik\file\FileInput;
 
     <?= $form->field($model, 'rating')->textInput(['maxlength' => true]) ?>
 
-    <!-- <?= $form->field($model, 'image')->fileInput() ?> -->
+    <!-- <?= $form->field($model, 'testimonial_image')->fileInput() ?> -->
     <?php
     /*
-    echo $form->field($model, 'image')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'image/*'],
+    echo $form->field($model, 'testimonial_image')->widget(FileInput::classname(), [
+        'options' => ['accept' => 'testimonial_image/*'],
     ]);
     */
     // A block file picker button with custom icon and label
     echo FileInput::widget([
         'model' => $model,
-        'attribute' => 'image',
+        'attribute' => 'testimonial_image',
         'pluginOptions' => [
             'showCaption' => false,
             'showRemove' => false,

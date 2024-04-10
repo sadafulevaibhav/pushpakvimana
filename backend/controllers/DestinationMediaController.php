@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use \yii\web\Response;
 use yii\helpers\Html;
 use yii\web\UploadedFile;
+use common\components\ImageHelper;
 use yii\helpers\FileHelper;
 
 /**
@@ -274,21 +275,21 @@ class DestinationMediaController extends Controller
      */
     public function actionDelete($id)
     {
-        $request = Yii::$app->request;
-        $this->findModel($id)->delete();
+        $model = DestinationMedia::findOne($id);
 
-        if ($request->isAjax) {
-            /*
-            *   Process for ajax request
-            */
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            return ['forceClose' => true, 'forceReload' => '#crud-datatable-pjax'];
-        } else {
-            /*
-            *   Process for non-ajax request
-            */
-            return $this->redirect(['index']);
+        if ($model) {
+            // Get the image path from the model attribute
+            $imagePath = $model->media_file; // Replace with your actual image attribute name
+            // Build the full image path
+            $fullImagePath = Yii::getAlias('@webroot/uploads/DestinationMedia/' . ($model->media_type == 'image' ? 'images' : 'videos') . '/' . $imagePath);
+            echo 'ssdd' . $fullImagePath;
+            // Delete the image
+            ImageHelper::deleteImage($fullImagePath);
+
+            // Delete the model instance if needed
+            $model->delete();
         }
+        return $this->redirect(['index']);
     }
 
     /**

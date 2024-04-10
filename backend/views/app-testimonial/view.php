@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\AppTestimonial */
 ?>
 <div class="app-testimonial-view">
- 
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -16,7 +16,7 @@ use yii\widgets\DetailView;
             'email:email',
             'comment',
             'rating',
-            'image',
+            'testimonial_image',
             'created_by',
             'created_at',
             'updated_at',

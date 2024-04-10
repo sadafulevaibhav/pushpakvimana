@@ -13,7 +13,7 @@ use Yii;
  * @property string $email
  * @property string $comment
  * @property string $rating
- * @property string $image
+ * @property string $testimonial_image
  * @property int $created_by
  * @property string $created_at
  * @property string $updated_at
@@ -36,13 +36,13 @@ class AppTestimonial extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['full_name', 'designation', 'email', 'comment', 'rating', 'image', 'created_by', 'created_at', 'updated_at', 'updated_by', 'company_id'], 'required'],
-            [['full_name', 'designation', 'email', 'comment', 'rating', 'image'], 'required'],
+            //[['full_name', 'designation', 'email', 'comment', 'rating', 'testimonial_image', 'created_by', 'created_at', 'updated_at', 'updated_by', 'company_id'], 'required'],
+            [['full_name', 'designation', 'email', 'comment', 'rating', 'testimonial_image'], 'required'],
             [['email'], 'email'],
             [['created_by', 'updated_by', 'company_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['full_name'], 'string', 'max' => 150],
-            [['designation', 'email', 'rating', 'image'], 'string', 'max' => 50],
+            [['designation', 'email', 'rating', 'testimonial_image'], 'string', 'max' => 50],
             [['comment'], 'string', 'max' => 500],
         ];
     }
@@ -59,7 +59,7 @@ class AppTestimonial extends \yii\db\ActiveRecord
             'email' => Yii::t('app', 'Email'),
             'comment' => Yii::t('app', 'Comment'),
             'rating' => Yii::t('app', 'Rating'),
-            'image' => Yii::t('app', 'Image'),
+            'testimonial_image' => Yii::t('app', 'Image'),
             'created_by' => Yii::t('app', 'Created By'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),

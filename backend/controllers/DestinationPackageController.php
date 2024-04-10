@@ -110,12 +110,15 @@ class DestinationPackageController extends Controller
                 $image = UploadedFile::getInstance($model, 'package_image');
                 if (!is_null($image)) {
                     $model->package_image = $image->name;
-                    $doc_name = $image->name;
-                    $ext = $image->getExtension();
                     // generate a unique file name to prevent duplicate filenames
                     $model->package_image = date('YmdHis') . $image->name;
                     // the path to save file, you can set an uploadPath
                     $path = Yii::$app->basePath . '/web/uploads/DestinationPackageImage/';
+                    // Check if the destination folder exists, and create it if not
+                    $destinationFolder = Yii::getAlias('@webroot/uploads/DestinationPackageImage/');
+                    if (!is_dir($destinationFolder)) {
+                        mkdir($destinationFolder, 0755, true);
+                    }
                     $path = $path . $model->package_image;
                     $image->saveAs($path);
                 }
@@ -192,17 +195,59 @@ class DestinationPackageController extends Controller
                 ];
             } else if ($model->load($request->post())) {
                 $model->package_addons = implode(',', $model->package_addons);
-                $model->package_image = 'new.jpg';
-                if ($model->save()) {
-                    return [
-                        'forceReload' => '#crud-datatable-pjax',
-                        'title' => "DestinationPackage #" . $id,
-                        'content' => $this->renderAjax('view', [
-                            'model' => $model,
-                        ]),
-                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
-                            Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
-                    ];
+                // Get the old image path
+                $oldImagePath = $model->oldAttributes['package_image']; // Replace with your actual image attribute name
+                $oldFullImagePath = Yii::getAlias('@webroot/uploads/DestinationPackageImage/' . $oldImagePath);
+
+                // Get the new uploaded image
+                $newImage = UploadedFile::getInstance($model, 'package_image');
+                // Check if the destination folder exists, and create it if not
+                $destinationFolder = Yii::getAlias('@webroot/uploads/DestinationPackageImage/');
+                if (!is_dir($destinationFolder)) {
+                    mkdir($destinationFolder, 0755, true);
+                }
+
+                if ($newImage) {
+                    // Generate a new unique file name
+                    $newImageName = Yii::$app->security->generateRandomString() . '.' . $newImage->extension;
+                    $newFullImagePath = Yii::getAlias('@webroot/uploads/DestinationPackageImage/' . $newImageName);
+
+                    // Move the uploaded image to the designated folder
+                    if ($newImage->saveAs($newFullImagePath)) {
+                        // Update the model with the new image path
+                        $model->package_image = $newImageName;
+
+                        if ($model->save()) {
+                            // Delete the old image if it exists
+                            if (!empty($oldImagePath) && file_exists($oldFullImagePath)) {
+                                ImageHelper::deleteImage($oldFullImagePath);
+                            }
+
+                            return [
+                                'forceReload' => '#crud-datatable-pjax',
+                                'title' => "DestinationPackage #" . $id,
+                                'content' => $this->renderAjax('view', [
+                                    'model' => $model,
+                                ]),
+                                'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                                    Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+                            ];
+                        }
+                    }
+                } else {
+                    // No new image uploaded, just save the model
+
+                    if ($model->save()) {
+                        return [
+                            'forceReload' => '#crud-datatable-pjax',
+                            'title' => "DestinationPackage #" . $id,
+                            'content' => $this->renderAjax('view', [
+                                'model' => $model,
+                            ]),
+                            'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                                Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+                        ];
+                    }
                 }
             } else {
                 $model->package_addons = explode(',', $model->package_addons);
@@ -221,13 +266,50 @@ class DestinationPackageController extends Controller
             /*
             *   Process for non-ajax request
             */
-            if ($model->load($request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            } else {
-                return $this->render('update', [
-                    'model' => $model,
-                ]);
+            if ($model->load($request->post())) {
+
+                // Get the old image path
+                $oldImagePath = $model->oldAttributes['package_image']; // Replace with your actual image attribute name
+                $oldFullImagePath = Yii::getAlias('@webroot/uploads/DestinationPackageImage/' . $oldImagePath);
+
+                // Get the new uploaded image
+                $newImage = UploadedFile::getInstance($model, 'package_image');
+                // Check if the destination folder exists, and create it if not
+                $destinationFolder = Yii::getAlias('@webroot/uploads/DestinationPackageImage/');
+                if (!is_dir($destinationFolder)) {
+                    mkdir($destinationFolder, 0755, true);
+                }
+
+                if ($newImage) {
+                    // Generate a new unique file name
+                    $newImageName = Yii::$app->security->generateRandomString() . '.' . $newImage->extension;
+                    $newFullImagePath = Yii::getAlias('@webroot/uploads/DestinationPackageImage/' . $newImageName);
+
+                    // Move the uploaded image to the designated folder
+                    if ($newImage->saveAs($newFullImagePath)) {
+                        // Update the model with the new image path
+                        $model->package_image = $newImageName;
+
+                        if ($model->save()) {
+                            // Delete the old image if it exists
+                            if (!empty($oldImagePath) && file_exists($oldFullImagePath)) {
+                                ImageHelper::deleteImage($oldFullImagePath);
+                            }
+
+                            return $this->redirect(['view', 'id' => $model->id]);
+                        }
+                    }
+                } else {
+
+                    if ($model->save()) {
+                        return $this->redirect(['view', 'id' => $model->id]);
+                    }
+                }
             }
+
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
     }
 
@@ -240,21 +322,23 @@ class DestinationPackageController extends Controller
      */
     public function actionDelete($id)
     {
-        $request = Yii::$app->request;
-        $this->findModel($id)->delete();
+        $model = DestinationPackage::findOne($id);
 
-        if ($request->isAjax) {
-            /*
-            *   Process for ajax request
-            */
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            return ['forceClose' => true, 'forceReload' => '#crud-datatable-pjax'];
-        } else {
-            /*
-            *   Process for non-ajax request
-            */
-            return $this->redirect(['index']);
+        if ($model) {
+            // Get the image path from the model attribute
+            $imagePath = $model->package_image; // Replace with your actual image attribute name
+
+            // Build the full image path
+            $fullImagePath = Yii::getAlias('@webroot/uploads/DestinationPackageImage/' . $imagePath);
+
+            // Delete the image
+            ImageHelper::deleteImage($fullImagePath);
+
+            // Delete the model instance if needed
+            $model->delete();
         }
+
+        return $this->redirect(['index']);
     }
 
     /**
