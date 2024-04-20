@@ -27,7 +27,8 @@
         "rmrevin/yii2-fontawesome": "~3.5",
         "kartik-v/yii2-widget-fileinput": "dev-master",
         "mludvik/yii2-tags-input": "~1.0",
-        "kartik-v/yii2-widget-select2": "@dev"
+        "kartik-v/yii2-widget-select2": "@dev",
+        "kartik-v/yii2-widget-datepicker": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

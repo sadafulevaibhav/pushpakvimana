@@ -85,7 +85,7 @@
                             ['label' => 'Destination Packages', 'url' => ['destination-package/'], 'iconStyle' => 'far'],
                             ['label' => 'Tour Itinerary', 'url' => ['tour-itinerary/'], 'iconStyle' => 'far'],
                             ['label' => 'Tour Packages', 'url' => ['tour-package/'], 'iconStyle' => 'far'],
-                            // ['label' => 'Media', 'url' => ['destination-media/'], 'iconStyle' => 'far'],
+                            ['label' => 'Tour Details', 'url' => ['tour-detail/'], 'iconStyle' => 'far'],
                         ]
                     ],
                     ['label' => 'About Us', 'url' => ['about-us/'], 'iconStyle' => 'far'],
