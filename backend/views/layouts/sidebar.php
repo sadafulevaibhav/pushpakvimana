@@ -81,15 +81,15 @@
                         'items' => [
                             ['label' => 'Addon', 'url' => ['addon/'], 'iconStyle' => 'far'],
                             ['label' => 'Country', 'url' => ['destination-country/'], 'iconStyle' => 'far'],
-                            ['label' => 'Packages', 'url' => ['tour-package/'], 'iconStyle' => 'far'],
+                            ['label' => 'Destination Media', 'url' => ['destination-media/'], 'iconStyle' => 'far'],
                             ['label' => 'Destination Packages', 'url' => ['destination-package/'], 'iconStyle' => 'far'],
                             ['label' => 'Tour Itinerary', 'url' => ['tour-itinerary/'], 'iconStyle' => 'far'],
-                            ['label' => 'Media', 'url' => ['destination-media/'], 'iconStyle' => 'far'],
-                            // ['label' => 'Media', 'url' => ['destination-media/'], 'iconStyle' => 'far'],
+                            ['label' => 'Tour Packages', 'url' => ['tour-package/'], 'iconStyle' => 'far'],
+                            ['label' => 'Tour Details', 'url' => ['tour-detail/'], 'iconStyle' => 'far'],
                         ]
                     ],
                     ['label' => 'About Us', 'url' => ['about-us/'], 'iconStyle' => 'far'],
-                    ['label' => 'Testimonials', 'url' => ['app-testimonial/'], 'iconStyle' => 'far'],
+                    ['label' => 'App Testimonials', 'url' => ['app-testimonial/'], 'iconStyle' => 'far'],
                 ],
             ]);
             ?>

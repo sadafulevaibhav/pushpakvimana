@@ -3,8 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\TourPackage;
-use common\models\TourPackageSearch;
+use common\models\Activities;
+use common\models\ActivitiesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -14,9 +14,9 @@ use yii\web\UploadedFile;
 use common\components\ImageHelper;
 
 /**
- * TourPackageController implements the CRUD actions for TourPackage model.
+ * ActivitiesController implements the CRUD actions for Activities model.
  */
-class TourPackageController extends Controller
+class ActivitiesController extends Controller
 {
     /**
      * @inheritdoc
@@ -35,12 +35,12 @@ class TourPackageController extends Controller
     }
 
     /**
-     * Lists all TourPackage models.
+     * Lists all Activities models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TourPackageSearch();
+        $searchModel = new ActivitiesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -51,7 +51,7 @@ class TourPackageController extends Controller
 
 
     /**
-     * Displays a single TourPackage model.
+     * Displays a single Activities model.
      * @param integer $id
      * @return mixed
      */
@@ -61,7 +61,7 @@ class TourPackageController extends Controller
         if ($request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             return [
-                'title' => "TourPackage #" . $id,
+                'title' => "Activities #" . $id,
                 'content' => $this->renderAjax('view', [
                     'model' => $this->findModel($id),
                 ]),
@@ -76,7 +76,7 @@ class TourPackageController extends Controller
     }
 
     /**
-     * Creates a new TourPackage model.
+     * Creates a new Activities model.
      * For ajax request will return json object
      * and for non-ajax request if creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -84,7 +84,7 @@ class TourPackageController extends Controller
     public function actionCreate()
     {
         $request = Yii::$app->request;
-        $model = new TourPackage();
+        $model = new Activities();
 
         if ($request->isAjax) {
             /*
@@ -93,7 +93,7 @@ class TourPackageController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             if ($request->isGet) {
                 return [
-                    'title' => "Create new TourPackage",
+                    'title' => "Create new Activities",
                     'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
@@ -102,35 +102,35 @@ class TourPackageController extends Controller
 
                 ];
             } else if ($model->load($request->post())) {
-
-                $image = UploadedFile::getInstance($model, 'package_media');
+                $image = UploadedFile::getInstance($model, 'activity_icon');
                 if (!is_null($image)) {
-                    $model->package_media = $image->name;
+                    $model->activity_icon = $image->name;
                     // generate a unique file name to prevent duplicate filenames
-                    $model->package_media = date('YmdHis') . $image->name;
+                    $model->activity_icon = date('YmdHis') . $image->name;
                     // the path to save file, you can set an uploadPath
-                    $path = Yii::$app->basePath . '/web/uploads/TourPackage/';
+                    $path = Yii::$app->basePath . '/web/uploads/ActivityIcon/';
                     // Check if the destination folder exists, and create it if not
-                    $destinationFolder = Yii::getAlias('@webroot/uploads/TourPackage/');
+                    $destinationFolder = Yii::getAlias('@webroot/uploads/ActivityIcon/');
                     if (!is_dir($destinationFolder)) {
                         mkdir($destinationFolder, 0755, true);
                     }
-                    $path = $path . $model->package_media;
+                    $path = $path . $model->activity_icon;
                     $image->saveAs($path);
                 }
 
                 $model->save();
+
                 return [
                     'forceReload' => '#crud-datatable-pjax',
-                    'title' => "Create new TourPackage",
-                    'content' => '<span class="text-success">Create TourPackage success</span>',
+                    'title' => "Create new Activities",
+                    'content' => '<span class="text-success">Create Activities success</span>',
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::a('Create More', ['create'], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
 
                 ];
             } else {
                 return [
-                    'title' => "Create new TourdfdfdfdfPackage",
+                    'title' => "Create new Activities",
                     'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
@@ -154,7 +154,7 @@ class TourPackageController extends Controller
     }
 
     /**
-     * Updates an existing TourPackage model.
+     * Updates an existing Activities model.
      * For ajax request will return json object
      * and for non-ajax request if update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
@@ -172,7 +172,7 @@ class TourPackageController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             if ($request->isGet) {
                 return [
-                    'title' => "Update TourPackage #" . $id,
+                    'title' => "Update Activities #" . $id,
                     'content' => $this->renderAjax('update', [
                         'model' => $model,
                     ]),
@@ -181,13 +181,13 @@ class TourPackageController extends Controller
                 ];
             } else if ($model->load($request->post())) {
                 // Get the old image path
-                $oldImagePath = $model->oldAttributes['package_media']; // Replace with your actual image attribute name
-                $oldFullImagePath = Yii::getAlias('@webroot/uploads/TourPackage/' . $oldImagePath);
+                $oldImagePath = $model->oldAttributes['activity_icon']; // Replace with your actual image attribute name
+                $oldFullImagePath = Yii::getAlias('@webroot/uploads/ActivityIcon/' . $oldImagePath);
 
                 // Get the new uploaded image
-                $newImage = UploadedFile::getInstance($model, 'package_media');
+                $newImage = UploadedFile::getInstance($model, 'activity_icon');
                 // Check if the destination folder exists, and create it if not
-                $destinationFolder = Yii::getAlias('@webroot/uploads/TourPackage/');
+                $destinationFolder = Yii::getAlias('@webroot/uploads/ActivityIcon/');
                 if (!is_dir($destinationFolder)) {
                     mkdir($destinationFolder, 0755, true);
                 }
@@ -195,12 +195,12 @@ class TourPackageController extends Controller
                 if ($newImage) {
                     // Generate a new unique file name
                     $newImageName = Yii::$app->security->generateRandomString() . '.' . $newImage->extension;
-                    $newFullImagePath = Yii::getAlias('@webroot/uploads/TourPackage/' . $newImageName);
+                    $newFullImagePath = Yii::getAlias('@webroot/uploads/ActivityIcon/' . $newImageName);
 
                     // Move the uploaded image to the designated folder
                     if ($newImage->saveAs($newFullImagePath)) {
                         // Update the model with the new image path
-                        $model->package_media = $newImageName;
+                        $model->activity_icon = $newImageName;
 
                         if ($model->save()) {
                             // Delete the old image if it exists
@@ -237,7 +237,7 @@ class TourPackageController extends Controller
 
                 return [
                     'forceReload' => '#crud-datatable-pjax',
-                    'title' => "TourPackage #" . $id,
+                    'title' => "Activities #" . $id,
                     'content' => $this->renderAjax('view', [
                         'model' => $model,
                     ]),
@@ -250,15 +250,14 @@ class TourPackageController extends Controller
             *   Process for non-ajax request
             */
             if ($model->load($request->post())) {
-
                 // Get the old image path
-                $oldImagePath = $model->oldAttributes['package_media']; // Replace with your actual image attribute name
-                $oldFullImagePath = Yii::getAlias('@webroot/uploads/TourPackage/' . $oldImagePath);
+                $oldImagePath = $model->oldAttributes['activity_icon']; // Replace with your actual image attribute name
+                $oldFullImagePath = Yii::getAlias('@webroot/uploads/ActivityIcon/' . $oldImagePath);
 
                 // Get the new uploaded image
-                $newImage = UploadedFile::getInstance($model, 'package_media');
+                $newImage = UploadedFile::getInstance($model, 'activity_icon');
                 // Check if the destination folder exists, and create it if not
-                $destinationFolder = Yii::getAlias('@webroot/uploads/TourPackage/');
+                $destinationFolder = Yii::getAlias('@webroot/uploads/ActivityIcon/');
                 if (!is_dir($destinationFolder)) {
                     mkdir($destinationFolder, 0755, true);
                 }
@@ -266,12 +265,12 @@ class TourPackageController extends Controller
                 if ($newImage) {
                     // Generate a new unique file name
                     $newImageName = Yii::$app->security->generateRandomString() . '.' . $newImage->extension;
-                    $newFullImagePath = Yii::getAlias('@webroot/uploads/TourPackage/' . $newImageName);
+                    $newFullImagePath = Yii::getAlias('@webroot/uploads/ActivityIcon/' . $newImageName);
 
                     // Move the uploaded image to the designated folder
                     if ($newImage->saveAs($newFullImagePath)) {
                         // Update the model with the new image path
-                        $model->package_media = $newImageName;
+                        $model->activity_icon = $newImageName;
 
                         if ($model->save()) {
                             // Delete the old image if it exists
@@ -297,7 +296,7 @@ class TourPackageController extends Controller
     }
 
     /**
-     * Delete an existing TourPackage model.
+     * Delete an existing Activities model.
      * For ajax request will return json object
      * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
@@ -305,14 +304,14 @@ class TourPackageController extends Controller
      */
     public function actionDelete($id)
     {
-        $model = TourPackage::findOne($id);
+        $model = Activities::findOne($id);
 
         if ($model) {
             // Get the image path from the model attribute
-            $imagePath = $model->package_media; // Replace with your actual image attribute name
+            $imagePath = $model->activity_icon; // Replace with your actual image attribute name
 
             // Build the full image path
-            $fullImagePath = Yii::getAlias('@webroot/uploads/TourPackage/' . $imagePath);
+            $fullImagePath = Yii::getAlias('@webroot/uploads/ActivityIcon/' . $imagePath);
 
             // Delete the image
             ImageHelper::deleteImage($fullImagePath);
@@ -325,7 +324,7 @@ class TourPackageController extends Controller
     }
 
     /**
-     * Delete multiple existing TourPackage model.
+     * Delete multiple existing Activities model.
      * For ajax request will return json object
      * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
@@ -355,15 +354,15 @@ class TourPackageController extends Controller
     }
 
     /**
-     * Finds the TourPackage model based on its primary key value.
+     * Finds the Activities model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return TourPackage the loaded model
+     * @return Activities the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = TourPackage::findOne($id)) !== null) {
+        if (($model = Activities::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

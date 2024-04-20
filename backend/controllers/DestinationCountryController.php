@@ -103,23 +103,23 @@ class DestinationCountryController extends Controller
                 ];
             } else if ($model->load($request->post())) {
                 $image = UploadedFile::getInstance($model, 'destination_media');
-                // Check if the destination folder exists, and create it if not
-                $destinationFolder = Yii::getAlias('@webroot/uploads/DestinationCountry/');
-                if (!is_dir($destinationFolder)) {
-                    mkdir($destinationFolder, 0755, true);
-                }
-
                 if (!is_null($image)) {
-                    $model->destination_media = $image->destination_media;
-                    $doc_name = $image->destination_media;
-                    $ext = $image->getExtension();
+                    $model->destination_media = $image->name;
                     // generate a unique file name to prevent duplicate filenames
-                    $model->destination_media = date('YmdHis') . $image->destination_media;
+                    $model->destination_media = date('YmdHis') . $image->name;
                     // the path to save file, you can set an uploadPath
                     $path = Yii::$app->basePath . '/web/uploads/DestinationCountry/';
+                    // Check if the destination folder exists, and create it if not
+                    $destinationFolder = Yii::getAlias('@webroot/uploads/DestinationCountry/');
+                    if (!is_dir($destinationFolder)) {
+                        mkdir($destinationFolder, 0755, true);
+                    }
                     $path = $path . $model->destination_media;
                     $image->saveAs($path);
                 }
+
+                $model->save(false);
+
 
                 $model->save();
                 return [

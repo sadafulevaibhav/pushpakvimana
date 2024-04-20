@@ -19,7 +19,7 @@ class AppTestimonialSearch extends AppTestimonial
     {
         return [
             [['id', 'created_by', 'updated_by', 'company_id'], 'integer'],
-            [['full_name', 'designation', 'email', 'comment', 'rating', 'image', 'created_at', 'updated_at'], 'safe'],
+            [['full_name', 'designation', 'email', 'comment', 'rating', 'testimonial_image', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -69,7 +69,7 @@ class AppTestimonialSearch extends AppTestimonial
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'comment', $this->comment])
             ->andFilterWhere(['like', 'rating', $this->rating])
-            ->andFilterWhere(['like', 'image', $this->image]);
+            ->andFilterWhere(['like', 'testimonial_image', $this->testimonial_image]);
 
         return $dataProvider;
     }

@@ -102,16 +102,19 @@ class AppTestimonialController extends Controller
 
                 ];
             } else if ($model->load($request->post())) {
-                $image = UploadedFile::getInstance($model, 'image');
+                $image = UploadedFile::getInstance($model, 'testimonial_image');
                 if (!is_null($image)) {
-                    $model->image = $image->name;
-                    $doc_name = $image->name;
-                    $ext = $image->getExtension();
+                    $model->testimonial_image = $image->name;
                     // generate a unique file name to prevent duplicate filenames
-                    $model->image = date('YmdHis') . $image->name;
+                    $model->testimonial_image = date('YmdHis') . $image->name;
                     // the path to save file, you can set an uploadPath
                     $path = Yii::$app->basePath . '/web/uploads/AppTestimonial/';
-                    $path = $path . $model->image;
+                    // Check if the destination folder exists, and create it if not
+                    $destinationFolder = Yii::getAlias('@webroot/uploads/AppTestimonial/');
+                    if (!is_dir($destinationFolder)) {
+                        mkdir($destinationFolder, 0755, true);
+                    }
+                    $path = $path . $model->testimonial_image;
                     $image->saveAs($path);
                 }
                 $model->created_at = date('Y-m-d H:i:s'); // Update the created_at field
@@ -183,11 +186,11 @@ class AppTestimonialController extends Controller
                 ];
             } else if ($model->load($request->post())) {
                 // Get the old image path
-                $oldImagePath = $model->oldAttributes['image']; // Replace with your actual image attribute name
+                $oldImagePath = $model->oldAttributes['testimonial_image']; // Replace with your actual image attribute name
                 $oldFullImagePath = Yii::getAlias('@webroot/uploads/AppTestimonial/' . $oldImagePath);
 
                 // Get the new uploaded image
-                $newImage = UploadedFile::getInstance($model, 'image');
+                $newImage = UploadedFile::getInstance($model, 'testimonial_image');
                 // Check if the destination folder exists, and create it if not
                 $destinationFolder = Yii::getAlias('@webroot/uploads/AppTestimonial/');
                 if (!is_dir($destinationFolder)) {
@@ -202,7 +205,7 @@ class AppTestimonialController extends Controller
                     // Move the uploaded image to the designated folder
                     if ($newImage->saveAs($newFullImagePath)) {
                         // Update the model with the new image path
-                        $model->image = $newImageName;
+                        $model->testimonial_image = $newImageName;
                         $model->updated_at = date('Y-m-d H:i:s'); // Update the updated_at field
                         $model->updated_by = Yii::$app->user->id; // Update the updated_by field
 
@@ -256,11 +259,11 @@ class AppTestimonialController extends Controller
              */
             if ($model->load($request->post())) {
                 // Get the old image path
-                $oldImagePath = $model->oldAttributes['image']; // Replace with your actual image attribute name
+                $oldImagePath = $model->oldAttributes['testimonial_image']; // Replace with your actual image attribute name
                 $oldFullImagePath = Yii::getAlias('@webroot/uploads/AppTestimonial/' . $oldImagePath);
 
                 // Get the new uploaded image
-                $newImage = UploadedFile::getInstance($model, 'image');
+                $newImage = UploadedFile::getInstance($model, 'testimonial_image');
                 // Check if the destination folder exists, and create it if not
                 $destinationFolder = Yii::getAlias('@webroot/uploads/AppTestimonial/');
                 if (!is_dir($destinationFolder)) {
@@ -275,7 +278,7 @@ class AppTestimonialController extends Controller
                     // Move the uploaded image to the designated folder
                     if ($newImage->saveAs($newFullImagePath)) {
                         // Update the model with the new image path
-                        $model->image = $newImageName;
+                        $model->testimonial_image = $newImageName;
                         $model->updated_at = date('Y-m-d H:i:s'); // Update the updated_at field
                         $model->updated_by = Yii::$app->user->id; // Update the updated_by field
 
@@ -318,7 +321,7 @@ class AppTestimonialController extends Controller
 
         if ($model) {
             // Get the image path from the model attribute
-            $imagePath = $model->image; // Replace with your actual image attribute name
+            $imagePath = $model->testimonial_image; // Replace with your actual image attribute name
 
             // Build the full image path
             $fullImagePath = Yii::getAlias('@webroot/uploads/AppTestimonial/' . $imagePath);

@@ -18,24 +18,26 @@ AppAsset::register($this);
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
+
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+  <meta charset="<?= Yii::$app->charset ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <?php $this->registerCsrfMetaTags() ?>
+  <title><?= Html::encode($this->title) ?></title>
+  <?php $this->head() ?>
 </head>
+
 <body class="d-flex flex-column h-100">
 
-<?php $this->beginBody() ?>
+  <?php $this->beginBody() ?>
 
-<header>
-<div class="d-none d-sm-none d-md-none d-lg-block">
+  <header>
+    <div class="d-none d-sm-none d-md-none d-lg-block">
       <div class="desktop-header">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-between">
             <div class="col-auto">
-              <a href="<?=Yii::$app->homeUrl?>"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
+              <a href="<?= Yii::$app->homeUrl ?>"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
             </div>
             <div class="col-auto">
               <nav>
@@ -80,13 +82,13 @@ AppAsset::register($this);
                     UPCOMING TOURS
                     <img src="images/map-icon.svg" class="img-fluid" alt="" />
                   </a>
-                  <?php if(Yii::$app->user->isGuest) { ?>
-                   <a href="<?=Yii::$app->homeUrl.'site/login'?>" class="myAccount-btn">LOGIN
-                    <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
-                  <?php }else {?>
+                  <?php if (Yii::$app->user->isGuest) { ?>
+                    <a href="<?= Yii::$app->homeUrl . 'site/login' ?>" class="myAccount-btn">LOGIN
+                      <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                  <?php } else { ?>
                     <a href="#" class="myAccount-btn">MY ACCOUNT
-                    <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
-                  <?php }?>
+                      <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                  <?php } ?>
                 </div>
               </nav>
             </div>
@@ -102,27 +104,26 @@ AppAsset::register($this);
               <a href="index.html"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
             </div>
             <div class="col-auto">
-              <a href="#" class="menu-btn" data-bs-toggle="modal" data-bs-target="#menu-modal"><img
-                  src="images/hamburger-icon.svg" class="img-fluid" alt="" /></a>
+              <a href="#" class="menu-btn" data-bs-toggle="modal" data-bs-target="#menu-modal"><img src="images/hamburger-icon.svg" class="img-fluid" alt="" /></a>
             </div>
           </div>
         </div>
       </div>
     </div>
-</header>
+  </header>
 
-<main role="main" class="flex-shrink-0">
-    
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    
-</main>
+  <main role="main" class="flex-shrink-0">
 
-<footer class="">
-<div class="container-fluid">
+    <?= Breadcrumbs::widget([
+      'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
+    <?= Alert::widget() ?>
+    <?= $content ?>
+
+  </main>
+
+  <footer class="">
+    <div class="container-fluid">
       <div class="row align-items-center justify-content-center justify-content-lg-between">
         <div class="col-auto">
           <a href="index.html"><img src="images/light-logo.svg" class="img-fluid" alt="" /></a>
@@ -144,8 +145,7 @@ AppAsset::register($this);
             <h3>Contact Us On</h3>
             <ul>
               <li>
-                <a href="mailto:pushpakavimana@gmail.com" class="para"><img src="images/mail-icon.svg"
-                    alt="" />pushpakavimana@gmail.com</a>
+                <a href="mailto:pushpakavimana@gmail.com" class="para"><img src="images/mail-icon.svg" alt="" />pushpakavimana@gmail.com</a>
               </li>
               <li>
                 <a href="mailto:pushpakavimana@gmail.com" class="para"><img src="images/phone-icon.svg" alt="" />+91
@@ -157,17 +157,17 @@ AppAsset::register($this);
         </div>
       </div>
     </div>
-</footer>
-<!-- header modal  start -->
+  </footer>
+  <!-- header modal  start -->
 
-<div class="modal fade" id="menu-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="menu-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
           <div class="container-fluid">
             <div class="row align-items-center justify-content-between">
               <div class="col-auto">
-                <a href="<?=Yii::$app->homeUrl?>"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
+                <a href="<?= Yii::$app->homeUrl ?>"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
               </div>
               <div class="col-auto text-end">
                 <button type="button" class="btn-closed" data-bs-dismiss="modal" aria-label="Close">
@@ -180,7 +180,7 @@ AppAsset::register($this);
         <div class="modal-body">
           <nav>
             <ul>
-              <li><a href="<?=Yii::$app->homeUrl?>">HOME</a></li>
+              <li><a href="<?= Yii::$app->homeUrl ?>">HOME</a></li>
               <li><a href="index.html">ABOUT US</a></li>
               <li><a href="index.html">CONTACT US</a></li>
               <li><a href="index.html">TOURS</a></li>
@@ -191,13 +191,13 @@ AppAsset::register($this);
                 UPCOMING TOURS
                 <img src="images/map-icon.svg" class="img-fluid" alt="" />
               </a>
-              <?php if(Yii::$app->user->isGuest) { ?>
-              <a href="#" class="myAccount-btn">LOGIN
-                <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
-                <?php }else {?>
-                  <a href="#" class="myAccount-btn">MY ACCOUNT
-                    <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
-                <?php }?>
+              <?php if (Yii::$app->user->isGuest) { ?>
+                <a href="#" class="myAccount-btn">LOGIN
+                  <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+              <?php } else { ?>
+                <a href="#" class="myAccount-btn">MY ACCOUNT
+                  <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+              <?php } ?>
             </div>
           </nav>
         </div>
@@ -205,7 +205,7 @@ AppAsset::register($this);
     </div>
   </div>
   <?php
-$script = <<< JS
+  $script = <<< JS
     $(".owl-carousel.welcome-carousel").owlCarousel({
       loop: true,
       margin: 20,
@@ -266,11 +266,12 @@ $script = <<< JS
     }
 });
 JS;
-$this->registerJs($script);
+  $this->registerJs($script);
 
-// $this->registerJsFile(Yii::$app->request->baseUrl.'/js/moment.min.js', ['depends' => [\yii\web\JqueryAsset::className()], ['position' => \yii\web\View::POS_END]]);
-?>
-<?php $this->endBody() ?>
+  // $this->registerJsFile(Yii::$app->request->baseUrl.'/js/moment.min.js', ['depends' => [\yii\web\JqueryAsset::className()], ['position' => \yii\web\View::POS_END]]);
+  ?>
+  <?php $this->endBody() ?>
 </body>
+
 </html>
 <?php $this->endPage();
