@@ -42,7 +42,7 @@ AppAsset::register($this);
             <div class="col-auto">
               <nav>
                 <ul>
-                  <li><a href="index.html">HOME</a></li>
+                  <li><a href="<?= Yii::$app->homeUrl ?>">HOME</a></li>
                   <li><a href="index.html">ABOUT US</a></li>
                   <li><a href="index.html">CONTACT US</a></li>
                   <li>

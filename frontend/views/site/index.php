@@ -89,10 +89,14 @@ $this->title = 'Pushpaka Vimana';
               $imageSource = Yii::getAlias('@web/backend/' . str_replace(Yii::getAlias('@backend'), '', $defaultImagePath));
             }
             ?>
-            <div class="image-container">
-              <?= Html::img($imageSource, ['class' => 'img-fluid', 'alt' => $country->country_name]) ?>
-            </div>
-            <span><?= Html::encode($country->country_name) ?></span>
+            <?php if ($country->id) { ?>
+              <div class="image-container">
+                <a href="<?= Yii::$app->homeUrl . 'site/packages-page?id=' ?><?= Html::encode($country->id) ?>">
+                  <?= Html::img($imageSource, ['class' => 'img-fluid', 'alt' => $country->country_name]) ?>
+                </a>
+              </div>
+              <span><?= Html::encode($country->country_name) ?></span>
+            <?php } ?>
           </div>
         <?php endforeach; ?>
       </div>
@@ -212,7 +216,6 @@ $this->title = 'Pushpaka Vimana';
               </div>
             </div>
           <?php endforeach; ?>
-
         </div>
       </div>
     </div>
