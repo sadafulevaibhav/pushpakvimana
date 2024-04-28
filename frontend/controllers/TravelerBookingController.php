@@ -5,6 +5,11 @@ namespace frontend\controllers;
 use Yii;
 use common\models\TravelerBooking;
 use common\models\TravelerBookingSearch;
+use common\models\TourLandingImage;
+use common\models\TourItinerary;
+use common\models\DestinationCountry;
+use common\models\DestinationMedia;
+use common\models\Addon;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -73,6 +78,47 @@ class TravelerBookingController extends Controller
         }
     }
 
+        /**
+     * Redirect to Packages Page.
+     *
+     * @return mixed
+     */
+    public function actionPackagesPage($id)
+    {
+        $model = new TravelerBooking();
+        $country = DestinationCountry::findOne($id);
+        $tourItineraries = TourItinerary::find()
+            ->where(['country_id' => $country->id])
+            ->all();
+
+        $tourLandingImage = TourLandingImage::find()
+            ->where(['country_id' => $country->id])
+            ->one();
+
+        $destinationMedia = DestinationMedia::find()
+            ->where(['country_id' => $country->id])
+            ->all();
+
+        /*
+        $destinationPackage = DestinationPackage::find()
+            ->where(['country_id' => $country->id])
+            ->andWhere(['package_id' => $packageId]) // Add this line
+            ->all();
+        */
+
+        $addons = Addon::find()->all();
+
+        return $this->render('packages-page', [
+            'country' => $country,
+            'tourLandingImage' => $tourLandingImage,
+            'tourItineraries' => $tourItineraries,
+            'destinationMediaList' => $destinationMedia,
+            'model' => $model,
+            //'destinationPackage' => $destinationPackage,
+            'addons' => $addons,
+        ]);
+    }
+
     /**
      * Creates a new TravelerBooking model.
      * For ajax request will return json object
@@ -83,7 +129,6 @@ class TravelerBookingController extends Controller
     {
         $request = Yii::$app->request;
         $model = new TravelerBooking();
-
         if($request->isAjax){
             /*
             *   Process for ajax request
@@ -100,9 +145,10 @@ class TravelerBookingController extends Controller
 
                 ];
             }else if($model->load($request->post()) && $model->save()){
+                
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "Create new TravelerBooking",
+                    'title'=> "Create new Traveler Booking",
                     'content'=>'<span class="text-success">Create TravelerBooking success</span>',
                     'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
                             Html::a('Create More',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
@@ -123,8 +169,41 @@ class TravelerBookingController extends Controller
             /*
             *   Process for non-ajax request
             */
-            if ($model->load($request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($request->post())) {
+                $requestData = $request->post();
+                foreach($requestData['TravelerBooking']['travellers'] as $key=>$val) {
+                    $modelNew = new TravelerBooking();
+                    $modelNew->traveler_name = $val['traveler_name'];
+                    $modelNew->traveler_age = $val['traveler_age'];
+                    $modelNew->traveler_gender = $val['traveler_gender'];
+                    $modelNew->traveler_passport = $val['traveler_passport'];
+                    $modelNew->save(false);
+                    // echo "<pre>";print_r($val);exit; 
+                }
+                // echo "<pre>";print_r($request->post());exit;
+                // $model->batchInsert('traveler_booking',['traveler_name', 'traveler_age', 'traveler_gender', 'traveler_passport'],$requestData['TravelerBooking']['travellers']);
+                // && $model->save()
+                $stripe = new \Stripe\StripeClient('sk_test_51P7XjLSJAgaJ3Mvs7bm4XXfWAEd19wgT4Bj2ZNqMcT0beVYnGF7nivoG01CrA8NCZqbyvxsfBrM5Ll9XyGTMh2uM007a3J4UXu');
+
+                $checkout_session = $stripe->checkout->sessions->create([
+                'line_items' => [[
+                    'price_data' => [
+                    'currency' => 'inr',
+                    'product_data' => [
+                        'name' => 'Packagge',
+                    ],
+                    'unit_amount' => 2000,
+                    ],
+                    'quantity' => 1,
+                ]],
+                'mode' => 'payment',
+                'success_url' => 'http://localhost:4242/success',
+                'cancel_url' => 'http://localhost:4242/cancel',
+                ]);
+
+header("HTTP/1.1 303 See Other");
+header("Location: " . $checkout_session->url);exit;
+                // return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
                     'model' => $model,
@@ -133,7 +212,30 @@ class TravelerBookingController extends Controller
         }
 
     }
-
+    public function actionCreateCheckoutSession()
+    {
+$stripe = new \Stripe\StripeClient([
+    "api_key" => 'sk_test_51P7XjLSJAgaJ3Mvs7bm4XXfWAEd19wgT4Bj2ZNqMcT0beVYnGF7nivoG01CrA8NCZqbyvxsfBrM5Ll9XyGTMh2uM007a3J4UXu'
+  ]);
+  
+  $checkout_session = $stripe->checkout->sessions->create([
+    'line_items' => [[
+      'price_data' => [
+        'currency' => 'INR',
+        'product_data' => [
+          'name' => 'T-shirt',
+        ],
+        'unit_amount' => 2000,
+      ],
+      'quantity' => 1,
+    ]],
+    'mode' => 'payment',
+    'ui_mode' => 'embedded',
+    // "address" => ["city" => 'Nagar', "country" => 'India', "line1" => 'Ahmednagar', "line2" => "Bhingar", "postal_code" => 414002, "state" => 'Maharashtra'],
+    'return_url' => 'https://example.com/checkout/return?session_id={CHECKOUT_SESSION_ID}',
+  ]);
+  echo json_encode(array('clientSecret' => $checkout_session->client_secret));exit;
+}
     /**
      * Updates an existing TravelerBooking model.
      * For ajax request will return json object

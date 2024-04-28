@@ -6,22 +6,6 @@ use yii\bootstrap5\Html;
 use yii\widgets\ActiveForm;
 $this->title = 'Pushpaka Vimana';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pushpaka Vimana</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="icon" type="image/x-icon" href="images/fav.svg" />
-</head>
-
-<body>
     <!-- ********* Packages page start ********* -->
     <div class="packages-welcome-sec">
         <div class="owl-carousel welcome-carousel owl-theme">
@@ -192,17 +176,64 @@ $this->title = 'Pushpaka Vimana';
                                                 <div class="travellers-wrap-flex">
                                                     <div class="travellers-wrap">
                                                         <div class="h3">TRAVELLERS</div>
-                                                        <?php $form = ActiveForm::begin(); ?>
+                                                        <!-- <script src="https://js.stripe.com/v3/"></script>
+                                                        <div id="checkout">
+                                                        </div> -->
+<?php $form = ActiveForm::begin($actions?? ['action' => ['/traveler-booking/create'],
+    'method' => 'post',
+    'options' => ['enctype' => 'multipart/form-data']]); ?>
                                                         <?php
-    echo $form->field($model, 'traveller_name')->widget(MultipleInput::className(), [
-        'max'               => 6,
-        'min'               => 2, // should be at least 2 rows
+    echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
+        'id' => 'model-scales',
+    'cloneButton' => true,
+    'columns' => [
+            [
+                'name'  => 'traveler_name',
+                'type'  => 'textInput',
+                'title' => 'Guest Name',
+                'defaultValue' => '',
+                'options' => [
+                    // 'options' => ['class' => ,]
+                ],
+
+            ],
+            [
+                'name'  => 'traveler_age',
+                'type'  => 'textInput',
+                'title' => 'Age',
+                'defaultValue' => 5,
+                'options' => [
+                    // 'options' => ['class' => 'time-end','data-duration' => 30,]
+                ],
+            ],
+            [
+                'name'  => 'traveler_gender',
+                'type'  => 'dropDownList',
+                'title' => 'Gender',
+                // 'defaultValue' => 1,
+                'items' => ['Male','Female'],
+                // 'options' => [$defaultDay => ['Selected'=>'selected'],'style' => 'width: 100px']
+            ],
+            [
+                'name'  => 'traveler_passport',
+                'type'  => 'textInput',
+                'title' => 'Pasport Number',
+                'defaultValue' => '',
+                'options' => [
+                    // 'options' => ['class' => 'time-end','data-duration' => 30,]
+                ],
+            ],
+        ],
+        'max'               => 10,
+        'min'               => 1, // should be at least 2 rows
         'allowEmptyList'    => false,
         'enableGuessTitle'  => true,
         'addButtonPosition' => MultipleInput::POS_HEADER, // show add button in the header
     ])
     ->label(false);
-?>
+?> <div class="form-group">
+<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+</div>
 <?php ActiveForm::end(); ?>
                                                         <h4>PERSONS</h4>
                                                         <div class="box-wrap mb-4">
@@ -732,6 +763,29 @@ $this->title = 'Pushpaka Vimana';
         </div>
     </div>
     <!-- ********* Packages page end ********* -->
-</body>
+<script>
+    // Initialize Stripe.js
+const stripe = Stripe('pk_test_51P7XjLSJAgaJ3Mvs9TVC9MR4h3mRgH58wOBy0eYmlQPGdS6F1gE7RQzAI0UNzsTgbG6q78WRPMj3PiwULt8UuuRS006v7BgwBQ');
 
-</html>
+initialize();
+
+// Fetch Checkout Session and retrieve the client secret
+async function initialize() {
+  const fetchClientSecret = async () => {
+    const response = await fetch("/pushpakvimana/traveler-booking/create-checkout-session", {
+      method: "GET",
+    });
+    const { clientSecret } = await response.json();
+    return clientSecret;
+  };
+
+  // Initialize Checkout
+  const checkout = await stripe.initEmbeddedCheckout({
+    fetchClientSecret,
+  });
+
+  // Mount Checkout
+  checkout.mount('#checkout');
+}
+
+</script>

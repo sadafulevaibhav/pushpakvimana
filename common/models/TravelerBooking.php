@@ -68,4 +68,23 @@ class TravelerBooking extends \yii\db\ActiveRecord
     {
         return new TravelerBookingQuery(get_called_class());
     }
+
+    public function batchInsert($table, $columns, $rows)
+    {
+        // $table = $this->db->quoteSql($table);
+
+        $columns = array_map(function ($column) {
+            return $this->db->quoteSql($column);
+        }, $columns);
+        echo "<pre>";print_r(array_values($rows));exit;
+
+        $params = [];
+        $sql = $this->db->createCommand()->insert($table,$columns,$rows)->execute();
+        // $this->setRawSql($sql);
+        // $this->bindValues($params);
+        return $this;
+
+	
+
+    }
 }

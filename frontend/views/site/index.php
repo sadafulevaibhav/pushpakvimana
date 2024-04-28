@@ -66,7 +66,7 @@ $this->title = 'Pushpaka Vimana';
     </h4>
   </div>
 </div>
-<div class="upcomming-tours-sec">
+<div class="upcomming-tours-sec" id="upcomming-tours">
   <h2 class="secondary-heading">UPCOMMING TOURS IN 2024</h2>
   <div class="upcomming-tours-wrap">
     <div class="container-fluid">
@@ -91,7 +91,7 @@ $this->title = 'Pushpaka Vimana';
             ?>
             <?php if ($country->id) { ?>
               <div class="image-container">
-                <a href="<?= Yii::$app->homeUrl . 'site/packages-page?id=' ?><?= Html::encode($country->id) ?>">
+                <a href="<?= Yii::$app->homeUrl . 'traveler-booking/packages-page?id=' ?><?= Html::encode($country->id) ?>">
                   <?= Html::img($imageSource, ['class' => 'img-fluid', 'alt' => $country->country_name]) ?>
                 </a>
               </div>
@@ -141,7 +141,7 @@ $this->title = 'Pushpaka Vimana';
   </div>
 </div>
 
-<div class="about-us-sec">
+<div class="about-us-sec" id="about-us">
   <div class="container">
     <h2 class="secondary-heading">ABOUT US</h2>
     <div class="about-flex-overflow">
@@ -187,7 +187,7 @@ $this->title = 'Pushpaka Vimana';
   </div>
 </div>
 -->
-<div class="gallery-sec">
+<div class="gallery-sec" id="galary">
   <div class="container">
     <h2 class="secondary-heading">GALLERY</h2>
     <div class="gallery-flex">
@@ -227,11 +227,12 @@ $this->title = 'Pushpaka Vimana';
   <div class="testimonials-wrap">
     <div class="container">
       <div class="owl-carousel testimonials-owl owl-theme">
-        <?php foreach ($dataAppTestimonialsProvider->getModels() as $app_testimonial) : ?>
+        <?php foreach ($dataAppTestimonialsProvider->getModels() as $app_testimonial){  ?>
           <div class="item">
             <div class="testimonial-card">
               <div class="user-img">
-                <img src="images/user-2.png" class="img-fluid" alt="" />
+              <?= Html::img(Yii::$app->urlManagerAdmin->baseUrl.'/uploads/AppTestimonial/'.$app_testimonial->testimonial_image, ['class' => 'img-fluid', 'alt' => $country->country_name]) ?>
+                <!-- <img src="images/user-2.png" class="img-fluid" alt="" /> -->
                 <div class="text-wrap">
                   <h3><?= Html::encode($app_testimonial->full_name) ?></h3>
                   <h4><?= Html::encode($app_testimonial->designation) ?></h4>
@@ -263,7 +264,7 @@ $this->title = 'Pushpaka Vimana';
               </div>
             </div>
           </div>
-        <?php endforeach; ?>
+        <?php } ?>
       </div>
     </div>
   </div>

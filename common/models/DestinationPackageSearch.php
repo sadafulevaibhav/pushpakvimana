@@ -12,6 +12,7 @@ use common\models\DestinationPackage;
  */
 class DestinationPackageSearch extends DestinationPackage
 {
+    public $package_addons;
     /**
      * @inheritdoc
      */
