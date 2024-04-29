@@ -43,7 +43,7 @@ AppAsset::register($this);
               <nav>
                 <ul>
                   <li><a href="<?= Yii::$app->homeUrl ?>">HOME</a></li>
-                  <li><a href="index.html">ABOUT US</a></li>
+                  <li><a href="<?= Yii::$app->homeUrl ?>#about-us">ABOUT US</a></li>
                   <li><a href="index.html">CONTACT US</a></li>
                   <li>
                     <a href="#toursmenu" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="toursmenu">TOURS</a>
@@ -75,21 +75,23 @@ AppAsset::register($this);
                       </div>
                     </div>
                   </li>
-                  <li><a href="index.html">GALLERY</a></li>
+                  <li><a href="<?= Yii::$app->homeUrl ?>#galary">GALLERY</a></li>
                 </ul>
                 <div class="right-btn">
                   <a href="#" class="upcoming-btn"><img src="images/flight-icon.svg" class="img-fluid" alt="" />
                     UPCOMING TOURS
                     <img src="images/map-icon.svg" class="img-fluid" alt="" />
                   </a>
-                  <?php if (Yii::$app->user->isGuest) { ?>
+                  <?php if (Yii::$app->user->isGuest) {?>
                     <a href="<?= Yii::$app->homeUrl . 'site/login' ?>" class="myAccount-btn">LOGIN
                       <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
                   <?php } else { ?>
-                    <a href="#" class="myAccount-btn">MY ACCOUNT
+                    <a href="#" class="myAccount-btn"><?=Yii::$app->user->identity->firstname.' '. Yii::$app->user->identity->lastname ;?>
                       <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
                   <?php } ?>
                 </div>
+               
+                </li>
               </nav>
             </div>
           </div>

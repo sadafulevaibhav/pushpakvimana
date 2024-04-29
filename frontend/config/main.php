@@ -48,6 +48,10 @@ return [
                 // ...
             ],
         ],
+        'urlManagerAdmin' => [
+            'class' => 'yii\web\urlManager',
+            'baseUrl' => 'backend/web/', //Access frontend web url
+        ]
     ],
     'params' => $params,
 ];

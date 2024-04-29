@@ -146,44 +146,7 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    /**
-     * Redirect to Packages Page.
-     *
-     * @return mixed
-     */
-    public function actionPackagesPage($id)
-    {
-        $country = DestinationCountry::findOne($id);
-        $tourItineraries = TourItinerary::find()
-            ->where(['country_id' => $country->id])
-            ->all();
 
-        $tourLandingImage = TourLandingImage::find()
-            ->where(['country_id' => $country->id])
-            ->one();
-
-        $destinationMedia = DestinationMedia::find()
-            ->where(['country_id' => $country->id])
-            ->all();
-
-        /*
-        $destinationPackage = DestinationPackage::find()
-            ->where(['country_id' => $country->id])
-            ->andWhere(['package_id' => $packageId]) // Add this line
-            ->all();
-        */
-
-        $addons = Addon::find()->all();
-
-        return $this->render('packages-page', [
-            'country' => $country,
-            'tourLandingImage' => $tourLandingImage,
-            'tourItineraries' => $tourItineraries,
-            'destinationMediaList' => $destinationMedia,
-            //'destinationPackage' => $destinationPackage,
-            'addons' => $addons,
-        ]);
-    }
 
 
     /**
