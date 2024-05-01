@@ -7,6 +7,9 @@ use common\widgets\Alert;
 use frontend\assets\AppAsset;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
+use yii\bootstrap4\Modal;
+use johnitvn\ajaxcrud\CrudAsset;
+use yii\widgets\ActiveForm;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 use yii\bootstrap5\Button;
@@ -14,6 +17,8 @@ use yii\bootstrap4\BootstrapAsset;
 
 // BootstrapAsset::register($this);
 AppAsset::register($this);
+
+CrudAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -82,15 +87,15 @@ AppAsset::register($this);
                     UPCOMING TOURS
                     <img src="images/map-icon.svg" class="img-fluid" alt="" />
                   </a>
-                  <?php if (Yii::$app->user->isGuest) {?>
+                  <?php if (Yii::$app->user->isGuest) { ?>
                     <a href="<?= Yii::$app->homeUrl . 'site/login' ?>" class="myAccount-btn">LOGIN
                       <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
                   <?php } else { ?>
-                    <a href="#" class="myAccount-btn"><?=Yii::$app->user->identity->firstname.' '. Yii::$app->user->identity->lastname ;?>
+                    <a href="#" class="myAccount-btn"><?= Yii::$app->user->identity->firstname . ' ' . Yii::$app->user->identity->lastname; ?>
                       <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
                   <?php } ?>
                 </div>
-               
+
                 </li>
               </nav>
             </div>
@@ -206,6 +211,7 @@ AppAsset::register($this);
       </div>
     </div>
   </div>
+
   <?php
   $script = <<< JS
     $(".owl-carousel.welcome-carousel").owlCarousel({

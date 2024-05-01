@@ -44,3 +44,6 @@ phpunit.phar
 *.png
 *.jpg
 *.svg
+composer.lock
+composer.lock
+composer.lock

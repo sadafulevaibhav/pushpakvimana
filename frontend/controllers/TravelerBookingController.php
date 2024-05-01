@@ -61,24 +61,24 @@ class TravelerBookingController extends Controller
     public function actionView($id)
     {
         $request = Yii::$app->request;
-        if($request->isAjax){
+        if ($request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             return [
-                    'title'=> "TravelerBooking #".$id,
-                    'content'=>$this->renderAjax('view', [
-                        'model' => $this->findModel($id),
-                    ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
-                ];
-        }else{
+                'title' => "TravelerBooking #" . $id,
+                'content' => $this->renderAjax('view', [
+                    'model' => $this->findModel($id),
+                ]),
+                'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                    Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
+            ];
+        } else {
             return $this->render('view', [
                 'model' => $this->findModel($id),
             ]);
         }
     }
 
-        /**
+    /**
      * Redirect to Packages Page.
      *
      * @return mixed
@@ -129,49 +129,49 @@ class TravelerBookingController extends Controller
     {
         $request = Yii::$app->request;
         $model = new TravelerBooking();
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            if($request->isGet){
+            if ($request->isGet) {
                 return [
-                    'title'=> "Create new TravelerBooking",
-                    'content'=>$this->renderAjax('create', [
+                    'title' => "Create new TravelerBooking",
+                    'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
-            }else if($model->load($request->post()) && $model->save()){
-                
+            } else if ($model->load($request->post()) && $model->save()) {
+
                 return [
-                    'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "Create new Traveler Booking",
-                    'content'=>'<span class="text-success">Create TravelerBooking success</span>',
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a('Create More',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'forceReload' => '#crud-datatable-pjax',
+                    'title' => "Create new Traveler Booking",
+                    'content' => '<span class="text-success">Create TravelerBooking success</span>',
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::a('Create More', ['create'], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
 
                 ];
-            }else{
+            } else {
                 return [
-                    'title'=> "Create new TravelerBooking",
-                    'content'=>$this->renderAjax('create', [
+                    'title' => "Create new TravelerBooking",
+                    'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
             }
-        }else{
+        } else {
             /*
             *   Process for non-ajax request
             */
             if ($model->load($request->post())) {
                 $requestData = $request->post();
-                foreach($requestData['TravelerBooking']['travellers'] as $key=>$val) {
+                foreach ($requestData['TravelerBooking']['travellers'] as $key => $val) {
                     $modelNew = new TravelerBooking();
                     $modelNew->traveler_name = $val['traveler_name'];
                     $modelNew->traveler_age = $val['traveler_age'];
@@ -186,23 +186,24 @@ class TravelerBookingController extends Controller
                 $stripe = new \Stripe\StripeClient('sk_test_51P7XjLSJAgaJ3Mvs7bm4XXfWAEd19wgT4Bj2ZNqMcT0beVYnGF7nivoG01CrA8NCZqbyvxsfBrM5Ll9XyGTMh2uM007a3J4UXu');
 
                 $checkout_session = $stripe->checkout->sessions->create([
-                'line_items' => [[
-                    'price_data' => [
-                    'currency' => 'inr',
-                    'product_data' => [
-                        'name' => 'Packagge',
-                    ],
-                    'unit_amount' => 2000,
-                    ],
-                    'quantity' => 1,
-                ]],
-                'mode' => 'payment',
-                'success_url' => 'http://localhost:4242/success',
-                'cancel_url' => 'http://localhost:4242/cancel',
+                    'line_items' => [[
+                        'price_data' => [
+                            'currency' => 'inr',
+                            'product_data' => [
+                                'name' => 'Packagge',
+                            ],
+                            'unit_amount' => 2000,
+                        ],
+                        'quantity' => 1,
+                    ]],
+                    'mode' => 'payment',
+                    'success_url' => 'http://localhost:4242/success',
+                    'cancel_url' => 'http://localhost:4242/cancel',
                 ]);
 
-header("HTTP/1.1 303 See Other");
-header("Location: " . $checkout_session->url);exit;
+                header("HTTP/1.1 303 See Other");
+                header("Location: " . $checkout_session->url);
+                exit;
                 // return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
@@ -210,32 +211,32 @@ header("Location: " . $checkout_session->url);exit;
                 ]);
             }
         }
-
     }
     public function actionCreateCheckoutSession()
     {
-$stripe = new \Stripe\StripeClient([
-    "api_key" => 'sk_test_51P7XjLSJAgaJ3Mvs7bm4XXfWAEd19wgT4Bj2ZNqMcT0beVYnGF7nivoG01CrA8NCZqbyvxsfBrM5Ll9XyGTMh2uM007a3J4UXu'
-  ]);
-  
-  $checkout_session = $stripe->checkout->sessions->create([
-    'line_items' => [[
-      'price_data' => [
-        'currency' => 'INR',
-        'product_data' => [
-          'name' => 'T-shirt',
-        ],
-        'unit_amount' => 2000,
-      ],
-      'quantity' => 1,
-    ]],
-    'mode' => 'payment',
-    'ui_mode' => 'embedded',
-    // "address" => ["city" => 'Nagar', "country" => 'India', "line1" => 'Ahmednagar', "line2" => "Bhingar", "postal_code" => 414002, "state" => 'Maharashtra'],
-    'return_url' => 'https://example.com/checkout/return?session_id={CHECKOUT_SESSION_ID}',
-  ]);
-  echo json_encode(array('clientSecret' => $checkout_session->client_secret));exit;
-}
+        $stripe = new \Stripe\StripeClient([
+            "api_key" => 'sk_test_51P7XjLSJAgaJ3Mvs7bm4XXfWAEd19wgT4Bj2ZNqMcT0beVYnGF7nivoG01CrA8NCZqbyvxsfBrM5Ll9XyGTMh2uM007a3J4UXu'
+        ]);
+
+        $checkout_session = $stripe->checkout->sessions->create([
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'INR',
+                    'product_data' => [
+                        'name' => 'T-shirt',
+                    ],
+                    'unit_amount' => 2000,
+                ],
+                'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'ui_mode' => 'embedded',
+            // "address" => ["city" => 'Nagar', "country" => 'India', "line1" => 'Ahmednagar', "line2" => "Bhingar", "postal_code" => 414002, "state" => 'Maharashtra'],
+            'return_url' => 'https://example.com/checkout/return?session_id={CHECKOUT_SESSION_ID}',
+        ]);
+        echo json_encode(array('clientSecret' => $checkout_session->client_secret));
+        exit;
+    }
     /**
      * Updates an existing TravelerBooking model.
      * For ajax request will return json object
@@ -248,41 +249,41 @@ $stripe = new \Stripe\StripeClient([
         $request = Yii::$app->request;
         $model = $this->findModel($id);
 
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            if($request->isGet){
+            if ($request->isGet) {
                 return [
-                    'title'=> "Update TravelerBooking #".$id,
-                    'content'=>$this->renderAjax('update', [
+                    'title' => "Update TravelerBooking #" . $id,
+                    'content' => $this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                 ];
-            }else if($model->load($request->post()) && $model->save()){
+            } else if ($model->load($request->post()) && $model->save()) {
                 return [
-                    'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "TravelerBooking #".$id,
-                    'content'=>$this->renderAjax('view', [
+                    'forceReload' => '#crud-datatable-pjax',
+                    'title' => "TravelerBooking #" . $id,
+                    'content' => $this->renderAjax('view', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                            Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
                 ];
-            }else{
-                 return [
-                    'title'=> "Update TravelerBooking #".$id,
-                    'content'=>$this->renderAjax('update', [
+            } else {
+                return [
+                    'title' => "Update TravelerBooking #" . $id,
+                    'content' => $this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer'=> Html::button('Close',['class'=>'btn btn-secondary float-left','data-dismiss'=>"modal"]).
-                                Html::button('Save',['class'=>'btn btn-primary','type'=>"submit"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                 ];
             }
-        }else{
+        } else {
             /*
             *   Process for non-ajax request
             */
@@ -308,23 +309,21 @@ $stripe = new \Stripe\StripeClient([
         $request = Yii::$app->request;
         $this->findModel($id)->delete();
 
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            return ['forceClose'=>true,'forceReload'=>'#crud-datatable-pjax'];
-        }else{
+            return ['forceClose' => true, 'forceReload' => '#crud-datatable-pjax'];
+        } else {
             /*
             *   Process for non-ajax request
             */
             return $this->redirect(['index']);
         }
-
-
     }
 
-     /**
+    /**
      * Delete multiple existing TravelerBooking model.
      * For ajax request will return json object
      * and for non-ajax request if deletion is successful, the browser will be redirected to the 'index' page.
@@ -334,25 +333,24 @@ $stripe = new \Stripe\StripeClient([
     public function actionBulkdelete()
     {
         $request = Yii::$app->request;
-        $pks = explode(',', $request->post( 'pks' )); // Array or selected records primary keys
-        foreach ( $pks as $pk ) {
+        $pks = explode(',', $request->post('pks')); // Array or selected records primary keys
+        foreach ($pks as $pk) {
             $model = $this->findModel($pk);
             $model->delete();
         }
 
-        if($request->isAjax){
+        if ($request->isAjax) {
             /*
             *   Process for ajax request
             */
             Yii::$app->response->format = Response::FORMAT_JSON;
-            return ['forceClose'=>true,'forceReload'=>'#crud-datatable-pjax'];
-        }else{
+            return ['forceClose' => true, 'forceReload' => '#crud-datatable-pjax'];
+        } else {
             /*
             *   Process for non-ajax request
             */
             return $this->redirect(['index']);
         }
-
     }
 
     /**

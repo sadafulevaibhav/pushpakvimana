@@ -3,6 +3,8 @@
 /** @var yii\web\View $this */
 
 use yii\bootstrap5\Html;
+use yii\bootstrap4\Modal;
+use johnitvn\ajaxcrud\CrudAsset;
 use yii\bootstrap5\Carousel;
 // use yii\bootstrap\Card;
 // use yii\bootstrap5\CardHeader;
@@ -11,6 +13,8 @@ use yii\bootstrap5\CarouselItem;
 use yii\grid\GridView;
 
 $this->title = 'Pushpaka Vimana';
+
+CrudAsset::register($this);
 ?>
 <!-- ********* Home page start ********* -->
 
@@ -57,6 +61,17 @@ $this->title = 'Pushpaka Vimana';
   </div>
 </div>
 -->
+<div class="enq-sec text-center text-lg-end">
+  <?=
+  Html::a(
+    '<i>ENQUIRE</i>',
+    ['create-enquiry'],
+    ['role' => 'modal-remote', 'title' => 'ENQUIRE NOW', 'class' => 'btn btn-primary', 'data-pjax' => 1, 'role' => "modal-remote"]
+  )
+  ?>
+  <!--<a href="#" class="view-btn">Inquire</a>-->
+</div>
+
 <div class="tours-sec">
   <div class="container">
     <h2>TOURS</h2>
@@ -227,11 +242,11 @@ $this->title = 'Pushpaka Vimana';
   <div class="testimonials-wrap">
     <div class="container">
       <div class="owl-carousel testimonials-owl owl-theme">
-        <?php foreach ($dataAppTestimonialsProvider->getModels() as $app_testimonial){  ?>
+        <?php foreach ($dataAppTestimonialsProvider->getModels() as $app_testimonial) {  ?>
           <div class="item">
             <div class="testimonial-card">
               <div class="user-img">
-              <?= Html::img(Yii::$app->urlManagerAdmin->baseUrl.'/uploads/AppTestimonial/'.$app_testimonial->testimonial_image, ['class' => 'img-fluid', 'alt' => $country->country_name]) ?>
+                <?= Html::img(Yii::$app->urlManagerAdmin->baseUrl . '/uploads/AppTestimonial/' . $app_testimonial->testimonial_image, ['class' => 'img-fluid', 'alt' => $country->country_name]) ?>
                 <!-- <img src="images/user-2.png" class="img-fluid" alt="" /> -->
                 <div class="text-wrap">
                   <h3><?= Html::encode($app_testimonial->full_name) ?></h3>
@@ -295,3 +310,10 @@ $this->title = 'Pushpaka Vimana';
   </div>
 </div>
 <!-- ********* Home page end ********* -->
+
+<?php Modal::begin([
+  "id" => "ajaxCrudModal",
+  //"title" => '<h4 class="mod  al-title">Modal title</h4>',
+  "footer" => "", // always need it for jquery plugin
+]) ?>
+<?php Modal::end(); ?>

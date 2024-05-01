@@ -9,6 +9,8 @@ use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use \yii\web\Response;
+use yii\helpers\Html;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\DestinationCountry;
@@ -16,6 +18,7 @@ use common\models\TourLandingImage;
 use common\models\DestinationPackage;
 use common\models\TourItinerary;
 use common\models\Addon;
+use common\models\TourEnquiries;
 use common\models\AboutUs;
 use common\models\DestinationMedia;
 use backend\models\AppTestimonial;
@@ -291,5 +294,68 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+
+
+    /**
+     * Creates a new TourEnquiries model.
+     * For ajax request will return json object
+     * and for non-ajax request if creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreateEnquiry()
+    {
+        $request = Yii::$app->request;
+        $model = new TourEnquiries();
+
+        if ($request->isAjax) {
+            /*
+            *   Process for ajax request
+            */
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            if ($request->isGet) {
+                return [
+                    'title' => "ENQUIRE NOW",
+                    'content' => $this->renderAjax('create-enquiry', [
+                        'model' => $model,
+                    ]),
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
+
+                ];
+            } else if ($model->load($request->post())) {
+                $model->created_date = date('Y-m-d H:i:s'); // Update the created_date field
+                $model->save();
+                return [
+                    'forceReload' => '#crud-datatable-pjax',
+                    'title' => "ENQUIRE NOW",
+                    'content' => '<span class="text-success">Enquiry submited successfully.</span>',
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"])
+                ];
+            } else {
+                return [
+                    'title' => "ENQUIRE NOW",
+                    'content' => $this->renderAjax('create-enquiry', [
+                        'model' => $model,
+                    ]),
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
+
+                ];
+            }
+        } else {
+            /*
+            *   Process for non-ajax request
+            */
+            if ($model->load($request->post())) {
+                $model->created_date = date('Y-m-d H:i:s'); // Update the created_date field
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('create-enquiry', [
+                    'model' => $model,
+                ]);
+            }
+        }
     }
 }
