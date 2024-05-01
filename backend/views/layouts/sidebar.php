@@ -83,12 +83,19 @@
                             ['label' => 'Country', 'url' => ['destination-country/'], 'iconStyle' => 'far'],
                             ['label' => 'Destination Media', 'url' => ['destination-media/'], 'iconStyle' => 'far'],
                             ['label' => 'Destination Packages', 'url' => ['destination-package/'], 'iconStyle' => 'far'],
+                        ]
+                    ],
+                    [
+                        'label' => 'Tour Masters',
+                        'items' => [
                             ['label' => 'Tour Itinerary', 'url' => ['tour-itinerary/'], 'iconStyle' => 'far'],
                             ['label' => 'Tour Packages', 'url' => ['tour-package/'], 'iconStyle' => 'far'],
                             ['label' => 'Tour Details', 'url' => ['tour-detail/'], 'iconStyle' => 'far'],
                             ['label' => 'Tour Landing Images', 'url' => ['tour-landing-image/'], 'iconStyle' => 'far'],
+                            ['label' => 'Tour Enquiries', 'url' => ['tour-enquiries/'], 'iconStyle' => 'far'],
                         ]
                     ],
+
                     ['label' => 'About Us', 'url' => ['about-us/'], 'iconStyle' => 'far'],
                     ['label' => 'App Testimonials', 'url' => ['app-testimonial/'], 'iconStyle' => 'far'],
                 ],

@@ -7,6 +7,9 @@ use common\widgets\Alert;
 use frontend\assets\AppAsset;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
+use yii\bootstrap4\Modal;
+use johnitvn\ajaxcrud\CrudAsset;
+use yii\widgets\ActiveForm;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 use yii\bootstrap5\Button;
@@ -14,6 +17,8 @@ use yii\bootstrap4\BootstrapAsset;
 
 // BootstrapAsset::register($this);
 AppAsset::register($this);
+
+CrudAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -82,15 +87,15 @@ AppAsset::register($this);
                     UPCOMING TOURS
                     <img src="images/map-icon.svg" class="img-fluid" alt="" />
                   </a>
-                  <?php if (Yii::$app->user->isGuest) {?>
+                  <?php if (Yii::$app->user->isGuest) { ?>
                     <a href="<?= Yii::$app->homeUrl . 'site/login' ?>" class="myAccount-btn">LOGIN
                       <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
                   <?php } else { ?>
-                    <a href="#" class="myAccount-btn"><?=Yii::$app->user->identity->firstname.' '. Yii::$app->user->identity->lastname ;?>
+                    <a href="#" class="myAccount-btn"><?= Yii::$app->user->identity->firstname . ' ' . Yii::$app->user->identity->lastname; ?>
                       <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
                   <?php } ?>
                 </div>
-               
+
                 </li>
               </nav>
             </div>
@@ -134,6 +139,16 @@ AppAsset::register($this);
             <button class="primary-btn">SUBSCRIBE</button>
           </form>
           <p class="para">All Rights Reserved At Pushpaka Vimana 2024</p>
+        </div>
+        <div class="col-auto">
+          <?=
+          Html::a(
+            '<i class="fas fa-plus"></i>',
+            ['create-enquiry'],
+            ['role' => 'modal-remote', 'title' => 'Create new Tour Enquiries', 'class' => 'btn btn-secondary', 'data-pjax' => 1, 'role' => "modal-remote"]
+          )
+          ?>
+          <!--<a href="#" class="view-btn">Inquire</a>-->
         </div>
         <div class="col-auto">
           <div class="find-us-sec">
@@ -206,6 +221,14 @@ AppAsset::register($this);
       </div>
     </div>
   </div>
+
+  <?php Modal::begin([
+    "id" => "ajaxCrudModal",
+    "title" => '<h4 class="modal-title">Modal title</h4>',
+    "footer" => "", // always need it for jquery plugin
+  ]) ?>
+  <?php Modal::end(); ?>
+
   <?php
   $script = <<< JS
     $(".owl-carousel.welcome-carousel").owlCarousel({

@@ -1,9 +1,11 @@
 <?php
 
 /** @var yii\web\View $this */
+
 use unclead\multipleinput\MultipleInput;
 use yii\bootstrap5\Html;
 use yii\widgets\ActiveForm;
+
 $this->title = 'Pushpaka Vimana';
 ?>
 <!DOCTYPE html>
@@ -194,16 +196,16 @@ $this->title = 'Pushpaka Vimana';
                                                         <div class="h3">TRAVELLERS</div>
                                                         <?php $form = ActiveForm::begin(); ?>
                                                         <?php
-    echo $form->field($model, 'traveller_name')->widget(MultipleInput::className(), [
-        'max'               => 6,
-        'min'               => 2, // should be at least 2 rows
-        'allowEmptyList'    => false,
-        'enableGuessTitle'  => true,
-        'addButtonPosition' => MultipleInput::POS_HEADER, // show add button in the header
-    ])
-    ->label(false);
-?>
-<?php ActiveForm::end(); ?>
+                                                        echo $form->field($model, 'traveller_name')->widget(MultipleInput::className(), [
+                                                            'max'               => 6,
+                                                            'min'               => 2, // should be at least 2 rows
+                                                            'allowEmptyList'    => false,
+                                                            'enableGuessTitle'  => true,
+                                                            'addButtonPosition' => MultipleInput::POS_HEADER, // show add button in the header
+                                                        ])
+                                                            ->label(false);
+                                                        ?>
+                                                        <?php ActiveForm::end(); ?>
                                                         <h4>PERSONS</h4>
                                                         <div class="box-wrap mb-4">
                                                             <div class="d-flex">

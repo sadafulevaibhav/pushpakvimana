@@ -16,7 +16,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'class' => 'common\components\Request',
-            'web'=> '/frontend/web',
+            'web' => '/frontend/web',
             'cookieValidationKey' => 'fasdsad557574dfsdsxxxsdsfnklc58',
         ],
         'user' => [
