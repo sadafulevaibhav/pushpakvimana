@@ -12,33 +12,34 @@ use kartik\date\DatePicker;
 <div class="tour-enquiries-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <div class="row">
+        <div class="col-md-6 enq-section-1">
+            <!-- Content for Section 1 -->
+            <?= $form->field($model, 'full_name')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'mobile')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'whats_app')->textInput(['maxlength' => true]) ?>
+        </div>
 
-    <?= $form->field($model, 'full_name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'mobile')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'whats_app')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'travel_destination')->textInput(['maxlength' => true]) ?>
+        <div class="col-md-6 enq-section-2">
+            <!-- Content for Section 2 -->
+            <?= $form->field($model, 'travel_destination')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'travel_date')->widget(DatePicker::classname(), [
+                'options' => ['placeholder' => 'Travel Date'],
+                'pluginOptions' => [
+                    'autoclose' => true,
+                    'format' => 'yyyy-mm-dd'
+                ]
+            ]); ?>
+            <?= $form->field($model, 'travellers_count')->textInput() ?>
+            <?= $form->field($model, 'vaccation_type')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
 
     <!--
-    <?= $form->field($model, 'travel_date')->textInput() ?>
-    <?= $form->field($model, 'created_date')->textInput() ?>
+        <?= $form->field($model, 'travel_date')->textInput() ?>
+        <?= $form->field($model, 'created_date')->textInput() ?>
     -->
-
-    <?= $form->field($model, 'travel_date')->widget(DatePicker::classname(), [
-        'options' => ['placeholder' => 'Travel Date'],
-        'pluginOptions' => [
-            'autoclose' => true,
-            'format' => 'yyyy-mm-dd'
-        ]
-    ]); ?>
-
-    <?= $form->field($model, 'travellers_count')->textInput() ?>
-
-    <?= $form->field($model, 'vaccation_type')->textInput(['maxlength' => true]) ?>
 
     <?php if (!Yii::$app->request->isAjax) { ?>
         <div class="form-group">

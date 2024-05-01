@@ -315,7 +315,7 @@ class SiteController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             if ($request->isGet) {
                 return [
-                    'title' => "Create new TourEnquiries",
+                    'title' => "ENQUIRE NOW",
                     'content' => $this->renderAjax('create-enquiry', [
                         'model' => $model,
                     ]),
@@ -328,15 +328,13 @@ class SiteController extends Controller
                 $model->save();
                 return [
                     'forceReload' => '#crud-datatable-pjax',
-                    'title' => "Create new TourEnquiries",
-                    'content' => '<span class="text-success">Create TourEnquiries success</span>',
-                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
-                        Html::a('Create More', ['create'], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
-
+                    'title' => "ENQUIRE NOW",
+                    'content' => '<span class="text-success">Enquiry submited successfully.</span>',
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"])
                 ];
             } else {
                 return [
-                    'title' => "Create new TourEnquiries",
+                    'title' => "ENQUIRE NOW",
                     'content' => $this->renderAjax('create-enquiry', [
                         'model' => $model,
                     ]),

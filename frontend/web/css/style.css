@@ -1198,6 +1198,20 @@ footer .find-us-sec ul a {
   margin-left: auto;
   margin-top: 24px;
 }
+
+.enq-sec{
+  padding: 2% !important;
+  position: fixed;
+  bottom: 20px; /* Adjust the value as needed */
+  right: 20px; /* Adjust the value as needed */
+  z-index: 9999; /* Ensure the button appears on top of other elements */
+}
+
+.enq-section-1, .enq-section-2 {
+  max-height: 600px; /* Adjust the value as needed */
+  overflow-y: auto;
+}
+
 .packages-main-section .adventures-sec .click-agree-sec .btn-wrap input,
 .packages-main-section .adventures-sec .click-agree-sec .btn-wrap button {
   width: 50%;
