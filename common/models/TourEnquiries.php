@@ -34,7 +34,7 @@ class TourEnquiries extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['travel_destination', 'travel_date', 'travellers_count', 'vaccation_type'], 'required'],
+            [['full_name', 'email', 'travel_destination', 'travel_date', 'travellers_count', 'vaccation_type'], 'required'],
             [['travel_date', 'created_date'], 'safe'],
             [['travellers_count'], 'integer'],
             ['email', 'email'],

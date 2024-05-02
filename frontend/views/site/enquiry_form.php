@@ -11,7 +11,10 @@ use kartik\date\DatePicker;
 
 <div class="tour-enquiries-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'id' => 'enquiry-form',
+        'enableClientValidation' => true,
+    ]); ?>
     <div class="row">
         <div class="col-md-6 enq-section-1">
             <!-- Content for Section 1 -->

@@ -141,6 +141,16 @@ CrudAsset::register($this);
           <p class="para">All Rights Reserved At Pushpaka Vimana 2024</p>
         </div>
         <div class="col-auto">
+          <div class="enq-sec text-center text-lg-end">
+            <?=
+            Html::a(
+              '<i>ENQUIRE</i>',
+              ['create-enquiry'],
+              ['role' => 'modal-remote', 'title' => 'ENQUIRE NOW', 'class' => 'btn btn-primary', 'data-pjax' => 1, 'role' => "modal-remote"]
+            )
+            ?>
+            <!--<a href="#" class="view-btn">Inquire</a>-->
+          </div>
           <div class="find-us-sec">
             <h3>FIND US ON</h3>
             <div class="social-icon">
@@ -211,6 +221,13 @@ CrudAsset::register($this);
       </div>
     </div>
   </div>
+
+  <?php Modal::begin([
+    "id" => "ajaxCrudModal",
+    //"title" => '<h4 class="mod  al-title">Modal title</h4>',
+    "footer" => "", // always need it for jquery plugin
+  ]) ?>
+  <?php Modal::end(); ?>
 
   <?php
   $script = <<< JS
