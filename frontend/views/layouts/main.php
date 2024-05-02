@@ -146,7 +146,7 @@ CrudAsset::register($this);
             <?=
             Html::a(
               '<i>ENQUIRE</i>',
-              ['create-enquiry'],
+              ['site/create-enquiry'],
               ['role' => 'modal-remote', 'title' => 'ENQUIRE NOW', 'class' => 'btn btn-primary', 'data-pjax' => 1, 'role' => "modal-remote"]
             )
             ?>
