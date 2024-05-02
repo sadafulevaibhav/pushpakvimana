@@ -1201,10 +1201,9 @@ footer .find-us-sec ul a {
 
 .enq-sec{
   padding: 2% !important;
-  position: fixed;
-  bottom: 20px; /* Adjust the value as needed */
-  right: 20px; /* Adjust the value as needed */
-  z-index: 9999; /* Ensure the button appears on top of other elements */
+  position: absolute;
+  top: -120px; /* Adjust the value to control the distance from the top of the container */
+  right: 20px;
 }
 
 .enq-section-1, .enq-section-2 {

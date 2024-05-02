@@ -323,7 +323,7 @@ class SiteController extends Controller
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
-            } else if ($model->load($request->post())) {
+            } else if ($model->load($request->post()) && $model->validate()) {
                 $model->created_date = date('Y-m-d H:i:s'); // Update the created_date field
                 $model->save();
                 return [
@@ -347,7 +347,7 @@ class SiteController extends Controller
             /*
             *   Process for non-ajax request
             */
-            if ($model->load($request->post())) {
+            if ($model->load($request->post()) && $model->validate()) {
                 $model->created_date = date('Y-m-d H:i:s'); // Update the created_date field
                 $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
