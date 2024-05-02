@@ -37,7 +37,7 @@ CrudAsset::register($this);
   <?php $this->beginBody() ?>
 
   <header>
-    <div class="d-none d-sm-none d-md-none d-lg-block">
+    <div class="d-none d-sm-none d-md-none d-lg-block fixed-top">
       <div class="desktop-header">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-between">
