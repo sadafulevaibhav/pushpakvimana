@@ -135,10 +135,10 @@ CrudAsset::register($this);
       <div class="row align-items-center justify-content-center justify-content-lg-between">
         <div class="col-auto">
           <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/light-logo.svg" class="img-fluid" alt="" /></a>
-          <form action="" class="common-form">
+          <!-- <form action="" class="common-form">
             <input type="email" class="form-control" placeholder="Enter Email......." />
             <button class="primary-btn">SUBSCRIBE</button>
-          </form>
+          </form> -->
           <p class="para">All Rights Reserved At Pushpaka Vimana 2024</p>
         </div>
         <div class="col-auto">

@@ -71,7 +71,7 @@ $this->title = 'Pushpaka Vimana';
   <h2 class="secondary-heading">UPCOMING TOURS IN 2024</h2>
   <div class="upcomming-tours-wrap">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row" style="overflow-x: auto;">
       <!-- <div class="upcomming-tours-flex"> -->
         <?php foreach ($dataCountryProvider->getModels() as $country) : ?>
           <div class="col-md-3 upcomming-card mt-3">
