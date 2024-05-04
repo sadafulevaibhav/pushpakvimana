@@ -199,10 +199,10 @@ CrudAsset::register($this);
           <nav>
             <ul>
               <li><a href="<?= Yii::$app->homeUrl ?>">HOME</a></li>
-              <li><a href="index.html">ABOUT US</a></li>
-              <li><a href="index.html">CONTACT US</a></li>
-              <li><a href="index.html">TOURS</a></li>
-              <li><a href="index.html">GALLERY</a></li>
+              <li><a href="<?= Yii::$app->homeUrl ?>#about-us">ABOUT US</a></li>
+              <li><a href="<?= Yii::$app->homeUrl ?>#contact-us">CONTACT US</a></li>
+              <li><a href="<?= Yii::$app->homeUrl ?>#upcomming-tours">TOURS</a></li>
+              <li><a href="<?= Yii::$app->homeUrl ?>#galary">GALLERY</a></li>
             </ul>
             <div class="right-btn">
               <a href="#" class="upcoming-btn"><img src="<?= Yii::$app->homeUrl ?>images/flight-icon.svg" class="img-fluid" alt="" />
