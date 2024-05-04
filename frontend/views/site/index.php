@@ -213,7 +213,7 @@ $this->title = 'Pushpaka Vimana';
               }
               ?>
               <div class="image-container">
-                <?= Html::img($imageSource, ['class' => 'img-fluid', 'alt' => 'destination-media']) ?>
+                <?= Html::img($imageSource, ['class' => 'img-fluid rounded-5', 'alt' => 'destination-media']) ?>
               </div>
             </div>
           <?php endforeach; ?>
