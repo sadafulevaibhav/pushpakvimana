@@ -86,14 +86,14 @@ CrudAsset::register($this);
                 <div class="right-btn">
                   <a href="#" class="upcoming-btn"><img src="<?= Yii::$app->homeUrl ?>images/flight-icon.svg" class="img-fluid" alt="" />
                     UPCOMING TOURS
-                    <img src="<?= Yii::$app->homeUrl ?>images/map-icon.svg" class="img-fluid" alt="" />
+                    <img src="<?= Yii::$app->homeUrl ?>images/map-icon.svg" class="img-fluid curve-image" alt="" />
                   </a>
                   <?php if (Yii::$app->user->isGuest) { ?>
-                    <a href="<?= Yii::$app->homeUrl . 'site/login' ?>" class="myAccount-btn">LOGIN
-                      <img src="<?= Yii::$app->homeUrl ?>images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                    <a href="<?= Yii::$app->homeUrl . 'site/login' ?>" class="myAccount-btn d-none">LOGIN
+                      <img src="<?= Yii::$app->homeUrl ?>images/pfp-circle.svg" class="img-fluid curve-image" alt="" /></a>
                   <?php } else { ?>
-                    <a href="#" class="myAccount-btn"><?= Yii::$app->user->identity->firstname . ' ' . Yii::$app->user->identity->lastname; ?>
-                      <img src="<?= Yii::$app->homeUrl ?>images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                    <a href="#" class="myAccount-btn d-none"><?= Yii::$app->user->identity->firstname . ' ' . Yii::$app->user->identity->lastname; ?>
+                      <img src="<?= Yii::$app->homeUrl ?>images/pfp-circle.svg" class="img-fluid curve-image" alt="" /></a>
                   <?php } ?>
                 </div>
 
@@ -210,10 +210,10 @@ CrudAsset::register($this);
                 <img src="<?= Yii::$app->homeUrl ?>images/map-icon.svg" class="img-fluid" alt="" />
               </a>
               <?php if (Yii::$app->user->isGuest) { ?>
-                <a href="#" class="myAccount-btn">LOGIN
+                <a href="#" class="myAccount-btn d-none">LOGIN
                   <img src="<?= Yii::$app->homeUrl ?>images/pfp-circle.svg" class="img-fluid" alt="" /></a>
               <?php } else { ?>
-                <a href="#" class="myAccount-btn">MY ACCOUNT
+                <a href="#" class="myAccount-btn d-none">MY ACCOUNT
                   <img src="<?= Yii::$app->homeUrl ?>images/pfp-circle.svg" class="img-fluid" alt="" /></a>
               <?php } ?>
             </div>

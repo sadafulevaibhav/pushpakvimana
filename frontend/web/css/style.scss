@@ -384,6 +384,7 @@ footer {
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+        border-radius: 41px;
       }
     }
   }
@@ -578,7 +579,6 @@ footer {
     position: relative;
     display: flex;
     align-items: center;
-    border-radius: 41px;
     overflow: hidden;
     &::before {
       content: "";

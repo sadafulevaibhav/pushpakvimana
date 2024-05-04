@@ -647,6 +647,7 @@ footer .find-us-sec ul a {
 }
 .upcomming-tours-sec .upcomming-tours-wrap .upcomming-card {
   position: relative;
+  border-radius: 41px;
 }
 .upcomming-tours-sec .upcomming-tours-wrap .upcomming-card span {
   position: absolute;
@@ -1494,3 +1495,6 @@ footer .find-us-sec ul a {
   background-color: #F25019;
   border-color: #F25019;
 }/*# sourceMappingURL=style.css.map */
+.curve-image {
+  border-radius: 41px;
+}

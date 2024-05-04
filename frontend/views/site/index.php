@@ -68,12 +68,13 @@ $this->title = 'Pushpaka Vimana';
   </div>
 </div>
 <div class="upcomming-tours-sec" id="upcomming-tours">
-  <h2 class="secondary-heading">UPCOMMING TOURS IN 2024</h2>
+  <h2 class="secondary-heading">UPCOMING TOURS IN 2024</h2>
   <div class="upcomming-tours-wrap">
     <div class="container-fluid">
-      <div class="upcomming-tours-flex">
+      <div class="row">
+      <!-- <div class="upcomming-tours-flex"> -->
         <?php foreach ($dataCountryProvider->getModels() as $country) : ?>
-          <div class="upcomming-card">
+          <div class="col-md-3 upcomming-card mt-3">
             <?php
             $imageSource = null;
             $defaultImageName = 'default.png'; // Replace with the name of your default image file
@@ -91,12 +92,11 @@ $this->title = 'Pushpaka Vimana';
             }
             ?>
             <?php if ($country->id) { ?>
-              <div class="image-container">
                 <a href="<?= Yii::$app->homeUrl . 'traveler-booking/packages-page?id=' ?><?= Html::encode($country->id) ?>">
-                  <?= Html::img($imageSource, ['class' => 'img-fluid', 'alt' => $country->country_name]) ?>
+                  <?= Html::img($imageSource, ['class' => 'img-fluid rounded-5 h-100', 'alt' => $country->country_name]) ?>
                 </a>
-              </div>
-              <span><?= Html::encode($country->country_name) ?></span>
+                <!-- <div style="position: absolute; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 15px;">sdsdsd</div> -->
+              <span style="position: absolute; bottom: 15px; left: 25px;"><?= Html::encode($country->country_name) ?></span>
             <?php } ?>
           </div>
         <?php endforeach; ?>
@@ -105,7 +105,7 @@ $this->title = 'Pushpaka Vimana';
   </div>
 </div>
 
-<div class="category-sec pt-5">
+<div class="category-sec pt-5 d-none">
   <h2 class="secondary-heading">CATEGORY</h2>
   <div class="container">
     <div class="category-overflow">
@@ -223,7 +223,7 @@ $this->title = 'Pushpaka Vimana';
   </div>
 </div>
 
-<div class="testimonials-sec">
+<div class="testimonials-sec d-none">
   <h2 class="secondary-heading">TESTIMONIALS</h2>
   <div class="testimonials-wrap">
     <div class="container">
@@ -233,7 +233,6 @@ $this->title = 'Pushpaka Vimana';
             <div class="testimonial-card">
               <div class="user-img">
                 <?= Html::img(Yii::$app->urlManagerAdmin->baseUrl . '/uploads/AppTestimonial/' . $app_testimonial->testimonial_image, ['class' => 'img-fluid', 'alt' => $country->country_name]) ?>
-                <!-- <img src="images/user-2.png" class="img-fluid" alt="" /> -->
                 <div class="text-wrap">
                   <h3><?= Html::encode($app_testimonial->full_name) ?></h3>
                   <h4><?= Html::encode($app_testimonial->designation) ?></h4>
@@ -271,7 +270,7 @@ $this->title = 'Pushpaka Vimana';
   </div>
 </div>
 
-<div class="our-client-sec">
+<!-- <div class="our-client-sec">
   <div class="container-fluid g-0">
     <h2 class="secondary-heading">OUR CLIENTS</h2>
     <div class="owl-carousel client_carousel owl-theme">
@@ -294,5 +293,5 @@ $this->title = 'Pushpaka Vimana';
     </div>
 
   </div>
-</div>
+</div> -->
 <!-- ********* Home page end ********* -->
