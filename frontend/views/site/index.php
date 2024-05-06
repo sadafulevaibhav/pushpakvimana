@@ -12,18 +12,18 @@ $this->title = 'Pushpaka Vimana';
   <div class="owl-carousel welcome-carousel owl-theme">
     <div class="item">
       <div class="img-wrap">
-        <!-- <img src="images/main-hero-slider-1.png" class="img-fluid" alt=""> -->
-        <video loop muted autoplay class="d-block w-100">
+        <img src="images/ayodhya06.jpg" class="img-fluid" alt="">
+        <!-- <video loop muted autoplay class="d-block w-100">
           <source src="videos/about-top-video.mp4" type="video/mp4">
-        </video>
+        </video> -->
       </div>
     </div>
     <div class="item">
       <div class="img-wrap">
-        <!-- <img src="images/main-hero-slider-1.png" class="img-fluid" alt=""> -->
-        <video loop muted autoplay class="d-block w-100">
+        <img src="images/ayodhya06.jpg" class="img-fluid" alt="">
+        <!-- <video loop muted autoplay class="d-block w-100">
           <source src="videos/about-top-video.mp4" type="video/mp4">
-        </video>
+        </video> -->
       </div>
     </div>
   </div>
