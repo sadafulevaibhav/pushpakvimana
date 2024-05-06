@@ -316,11 +316,12 @@ class SiteController extends Controller
             if ($request->isGet) {
                 return [
                     'title' => "ENQUIRE NOW",
+                    'toggleButton' => ['label' => 'click me'],
+                    
                     'content' => $this->renderAjax('create-enquiry', [
                         'model' => $model,
                     ]),
-                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary', 'data-bs-dismiss' => "modal"]) .
-                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
+                    'footer' => Html::button('Submit', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
             } else if ($model->load($request->post()) && $model->validate()) {

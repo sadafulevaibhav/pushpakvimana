@@ -16,26 +16,26 @@ use kartik\date\DatePicker;
         'enableClientValidation' => true,
     ]); ?>
     <div class="row">
-        <div class="col-md-6 enq-section-1">
+        <div class="col-md-12 enq-section-1">
             <!-- Content for Section 1 -->
-            <?= $form->field($model, 'full_name')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'mobile')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'whats_app')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'full_name')->textInput(['maxlength' => true,'placeholder' => "Full Name"])->label(false) ?>
+            <?= $form->field($model, 'email')->textInput(['maxlength' => true,'placeholder' => "Email"])->label(false) ?>
+            <?= $form->field($model, 'mobile')->textInput(['maxlength' => true,'placeholder' => "Phone Number"])->label(false) ?>
+            <?= $form->field($model, 'whats_app')->textInput(['maxlength' => true,'placeholder' => "WhatsApp"])->label(false) ?>
         </div>
 
-        <div class="col-md-6 enq-section-2">
+        <div class="col-md-12 enq-section-2">
             <!-- Content for Section 2 -->
-            <?= $form->field($model, 'travel_destination')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'travel_destination')->textInput(['maxlength' => true,'placeholder' => "Travel Destination"])->label(false)?>
             <?= $form->field($model, 'travel_date')->widget(DatePicker::classname(), [
                 'options' => ['placeholder' => 'Travel Date'],
                 'pluginOptions' => [
                     'autoclose' => true,
                     'format' => 'yyyy-mm-dd'
                 ]
-            ]); ?>
-            <?= $form->field($model, 'travellers_count')->textInput() ?>
-            <?= $form->field($model, 'vaccation_type')->textInput(['maxlength' => true]) ?>
+            ])->label(false); ?>
+            <?= $form->field($model, 'travellers_count')->textInput(['type' => 'number','placeholder' => "No. of people"])->label(false) ?>
+            <?= $form->field($model, 'vaccation_type')->textInput(['maxlength' => true, 'placeholder' => "Vacation Type"])->label(false) ?>
         </div>
     </div>
 
@@ -46,7 +46,7 @@ use kartik\date\DatePicker;
 
     <?php if (!Yii::$app->request->isAjax) { ?>
         <div class="form-group">
-            <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Submit') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         </div>
     <?php } ?>
 
