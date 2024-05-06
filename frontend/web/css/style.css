@@ -641,9 +641,9 @@ footer .find-us-sec ul a {
   padding: 75px 40px;
 }
 .upcomming-tours-sec .upcomming-tours-wrap .upcomming-tours-flex {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  /* gap: 20px; */
 }
 .upcomming-tours-sec .upcomming-tours-wrap .upcomming-card {
   position: relative;

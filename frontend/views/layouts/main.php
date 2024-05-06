@@ -146,6 +146,7 @@ CrudAsset::register($this);
             <?=
             Html::a(
               '<i>ENQUIRE</i>',
+              // "<img src =".Yii::$app->homeUrl."images/enquiry-icon.png>",
               ['site/create-enquiry'],
               ['role' => 'modal-remote', 'class' => 'btn btn-primary','id'=>'enquiry_btn', 'data-pjax' => 1]
             )

@@ -65,7 +65,7 @@ $this->title = 'Pushpaka Vimana';
   <h2 class="secondary-heading">UPCOMING TOURS IN 2024</h2>
   <div class="upcomming-tours-wrap">
     <div class="container-fluid">
-      <div class="row" style="overflow-x: auto;">
+      <div class="row upcomming-tours-flex" style="overflow-x: auto;">
       <!-- <div class="upcomming-tours-flex"> -->
         <?php foreach ($dataCountryProvider->getModels() as $country) : ?>
           <div class="col-md-3 upcomming-card mt-3">
@@ -87,7 +87,7 @@ $this->title = 'Pushpaka Vimana';
             ?>
             <?php if ($country->id) { ?>
                 <a href="<?= Yii::$app->homeUrl . 'traveler-booking/packages-page?id=' ?><?= Html::encode($country->id) ?>">
-                  <?= Html::img($imageSource, ['class' => 'img-fluid rounded-5 h-100', 'alt' => $country->country_name]) ?>
+                  <?= Html::img($imageSource, ['class' => 'img-fluid rounded-3 h-100', 'alt' => $country->country_name]) ?>
                 </a>
                 <!-- <div style="position: absolute; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 15px;">sdsdsd</div> -->
               <span style="position: absolute; bottom: 15px; left: 25px;"><?= Html::encode($country->country_name) ?></span>
@@ -207,7 +207,7 @@ $this->title = 'Pushpaka Vimana';
               }
               ?>
               <div class="image-container">
-                <?= Html::img($imageSource, ['class' => 'img-fluid rounded-5', 'alt' => 'destination-media']) ?>
+                <?= Html::img($imageSource, ['class' => 'img-fluid rounded-3', 'alt' => 'destination-media']) ?>
               </div>
             </div>
           <?php endforeach; ?>

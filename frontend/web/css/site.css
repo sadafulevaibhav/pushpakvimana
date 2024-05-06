@@ -124,7 +124,7 @@ a.desc:after {
     position: fixed;
     bottom: 20px;
     /* Adjust as needed */
-    left: 20px;
+    left: 25px;
     /* Adjust as needed */
     z-index: 1000;
     /* Ensure it appears above other content */
@@ -134,7 +134,7 @@ a.desc:after {
     width: 50px;
     /* Adjust the size of the icon */
     height: auto;
-    border-radius: 50%;
+    border-radius: 30%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
 }
