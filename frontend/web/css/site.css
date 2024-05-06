@@ -108,6 +108,7 @@ a.desc:after {
     bottom: 340px;
     /* Adjust as needed */
     right: 20px;
+    background-color: #F60;
     /* Adjust as needed */
     z-index: 1000;
     /* Ensure it appears above other content */
@@ -124,7 +125,7 @@ a.desc:after {
     position: fixed;
     bottom: 20px;
     /* Adjust as needed */
-    left: 25px;
+    right: 25px;
     /* Adjust as needed */
     z-index: 1000;
     /* Ensure it appears above other content */

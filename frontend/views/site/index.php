@@ -86,7 +86,8 @@ $this->title = 'Pushpaka Vimana';
             }
             ?>
             <?php if ($country->id) { ?>
-                <a href="<?= Yii::$app->homeUrl . 'traveler-booking/packages-page?id=' ?><?= Html::encode($country->id) ?>">
+                <!-- <a href="<?= Yii::$app->homeUrl . 'traveler-booking/packages-page?id=' ?><?= Html::encode($country->id) ?>"> -->
+                <a href="#">
                   <?= Html::img($imageSource, ['class' => 'img-fluid rounded-3 h-100', 'alt' => $country->country_name]) ?>
                 </a>
                 <!-- <div style="position: absolute; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 15px;">sdsdsd</div> -->
@@ -145,7 +146,7 @@ $this->title = 'Pushpaka Vimana';
           <div class="about-card">
             <div class="about-card-content">
               <h6><?= Html::encode($aboutus->title) ?></h6>
-              <p><?= Html::encode($aboutus->content) ?></p>
+              <p><?= Html::encode($aboutus->content,false) ?></p>
             </div>
           </div>
         <?php endforeach; ?>

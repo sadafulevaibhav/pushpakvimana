@@ -109,7 +109,7 @@ CrudAsset::register($this);
         <div class="container-fluid">
           <div class="row align-items-center justify-content-between">
             <div class="col-auto">
-              <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/Gplogo.png" class="logo" alt="" /></a>
+              <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/Gplogo.png" class="logo" alt="logo" /></a>
             </div>
             <div class="col-auto">
               <a href="#" class="menu-btn" data-bs-toggle="modal" data-bs-target="#menu-modal"><img src="<?= Yii::$app->homeUrl ?>images/hamburger-icon.svg" class="img-fluid" alt="" /></a>
@@ -134,7 +134,7 @@ CrudAsset::register($this);
     <div class="container-fluid">
       <div class="row align-items-center justify-content-center justify-content-lg-between">
         <div class="col-auto">
-          <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/go-pravasa-logo-03.png" class="img-fluid" alt="" /></a>
+          <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/go-pravasa-logo-03.png" class="logo" alt="" /></a>
           <!-- <form action="" class="common-form">
             <input type="email" class="form-control" placeholder="Enter Email......." />
             <button class="primary-btn">SUBSCRIBE</button>
@@ -148,7 +148,7 @@ CrudAsset::register($this);
               '<i>ENQUIRE</i>',
               // "<img src =".Yii::$app->homeUrl."images/enquiry-icon.png>",
               ['site/create-enquiry'],
-              ['role' => 'modal-remote', 'class' => 'btn btn-primary','id'=>'enquiry_btn', 'data-pjax' => 1]
+              ['role' => 'modal-remote', 'class' => 'btn btn-primary theam-btn','id'=>'enquiry_btn', 'data-pjax' => 1]
             )
             ?>
             <!--<a href="#" class="view-btn">Inquire</a>-->
