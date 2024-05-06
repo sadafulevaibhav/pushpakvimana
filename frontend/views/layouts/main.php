@@ -134,7 +134,7 @@ CrudAsset::register($this);
     <div class="container-fluid">
       <div class="row align-items-center justify-content-center justify-content-lg-between">
         <div class="col-auto">
-          <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/light-logo.svg" class="img-fluid" alt="" /></a>
+          <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/go-pravasa-logo-03.png" class="img-fluid" alt="" /></a>
           <!-- <form action="" class="common-form">
             <input type="email" class="form-control" placeholder="Enter Email......." />
             <button class="primary-btn">SUBSCRIBE</button>
