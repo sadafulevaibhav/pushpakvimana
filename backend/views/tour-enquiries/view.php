@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\TourEnquiries */
 ?>
 <div class="tour-enquiries-view">
- 
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -18,7 +18,7 @@ use yii\widgets\DetailView;
             'travel_destination',
             'travel_date',
             'travellers_count',
-            'vaccation_type',
+            'vacation_type',
             'created_date',
         ],
     ]) ?>

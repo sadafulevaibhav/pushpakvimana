@@ -83,6 +83,7 @@
                             ['label' => 'Country', 'url' => ['destination-country/'], 'iconStyle' => 'far'],
                             ['label' => 'Destination Media', 'url' => ['destination-media/'], 'iconStyle' => 'far'],
                             ['label' => 'Destination Packages', 'url' => ['destination-package/'], 'iconStyle' => 'far'],
+                            ['label' => 'General Picklists', 'url' => ['general-picklist/'], 'iconStyle' => 'far'],
                         ]
                     ],
                     [

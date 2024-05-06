@@ -1,5 +1,5 @@
-main > .container, main > .container-fluid
-{
+main>.container,
+main>.container-fluid {
     padding: 70px 15px 20px;
 }
 
@@ -9,7 +9,8 @@ main > .container, main > .container-fluid
     height: 60px;
 }
 
-.footer > .container, .footer > .container-fluid {
+.footer>.container,
+.footer>.container-fluid {
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -20,7 +21,8 @@ main > .container, main > .container-fluid
 }
 
 /* add sorting icons to gridview sort links */
-a.asc:after, a.desc:after {
+a.asc:after,
+a.desc:after {
     content: '';
     left: 3px;
     display: inline-block;
@@ -66,27 +68,27 @@ a.desc:after {
 }
 
 /* align the logout "link" (button in form) of the navbar */
-.navbar form > button.logout {
+.navbar form>button.logout {
     padding-top: 7px;
     color: rgba(255, 255, 255, 0.5);
 }
 
 @media(max-width:767px) {
-    .navbar form > button.logout {
-        display:block;
+    .navbar form>button.logout {
+        display: block;
         text-align: left;
         width: 100%;
         padding: 10px 0;
     }
 }
 
-.navbar form > button.logout:focus,
-.navbar form > button.logout:hover {
+.navbar form>button.logout:focus,
+.navbar form>button.logout:hover {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.75);
 }
 
-.navbar form > button.logout:focus {
+.navbar form>button.logout:focus {
     outline: none;
 }
 
@@ -97,54 +99,81 @@ a.desc:after {
     padding: .75rem 1rem;
 }
 
-.breadcrumb-item > a
-{
+.breadcrumb-item>a {
     text-decoration: none;
+}
+
+.enq-sec {
+    position: fixed;
+    bottom: 340px;
+    /* Adjust as needed */
+    right: 20px;
+    /* Adjust as needed */
+    z-index: 1000;
+    /* Ensure it appears above other content */
+}
+
+.enq-section-1,
+.enq-section-2 {
+    max-height: 600px;
+    /* Adjust the value as needed */
+    overflow-y: auto;
 }
 
 .whatsapp-chat {
     position: fixed;
-    bottom: 20px; /* Adjust as needed */
-    left: 20px; /* Adjust as needed */
-    z-index: 1000; /* Ensure it appears above other content */
-  }
-  
-  .whatsapp-chat img {
-    width: 50px; /* Adjust the size of the icon */
+    bottom: 20px;
+    /* Adjust as needed */
+    left: 20px;
+    /* Adjust as needed */
+    z-index: 1000;
+    /* Ensure it appears above other content */
+}
+
+.whatsapp-chat img {
+    width: 50px;
+    /* Adjust the size of the icon */
     height: auto;
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
-  }
-  
-  .whatsapp-chat img:hover {
-    transform: scale(1.1); /* Scale the icon on hover */
-  }
-  .logo {
+}
+
+.whatsapp-chat img:hover {
+    transform: scale(1.1);
+    /* Scale the icon on hover */
+}
+
+.logo {
     max-width: 100%;
     height: 4em;
-  }  
-  #modalHeader .close {
-    display:none;
-  }
-  .custom-modalheader {
+}
+
+#modalHeader .close {
+    display: none;
+}
+
+.custom-modalheader {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     position: relative;
     background-color: #F60 !important;
-  }
-  .custom-modalfooter {
+}
+
+.custom-modalfooter {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     position: relative;
     /* background-color: #F60 !important; */
-  }
-  .modal-header .btn-close {
+}
+
+.modal-header .btn-close {
     position: absolute;
     left: 10px;
-  }
-  .theam-btn{
+}
+
+.theam-btn {
     background-color: #F60 !important;
-  }
+}

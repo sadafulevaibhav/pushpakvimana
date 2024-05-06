@@ -15,7 +15,7 @@ use Yii;
  * @property string $travel_destination
  * @property string $travel_date
  * @property int $travellers_count
- * @property string $vaccation_type
+ * @property string $vacation_type
  * @property string $created_date
  */
 class TourEnquiries extends \yii\db\ActiveRecord
@@ -34,11 +34,11 @@ class TourEnquiries extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['full_name', 'email', 'travel_destination', 'travel_date', 'travellers_count', 'vaccation_type'], 'required'],
+            [['full_name', 'email', 'travel_destination', 'travel_date', 'travellers_count', 'vacation_type'], 'required'],
             [['travel_date', 'created_date'], 'safe'],
             [['travellers_count'], 'integer'],
             ['email', 'email'],
-            [['full_name', 'email', 'travel_destination', 'vaccation_type'], 'string', 'max' => 50],
+            [['full_name', 'email', 'travel_destination', 'vacation_type'], 'string', 'max' => 50],
             [['mobile', 'whats_app'], 'string', 'max' => 12],
             [['mobile', 'whats_app'], 'match', 'pattern' => '/^\d+$/', 'message' => '{attribute} must be a numeric value'],
         ];
@@ -58,7 +58,7 @@ class TourEnquiries extends \yii\db\ActiveRecord
             'travel_destination' => Yii::t('app', 'Travel Destination'),
             'travel_date' => Yii::t('app', 'Travel Date'),
             'travellers_count' => Yii::t('app', 'Travellers Count'),
-            'vaccation_type' => Yii::t('app', 'Vaccation Type'),
+            'vacation_type' => Yii::t('app', 'Vaccation Type'),
             'created_date' => Yii::t('app', 'Created Date'),
         ];
     }

@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\TourEnquiries;
+use common\models\GeneralPicklist;
 
 /**
- * TourEnquiriesSearch represents the model behind the search form about `common\models\TourEnquiries`.
+ * GeneralPicklistSearch represents the model behind the search form about `common\models\GeneralPicklist`.
  */
-class TourEnquiriesSearch extends TourEnquiries
+class GeneralPicklistSearch extends GeneralPicklist
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class TourEnquiriesSearch extends TourEnquiries
     public function rules()
     {
         return [
-            [['id', 'travellers_count'], 'integer'],
-            [['full_name', 'email', 'mobile', 'whats_app', 'travel_destination', 'travel_date', 'vacation_type', 'created_date'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'category'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class TourEnquiriesSearch extends TourEnquiries
      */
     public function search($params)
     {
-        $query = TourEnquiries::find();
+        $query = GeneralPicklist::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -57,17 +57,10 @@ class TourEnquiriesSearch extends TourEnquiries
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'travel_date' => $this->travel_date,
-            'travellers_count' => $this->travellers_count,
-            'created_date' => $this->created_date,
         ]);
 
-        $query->andFilterWhere(['like', 'full_name', $this->full_name])
-            ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'mobile', $this->mobile])
-            ->andFilterWhere(['like', 'whats_app', $this->whats_app])
-            ->andFilterWhere(['like', 'travel_destination', $this->travel_destination])
-            ->andFilterWhere(['like', 'vacation_type', $this->vacation_type]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'category', $this->category]);
 
         return $dataProvider;
     }
