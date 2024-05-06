@@ -147,7 +147,7 @@ CrudAsset::register($this);
             Html::a(
               '<i>ENQUIRE</i>',
               ['site/create-enquiry'],
-              ['role' => 'modal-remote', 'title' => 'ENQUIRE NOW', 'class' => 'btn btn-primary', 'data-pjax' => 1, 'role' => "modal-remote"]
+              ['role' => 'modal-remote', 'class' => 'btn btn-primary','id'=>'enquiry_btn', 'data-pjax' => 1]
             )
             ?>
             <!--<a href="#" class="view-btn">Inquire</a>-->
@@ -229,9 +229,20 @@ CrudAsset::register($this);
   </div>
 
   <?php Modal::begin([
-    "id" => "ajaxCrudModal",
-    'toggleButton' => ['label' => 'click me'],
+  "id" => "ajaxCrudModal",
+  //   'titleOptions' => [
+  //     'style' => 'background: rgba(0, 0, 0, 0.5)',
+  // ],
+    'headerOptions' =>['id' => 'modalHeader','class' =>'custom-modalheader'],
+    'footerOptions' =>['id' => 'modalFooter','class' =>'custom-modalfooter'],
+    'closeButton' => [
+      'class' => 'btn-close',
+      ],
+    'title' => '',
+    'size' => 'modal-lg',
+    
     "footer" => "", // always need it for jquery plugin
+    
   ]) ?>
   <?php Modal::end(); ?>
 
@@ -245,7 +256,7 @@ CrudAsset::register($this);
         e.preventDefault();
           setTimeout(() => {
             document.getElementById($(this).data('target')).scrollIntoView();
-          }, 500); // Delay to ensure modal is fully closed before scrolling
+          }, 5000); // Delay to ensure modal is fully closed before scrolling
       }
       
     });
@@ -309,6 +320,9 @@ CrudAsset::register($this);
         }
     }
 });
+  setTimeout(() => {
+              $('#enquiry_btn').trigger('click');
+  }, 1000);
 JS;
   $this->registerJs($script);
 

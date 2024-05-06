@@ -3,12 +3,6 @@
 /** @var yii\web\View $this */
 
 use yii\bootstrap5\Html;
-use yii\bootstrap5\Carousel;
-// use yii\bootstrap\Card;
-// use yii\bootstrap5\CardHeader;
-// use yii\bootstrap5\CardBody;
-use yii\bootstrap5\CarouselItem;
-use yii\grid\GridView;
 
 $this->title = 'Pushpaka Vimana';
 ?>
