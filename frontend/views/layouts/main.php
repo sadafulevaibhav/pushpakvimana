@@ -7,7 +7,7 @@ use common\widgets\Alert;
 use frontend\assets\AppAsset;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
-use yii\bootstrap4\Modal;
+use yii\bootstrap5\Modal;
 use johnitvn\ajaxcrud\CrudAsset;
 use yii\widgets\ActiveForm;
 use yii\bootstrap5\Nav;
@@ -42,7 +42,7 @@ CrudAsset::register($this);
         <div class="container-fluid">
           <div class="row align-items-center justify-content-between">
             <div class="col-auto">
-              <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/logo.svg" class="img-fluid" alt="" /></a>
+              <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/Gplogo.png" alt="Logo" class="logo" alt="" /></a>
             </div>
             <div class="col-auto">
               <nav>
@@ -84,7 +84,7 @@ CrudAsset::register($this);
                   <li><a href="<?= Yii::$app->homeUrl ?>#galary">GALLERY</a></li>
                 </ul>
                 <div class="right-btn">
-                  <a href="#" class="upcoming-btn"><img src="<?= Yii::$app->homeUrl ?>images/flight-icon.svg" class="img-fluid" alt="" />
+                  <a href="<?= Yii::$app->homeUrl ?>#upcomming-tours" class="upcoming-btn"><img src="<?= Yii::$app->homeUrl ?>images/flight-icon.svg" class="img-fluid" alt="" />
                     UPCOMING TOURS
                     <img src="<?= Yii::$app->homeUrl ?>images/map-icon.svg" class="img-fluid curve-image" alt="" />
                   </a>
@@ -109,7 +109,7 @@ CrudAsset::register($this);
         <div class="container-fluid">
           <div class="row align-items-center justify-content-between">
             <div class="col-auto">
-              <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/logo.svg" class="img-fluid" alt="" /></a>
+              <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/Gplogo.png" class="logo" alt="" /></a>
             </div>
             <div class="col-auto">
               <a href="#" class="menu-btn" data-bs-toggle="modal" data-bs-target="#menu-modal"><img src="<?= Yii::$app->homeUrl ?>images/hamburger-icon.svg" class="img-fluid" alt="" /></a>
@@ -134,12 +134,12 @@ CrudAsset::register($this);
     <div class="container-fluid">
       <div class="row align-items-center justify-content-center justify-content-lg-between">
         <div class="col-auto">
-          <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/light-logo.svg" class="img-fluid" alt="" /></a>
+          <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/go-pravasa-logo-03.png" class="img-fluid" alt="" /></a>
           <!-- <form action="" class="common-form">
             <input type="email" class="form-control" placeholder="Enter Email......." />
             <button class="primary-btn">SUBSCRIBE</button>
           </form> -->
-          <p class="para">All Rights Reserved At Pushpaka Vimana 2024</p>
+          <p class="para">All Rights Reserved At Pushpaka Vimana Travels and Tours Pvt Ltd <?= date('Y');?></p>
         </div>
         <div class="col-auto">
           <div class="enq-sec text-center text-lg-end">
@@ -147,10 +147,15 @@ CrudAsset::register($this);
             Html::a(
               '<i>ENQUIRE</i>',
               ['site/create-enquiry'],
-              ['role' => 'modal-remote', 'title' => 'ENQUIRE NOW', 'class' => 'btn btn-primary', 'data-pjax' => 1, 'role' => "modal-remote"]
+              ['role' => 'modal-remote', 'class' => 'btn btn-primary','id'=>'enquiry_btn', 'data-pjax' => 1]
             )
             ?>
             <!--<a href="#" class="view-btn">Inquire</a>-->
+          </div>
+          <div class="whatsapp-chat">
+            <a href="https://wa.me/919606024617" target="_blank" rel="noopener noreferrer">
+              <img src="<?=Yii::$app->homeUrl."images/WhatsApp_icon.png"?>" alt="WhatsApp Chat">
+            </a>
           </div>
           <div class="find-us-sec" id ='contact-us'>
             <h3>FIND US ON</h3>
@@ -163,10 +168,10 @@ CrudAsset::register($this);
             <h3>Contact Us On</h3>
             <ul>
               <li>
-                <a href="mailto:pushpakavimana@gmail.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/mail-icon.svg" alt="" />pushpakavimana@gmail.com</a>
+                <a href="mailto:info@gopravasa.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/mail-icon.svg" alt="" />info@gopravasa.com</a>
               </li>
               <li>
-                <a href="mailto:pushpakavimana@gmail.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/phone-icon.svg" alt="" />+91
+                <a href="mailto:info@gopravasa.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/phone-icon.svg" alt="" />+91
                   9739734452 /
                   9739744456</a>
               </li>
@@ -185,7 +190,7 @@ CrudAsset::register($this);
           <div class="container-fluid">
             <div class="row align-items-center justify-content-between">
               <div class="col-auto">
-                <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/logo.svg" class="img-fluid" alt="" /></a>
+                <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/Gplogo.png" class="img-fluid" alt="" /></a>
               </div>
               <div class="col-auto text-end">
                 <button type="button" class="btn-closed" data-bs-dismiss="modal" aria-label="Close">
@@ -196,16 +201,16 @@ CrudAsset::register($this);
           </div>
         </div>
         <div class="modal-body">
-          <nav>
-            <ul>
-              <li><a href="<?= Yii::$app->homeUrl ?>">HOME</a></li>
-              <li><a href="<?= Yii::$app->homeUrl ?>#about-us">ABOUT US</a></li>
-              <li><a href="<?= Yii::$app->homeUrl ?>#contact-us">CONTACT US</a></li>
-              <li><a href="<?= Yii::$app->homeUrl ?>#upcomming-tours">TOURS</a></li>
-              <li><a href="<?= Yii::$app->homeUrl ?>#galary">GALLERY</a></li>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <ul class="navbar-nav">
+              <li><a class="click-nav" data-target="" href="<?= Yii::$app->homeUrl ?>">HOME</a></li>
+              <li><a class="click-nav" data-target="about-us" href="<?= Yii::$app->homeUrl ?>#about-us">ABOUT US</a></li>
+              <li><a class="click-nav" data-target="contact-us" href="<?= Yii::$app->homeUrl ?>#contact-us">CONTACT US</a></li>
+              <li><a class="click-nav" data-target="upcomming-tours" href="<?= Yii::$app->homeUrl ?>#upcomming-tours">TOURS</a></li>
+              <li><a class="click-nav" data-target="galary" href="<?= Yii::$app->homeUrl ?>#galary">GALLERY</a></li>
             </ul>
             <div class="right-btn">
-              <a href="#" class="upcoming-btn"><img src="<?= Yii::$app->homeUrl ?>images/flight-icon.svg" class="img-fluid" alt="" />
+              <a href="<?= Yii::$app->homeUrl ?>#upcomming-tours" class="upcoming-btn click-nav" data-target="upcomming-tours"><img src="<?= Yii::$app->homeUrl ?>images/flight-icon.svg" class="img-fluid" alt="" />
                 UPCOMING TOURS
                 <img src="<?= Yii::$app->homeUrl ?>images/map-icon.svg" class="img-fluid" alt="" />
               </a>
@@ -224,14 +229,38 @@ CrudAsset::register($this);
   </div>
 
   <?php Modal::begin([
-    "id" => "ajaxCrudModal",
-    //"title" => '<h4 class="mod  al-title">Modal title</h4>',
+  "id" => "ajaxCrudModal",
+  //   'titleOptions' => [
+  //     'style' => 'background: rgba(0, 0, 0, 0.5)',
+  // ],
+    'headerOptions' =>['id' => 'modalHeader','class' =>'custom-modalheader'],
+    'footerOptions' =>['id' => 'modalFooter','class' =>'custom-modalfooter'],
+    'closeButton' => [
+      'class' => 'btn-close',
+      ],
+    'title' => '',
+    'size' => 'modal-lg',
+    
     "footer" => "", // always need it for jquery plugin
+    
   ]) ?>
   <?php Modal::end(); ?>
 
   <?php
   $script = <<< JS
+    $(document).on('click','.click-nav', function(e){
+      
+      $('#menu-modal').modal('hide');
+      var ele = $(this).data('target'); 
+      if(typeof $('#'+ele).html() != 'undefined' ) {
+        e.preventDefault();
+          setTimeout(() => {
+            document.getElementById($(this).data('target')).scrollIntoView();
+          }, 5000); // Delay to ensure modal is fully closed before scrolling
+      }
+      
+    });
+    
     $(".owl-carousel.welcome-carousel").owlCarousel({
       loop: true,
       margin: 20,
@@ -291,6 +320,9 @@ CrudAsset::register($this);
         }
     }
 });
+  setTimeout(() => {
+              $('#enquiry_btn').trigger('click');
+  }, 1000);
 JS;
   $this->registerJs($script);
 

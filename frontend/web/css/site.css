@@ -101,3 +101,50 @@ a.desc:after {
 {
     text-decoration: none;
 }
+
+.whatsapp-chat {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    z-index: 1000; /* Ensure it appears above other content */
+  }
+  
+  .whatsapp-chat img {
+    width: 50px; /* Adjust the size of the icon */
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+  }
+  
+  .whatsapp-chat img:hover {
+    transform: scale(1.1); /* Scale the icon on hover */
+  }
+  .logo {
+    max-width: 100%;
+    height: 4em;
+  }  
+  #modalHeader .close {
+    display:none;
+  }
+  .custom-modalheader {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative;
+    background-color: #F60 !important;
+  }
+  .custom-modalfooter {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative;
+    /* background-color: #F60 !important; */
+  }
+  .modal-header .btn-close {
+    position: absolute;
+    left: 10px;
+  }
+  .theam-btn{
+    background-color: #F60 !important;
+  }
