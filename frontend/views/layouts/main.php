@@ -37,45 +37,46 @@ CrudAsset::register($this);
   <?php $this->beginBody() ?>
 
   <header>
-    <div class="d-none d-sm-none d-md-none d-lg-block">
+    <div class="d-none d-sm-none d-md-none d-lg-block fixed-top">
       <div class="desktop-header">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-between">
             <div class="col-auto">
-              <a href="<?= Yii::$app->homeUrl ?>"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
+              <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/logo.svg" class="img-fluid" alt="" /></a>
             </div>
             <div class="col-auto">
               <nav>
                 <ul>
                   <li><a href="<?= Yii::$app->homeUrl ?>">HOME</a></li>
                   <li><a href="<?= Yii::$app->homeUrl ?>#about-us">ABOUT US</a></li>
-                  <li><a href="index.html">CONTACT US</a></li>
+                  <li><a href="<?= Yii::$app->homeUrl ?>#contact-us">CONTACT US</a></li>
                   <li>
-                    <a href="#toursmenu" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="toursmenu">TOURS</a>
+                  <a href="<?= Yii::$app->homeUrl ?>#upcomming-tours">TOURS</a>
+                    <!-- <a href="#toursmenu" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="toursmenu">TOURS</a> -->
                     <div class="collapse" id="toursmenu">
                       <div class="card card-body">
                         <ul>
-                          <li><a href="#"><img src="images/submenu1.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu2.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu3.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu1.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu2.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu1.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu2.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu3.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu1.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu2.png" class="img-fluid" alt=""></a></li>
                         </ul>
 
                         <ul>
-                          <li><a href="#"><img src="images/submenu1.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu3.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu2.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu3.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu1.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu1.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu3.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu2.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu3.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu1.png" class="img-fluid" alt=""></a></li>
                         </ul>
 
                         <ul>
-                          <li><a href="#"><img src="images/submenu3.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu1.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu2.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu1.png" class="img-fluid" alt=""></a></li>
-                          <li><a href="#"><img src="images/submenu2.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu3.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu1.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu2.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu1.png" class="img-fluid" alt=""></a></li>
+                          <li><a href="#"><img src="<?= Yii::$app->homeUrl ?>images/submenu2.png" class="img-fluid" alt=""></a></li>
                         </ul>
                       </div>
                     </div>
@@ -83,16 +84,16 @@ CrudAsset::register($this);
                   <li><a href="<?= Yii::$app->homeUrl ?>#galary">GALLERY</a></li>
                 </ul>
                 <div class="right-btn">
-                  <a href="#" class="upcoming-btn"><img src="images/flight-icon.svg" class="img-fluid" alt="" />
+                  <a href="#" class="upcoming-btn"><img src="<?= Yii::$app->homeUrl ?>images/flight-icon.svg" class="img-fluid" alt="" />
                     UPCOMING TOURS
-                    <img src="images/map-icon.svg" class="img-fluid" alt="" />
+                    <img src="<?= Yii::$app->homeUrl ?>images/map-icon.svg" class="img-fluid curve-image" alt="" />
                   </a>
                   <?php if (Yii::$app->user->isGuest) { ?>
-                    <a href="<?= Yii::$app->homeUrl . 'site/login' ?>" class="myAccount-btn">LOGIN
-                      <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                    <a href="<?= Yii::$app->homeUrl . 'site/login' ?>" class="myAccount-btn d-none">LOGIN
+                      <img src="<?= Yii::$app->homeUrl ?>images/pfp-circle.svg" class="img-fluid curve-image" alt="" /></a>
                   <?php } else { ?>
-                    <a href="#" class="myAccount-btn"><?= Yii::$app->user->identity->firstname . ' ' . Yii::$app->user->identity->lastname; ?>
-                      <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                    <a href="#" class="myAccount-btn d-none"><?= Yii::$app->user->identity->firstname . ' ' . Yii::$app->user->identity->lastname; ?>
+                      <img src="<?= Yii::$app->homeUrl ?>images/pfp-circle.svg" class="img-fluid curve-image" alt="" /></a>
                   <?php } ?>
                 </div>
 
@@ -108,10 +109,10 @@ CrudAsset::register($this);
         <div class="container-fluid">
           <div class="row align-items-center justify-content-between">
             <div class="col-auto">
-              <a href="index.html"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
+              <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/logo.svg" class="img-fluid" alt="" /></a>
             </div>
             <div class="col-auto">
-              <a href="#" class="menu-btn" data-bs-toggle="modal" data-bs-target="#menu-modal"><img src="images/hamburger-icon.svg" class="img-fluid" alt="" /></a>
+              <a href="#" class="menu-btn" data-bs-toggle="modal" data-bs-target="#menu-modal"><img src="<?= Yii::$app->homeUrl ?>images/hamburger-icon.svg" class="img-fluid" alt="" /></a>
             </div>
           </div>
         </div>
@@ -133,11 +134,11 @@ CrudAsset::register($this);
     <div class="container-fluid">
       <div class="row align-items-center justify-content-center justify-content-lg-between">
         <div class="col-auto">
-          <a href="index.html"><img src="images/light-logo.svg" class="img-fluid" alt="" /></a>
-          <form action="" class="common-form">
+          <a href="index.html"><img src="<?= Yii::$app->homeUrl ?>images/light-logo.svg" class="img-fluid" alt="" /></a>
+          <!-- <form action="" class="common-form">
             <input type="email" class="form-control" placeholder="Enter Email......." />
             <button class="primary-btn">SUBSCRIBE</button>
-          </form>
+          </form> -->
           <p class="para">All Rights Reserved At Pushpaka Vimana 2024</p>
         </div>
         <div class="col-auto">
@@ -145,27 +146,27 @@ CrudAsset::register($this);
             <?=
             Html::a(
               '<i>ENQUIRE</i>',
-              ['create-enquiry'],
+              ['site/create-enquiry'],
               ['role' => 'modal-remote', 'title' => 'ENQUIRE NOW', 'class' => 'btn btn-primary', 'data-pjax' => 1, 'role' => "modal-remote"]
             )
             ?>
             <!--<a href="#" class="view-btn">Inquire</a>-->
           </div>
-          <div class="find-us-sec">
+          <div class="find-us-sec" id ='contact-us'>
             <h3>FIND US ON</h3>
             <div class="social-icon">
-              <a href="#"><img src="images/facebook-icon.svg" class="img-fluid" alt="" /></a>
-              <a href="#"><img src="images/instagram-icon.svg" class="img-fluid" alt="" /></a>
-              <a href="#"><img src="images/twitter-icon.svg" class="img-fluid" alt="" /></a>
-              <a href="#"><img src="images/youTube-icon.png" class="img-fluid" alt="" /></a>
+              <a href="https://www.facebook.com/profile.php?id=61556551333251&mibextid=kFxxJD" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/facebook-icon.svg" class="img-fluid" alt="" /></a>
+              <a href="https://www.instagram.com/gopravasa?igsh=YmEwOWI5ZXh3aXBk" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/instagram-icon.svg" class="img-fluid" alt="" /></a>
+              <a href="https://x.com/go_pravasa?s=21" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/twitter-icon.svg" class="img-fluid" alt="" /></a>
+              <a href="https://youtube.com/@gopravasa?si=taiGvKqI7NykCv_x" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/youTube-icon.png" class="img-fluid" alt="" /></a>
             </div>
             <h3>Contact Us On</h3>
             <ul>
               <li>
-                <a href="mailto:pushpakavimana@gmail.com" class="para"><img src="images/mail-icon.svg" alt="" />pushpakavimana@gmail.com</a>
+                <a href="mailto:pushpakavimana@gmail.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/mail-icon.svg" alt="" />pushpakavimana@gmail.com</a>
               </li>
               <li>
-                <a href="mailto:pushpakavimana@gmail.com" class="para"><img src="images/phone-icon.svg" alt="" />+91
+                <a href="mailto:pushpakavimana@gmail.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/phone-icon.svg" alt="" />+91
                   9739734452 /
                   9739744456</a>
               </li>
@@ -184,11 +185,11 @@ CrudAsset::register($this);
           <div class="container-fluid">
             <div class="row align-items-center justify-content-between">
               <div class="col-auto">
-                <a href="<?= Yii::$app->homeUrl ?>"><img src="images/logo.svg" class="img-fluid" alt="" /></a>
+                <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/logo.svg" class="img-fluid" alt="" /></a>
               </div>
               <div class="col-auto text-end">
                 <button type="button" class="btn-closed" data-bs-dismiss="modal" aria-label="Close">
-                  <img src="images/cross-icon.svg" class="img-fluid" alt="" />
+                  <img src="<?= Yii::$app->homeUrl ?>images/cross-icon.svg" class="img-fluid" alt="" />
                 </button>
               </div>
             </div>
@@ -198,22 +199,22 @@ CrudAsset::register($this);
           <nav>
             <ul>
               <li><a href="<?= Yii::$app->homeUrl ?>">HOME</a></li>
-              <li><a href="index.html">ABOUT US</a></li>
-              <li><a href="index.html">CONTACT US</a></li>
-              <li><a href="index.html">TOURS</a></li>
-              <li><a href="index.html">GALLERY</a></li>
+              <li><a href="<?= Yii::$app->homeUrl ?>#about-us">ABOUT US</a></li>
+              <li><a href="<?= Yii::$app->homeUrl ?>#contact-us">CONTACT US</a></li>
+              <li><a href="<?= Yii::$app->homeUrl ?>#upcomming-tours">TOURS</a></li>
+              <li><a href="<?= Yii::$app->homeUrl ?>#galary">GALLERY</a></li>
             </ul>
             <div class="right-btn">
-              <a href="#" class="upcoming-btn"><img src="images/flight-icon.svg" class="img-fluid" alt="" />
+              <a href="#" class="upcoming-btn"><img src="<?= Yii::$app->homeUrl ?>images/flight-icon.svg" class="img-fluid" alt="" />
                 UPCOMING TOURS
-                <img src="images/map-icon.svg" class="img-fluid" alt="" />
+                <img src="<?= Yii::$app->homeUrl ?>images/map-icon.svg" class="img-fluid" alt="" />
               </a>
               <?php if (Yii::$app->user->isGuest) { ?>
-                <a href="#" class="myAccount-btn">LOGIN
-                  <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                <a href="#" class="myAccount-btn d-none">LOGIN
+                  <img src="<?= Yii::$app->homeUrl ?>images/pfp-circle.svg" class="img-fluid" alt="" /></a>
               <?php } else { ?>
-                <a href="#" class="myAccount-btn">MY ACCOUNT
-                  <img src="images/pfp-circle.svg" class="img-fluid" alt="" /></a>
+                <a href="#" class="myAccount-btn d-none">MY ACCOUNT
+                  <img src="<?= Yii::$app->homeUrl ?>images/pfp-circle.svg" class="img-fluid" alt="" /></a>
               <?php } ?>
             </div>
           </nav>

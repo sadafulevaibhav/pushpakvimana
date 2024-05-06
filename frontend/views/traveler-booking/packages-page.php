@@ -102,7 +102,7 @@ $this->title = 'Pushpaka Vimana';
                                     of innovation and heritage
                                 </p>
                             </div>
-                            <div class="packages-details-sec">
+                            <div class="packages-details-sec d-none">
                                 <h3 class="h3">PACKAGE DETAILS</h3>
                                 <div class="packages-list">
                                     <?php if (!empty($addons)) : ?>
@@ -131,7 +131,7 @@ $this->title = 'Pushpaka Vimana';
                                     <?php endif; ?>
                                 </div>
                             </div>
-                            <div class="flight-details-wrap">
+                            <div class="flight-details-wrap d-none">
                                 <h3 class="h3">FLIGHT DETAILS</h3>
                                 <div class="container g-0 g-sm-0 g-md-5 g-lg-5">
                                     <div class="row g-0 g-sm-0 g-md-5 g-lg-5">
@@ -372,7 +372,7 @@ $this->title = 'Pushpaka Vimana';
                                     </div>
                                 </div>
                             </div>
-                            <div class="click-agree-sec mt-4">
+                            <div class="click-agree-sec mt-4 d-none">
                                 <div class="text-center text-lg-end">
                                     <a href="#">Click agree to terms and conditions to proceed further and checkout</a>
                                 </div>
@@ -491,7 +491,7 @@ $this->title = 'Pushpaka Vimana';
                                 of innovation and heritage
                             </p>
                         </div>
-                        <div class="packages-details-sec">
+                        <div class="packages-details-sec d-none">
                             <h3 class="h3">PACKAGE DETAILS</h3>
                             <div class="packages-list">
                                 <div class="packages-list-wrap">
@@ -516,7 +516,7 @@ $this->title = 'Pushpaka Vimana';
                                 </div>
                             </div>
                         </div>
-                        <div class="flight-details-wrap">
+                        <div class="flight-details-wrap d-none">
                             <h3 class="h3">FLIGHT DETAILS</h3>
                             <div class="container g-0 g-sm-0 g-md-5 g-lg-5">
                                 <div class="row g-0 g-sm-0 g-md-5 g-lg-5">
@@ -696,7 +696,7 @@ $this->title = 'Pushpaka Vimana';
                                 </div>
                             </div>
                         </div>
-                        <div class="click-agree-sec mt-4">
+                        <div class="click-agree-sec mt-4 d-none">
                             <div class="text-center text-lg-end">
                                 <a href="#">Click agree to terms and conditions to proceed further and checkout</a>
                             </div>

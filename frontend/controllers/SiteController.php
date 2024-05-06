@@ -319,7 +319,7 @@ class SiteController extends Controller
                     'content' => $this->renderAjax('create-enquiry', [
                         'model' => $model,
                     ]),
-                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary', 'data-bs-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
@@ -330,7 +330,7 @@ class SiteController extends Controller
                     'forceReload' => '#crud-datatable-pjax',
                     'title' => "ENQUIRE NOW",
                     'content' => '<span class="text-success">Enquiry submited successfully.</span>',
-                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"])
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-bs-dismiss' => "modal"])
                 ];
             } else {
                 return [
@@ -338,7 +338,7 @@ class SiteController extends Controller
                     'content' => $this->renderAjax('create-enquiry', [
                         'model' => $model,
                     ]),
-                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-bs-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];

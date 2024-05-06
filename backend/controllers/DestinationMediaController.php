@@ -66,7 +66,7 @@ class DestinationMediaController extends Controller
                 'content' => $this->renderAjax('view', [
                     'model' => $this->findModel($id),
                 ]),
-                'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-bs-dismiss' => "modal"]) .
                     Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
             ];
         } else {
@@ -98,7 +98,7 @@ class DestinationMediaController extends Controller
                     'content' => $this->renderAjax('create', [
                         'model' => $model,
                     ]),
-                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-bs-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
@@ -118,7 +118,7 @@ class DestinationMediaController extends Controller
                         'forceReload' => '#crud-datatable-pjax',
                         'title' => "Create new DestinationMedia",
                         'content' => '<span class="text-success">Create DestinationMedia success</span>',
-                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-bs-dismiss' => "modal"]) .
                             Html::a('Create More', ['create'], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
                     ];
                 } else {
@@ -127,7 +127,7 @@ class DestinationMediaController extends Controller
                         'content' => $this->renderAjax('create', [
                             'model' => $model,
                         ]),
-                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-bs-dismiss' => "modal"]) .
                             Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                     ];
                 }
@@ -183,7 +183,7 @@ class DestinationMediaController extends Controller
                     'content' => $this->renderAjax('update', [
                         'model' => $model,
                     ]),
-                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-bs-dismiss' => "modal"]) .
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                 ];
             } else if ($model->load($request->post())) {
@@ -208,7 +208,7 @@ class DestinationMediaController extends Controller
                         'content' => $this->renderAjax('view', [
                             'model' => $model,
                         ]),
-                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-bs-dismiss' => "modal"]) .
                             Html::a('Edit', ['update', 'id' => $id], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
                     ];
                 } else {
@@ -217,7 +217,7 @@ class DestinationMediaController extends Controller
                         'content' => $this->renderAjax('update', [
                             'model' => $model,
                         ]),
-                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
+                        'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-bs-dismiss' => "modal"]) .
                             Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
                     ];
                 }

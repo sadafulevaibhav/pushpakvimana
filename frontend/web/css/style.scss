@@ -114,7 +114,7 @@ header {
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    max-height: 51px;
+    max-height: 31px;
   }
 
   .mobile-header {
@@ -184,6 +184,7 @@ header {
     font-style: normal;
     font-weight: 800;
     line-height: normal;
+    max-height: 31px;
   }
 }
 // Header end
@@ -384,6 +385,7 @@ footer {
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+        border-radius: 41px;
       }
     }
   }
@@ -578,7 +580,6 @@ footer {
     position: relative;
     display: flex;
     align-items: center;
-    border-radius: 41px;
     overflow: hidden;
     &::before {
       content: "";
