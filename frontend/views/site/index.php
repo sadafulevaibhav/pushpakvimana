@@ -207,9 +207,7 @@ $this->title = 'Pushpaka Vimana';
                 $imageSource = Yii::getAlias('@web/backend/' . str_replace(Yii::getAlias('@backend'), '', $defaultImagePath));
               }
               ?>
-              <div class="image-container">
                 <?= Html::img($imageSource, ['class' => 'img-fluid rounded-3', 'alt' => 'destination-media']) ?>
-              </div>
             </div>
           <?php endforeach; ?>
         </div>
