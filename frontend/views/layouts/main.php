@@ -9,11 +9,11 @@ use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Modal;
 use johnitvn\ajaxcrud\CrudAsset;
-use yii\widgets\ActiveForm;
-use yii\bootstrap5\Nav;
-use yii\bootstrap5\NavBar;
-use yii\bootstrap5\Button;
-use yii\bootstrap4\BootstrapAsset;
+// use yii\widgets\ActiveForm;
+// use yii\bootstrap5\Nav;
+// use yii\bootstrap5\NavBar;
+// use yii\bootstrap5\Button;
+// use yii\bootstrap5\BootstrapAsset;
 
 // BootstrapAsset::register($this);
 AppAsset::register($this);
@@ -37,6 +37,19 @@ CrudAsset::register($this);
   <?php $this->beginBody() ?>
 
   <header>
+  <?php 
+      // NavBar::begin(['brandLabel' => 'NavBar Test']);
+      // echo Nav::widget([
+      //     'items' => [
+      //         ['label' => 'HOME', 'url' => [Yii::$app->homeUrl]],
+      //         ['label' => 'ABOUT US', 'url' => [Yii::$app->homeUrl.'#about-us']],
+      //         ['label' => 'CONTACT US', 'url' => [Yii::$app->homeUrl.'#contact-us']],
+      //         ['label' => 'TOURS', 'url' => [Yii::$app->homeUrl.'#upcomming-tours']],
+      //     ],
+      //     'options' => ['class' => 'navbar-nav'],
+      // ]);
+      // NavBar::end();
+    ?>
     <div class="d-none d-sm-none d-md-none d-lg-block fixed-top">
       <div class="desktop-header">
         <div class="container-fluid">
@@ -145,10 +158,10 @@ CrudAsset::register($this);
           <div class="enq-sec text-center text-lg-end">
             <?=
             Html::a(
-              '<i>ENQUIRE</i>',
+              'ENQUIRE<span class="br-sm"></span><br>NOW',
               // "<img src =".Yii::$app->homeUrl."images/enquiry-icon.png>",
               ['site/create-enquiry'],
-              ['role' => 'modal-remote', 'class' => 'btn btn-primary theam-btn','id'=>'enquiry_btn', 'data-pjax' => 1]
+              ['role' => 'modal-remote', 'class' => 'btn-custom','id'=>'enquiry_btn', 'data-pjax' => 1]
             )
             ?>
             <!--<a href="#" class="view-btn">Inquire</a>-->

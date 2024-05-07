@@ -328,7 +328,7 @@ class SiteController extends Controller
                 return [
                     'forceReload' => '#crud-datatable-pjax',
                     'title' => "ENQUIRE NOW",
-                    'content' => '<span class="text-success">Enquiry submited successfully.</span>',
+                    'content' => '<span class="text-success">Success! Get ready for an amazing vacation with Go Pravasa!</span>',
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-bs-dismiss' => "modal"])
                 ];
             } else {

@@ -108,7 +108,6 @@ a.desc:after {
     bottom: 105px;
     /* Adjust as needed */
     right: 20px;
-    background-color: #F60;
     /* Adjust as needed */
     z-index: 1000;
     /* Ensure it appears above other content */
@@ -173,6 +172,27 @@ a.desc:after {
 .modal-header .btn-close {
     position: absolute;
     left: 10px;
+}
+.btn-custom {
+    background-color: #F60;
+    color: #461e55;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 0.7;
+    font-family: "Mont Heavy DEMO";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+}
+
+/* Bootstrap 5 utility class for line break */
+.br-sm {
+    display: none;
 }
 
 .theam-btn {
