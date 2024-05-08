@@ -29,6 +29,8 @@ CrudAsset::register($this);
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no,maximum-scale=1">
   <?php $this->registerCsrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
+  <link rel="shortcut icon" href="<?= Yii::$app->homeUrl ?>/icons/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="<?= Yii::$app->homeUrl ?>/icons/favicon.ico" />
   <?php $this->head() ?>
 </head>
 
@@ -152,7 +154,6 @@ CrudAsset::register($this);
             <input type="email" class="form-control" placeholder="Enter Email......." />
             <button class="primary-btn">SUBSCRIBE</button>
           </form> -->
-          <p class="para">All Rights Reserved At Pushpaka Vimana Travels and Tours Pvt Ltd <?= date('Y');?></p>
         </div>
         <div class="col-auto">
           <div class="enq-sec text-center text-lg-end">
@@ -188,6 +189,7 @@ CrudAsset::register($this);
                 <a href="mailto:info@gopravasa.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/phone-icon.svg" alt="" />+91
                   9739734452 /
                   9739744456</a>
+                  <p class="para">All Rights Reserved At Pushpaka Vimana Travels and Tours Pvt Ltd <?= date('Y');?></p>
               </li>
             </ul>
           </div>
