@@ -8,7 +8,9 @@ main>.container-fluid {
     font-size: .9em;
     height: 60px;
 }
-
+footer, footer * {
+    color: #461e55 !important;
+  }
 .footer>.container,
 .footer>.container-fluid {
     padding-right: 15px;
@@ -195,4 +197,8 @@ a.desc:after {
 
 .theam-btn {
     background-color: #F60 !important;
+}
+.modal-title{
+    color: #461e55;
+    font-family: "Mont Heavy DEMO";
 }

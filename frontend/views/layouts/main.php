@@ -145,58 +145,6 @@ CrudAsset::register($this);
 
   </main>
 
-  <footer class="">
-    <div class="container-fluid">
-      <div class="row align-items-center justify-content-center justify-content-lg-between">
-        <div class="col-auto">
-          <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/go-pravasa-logo-03.png" class="logo" alt="" /></a>
-          <!-- <form action="" class="common-form">
-            <input type="email" class="form-control" placeholder="Enter Email......." />
-            <button class="primary-btn">SUBSCRIBE</button>
-          </form> -->
-        </div>
-        <div class="col-auto">
-          <div class="enq-sec text-center text-lg-end">
-            <?=
-            Html::a(
-              'ENQUIRE<span class="br-sm"></span><br>NOW',
-              // "<img src =".Yii::$app->homeUrl."images/enquiry-icon.png>",
-              ['site/create-enquiry'],
-              ['role' => 'modal-remote', 'class' => 'btn-custom','id'=>'enquiry_btn', 'data-pjax' => 1]
-            )
-            ?>
-            <!--<a href="#" class="view-btn">Inquire</a>-->
-          </div>
-          <div class="whatsapp-chat">
-            <a href="https://wa.me/919606024617" target="_blank" rel="noopener noreferrer">
-              <img src="<?=Yii::$app->homeUrl."images/WhatsApp_icon.png"?>" alt="WhatsApp Chat">
-            </a>
-          </div>
-          <div class="find-us-sec" id ='contact-us'>
-            <h3>FIND US ON</h3>
-            <div class="social-icon">
-              <a href="https://www.facebook.com/profile.php?id=61556551333251&mibextid=kFxxJD" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/facebook-icon.svg" class="img-fluid" alt="" /></a>
-              <a href="https://www.instagram.com/gopravasa?igsh=YmEwOWI5ZXh3aXBk" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/instagram-icon.svg" class="img-fluid" alt="" /></a>
-              <a href="https://x.com/go_pravasa?s=21" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/twitter-icon.svg" class="img-fluid" alt="" /></a>
-              <a href="https://youtube.com/@gopravasa?si=taiGvKqI7NykCv_x" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/youTube-icon.png" class="img-fluid" alt="" /></a>
-            </div>
-            <h3>Contact Us On</h3>
-            <ul>
-              <li>
-                <a href="mailto:info@gopravasa.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/mail-icon.svg" alt="" />info@gopravasa.com</a>
-              </li>
-              <li>
-                <a href="mailto:info@gopravasa.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/phone-icon.svg" alt="" />+91
-                  9739734452 /
-                  9739744456</a>
-                  <p class="para">All Rights Reserved At Pushpaka Vimana Travels and Tours Pvt Ltd <?= date('Y');?></p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
   <!-- header modal  start -->
 
   <div class="modal fade" id="menu-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -244,6 +192,58 @@ CrudAsset::register($this);
     </div>
   </div>
 
+  <footer class="">
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-center justify-content-lg-between">
+        <div class="col-auto">
+          <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/go-pravasa-logo-03.png" class="logo" alt="" /></a>
+          <!-- <form action="" class="common-form">
+            <input type="email" class="form-control" placeholder="Enter Email......." />
+            <button class="primary-btn">SUBSCRIBE</button>
+          </form> -->
+        </div>
+        <div class="col-auto">
+          <div class="enq-sec text-center text-lg-end">
+            <?=
+            Html::a(
+              'ENQUIRE<span class="br-sm"></span><br>NOW',
+              // "<img src =".Yii::$app->homeUrl."images/enquiry-icon.png>",
+              ['site/create-enquiry'],
+              ['role' => 'modal-remote', 'class' => 'btn-custom','id'=>'enquiry_btn', 'data-pjax' => 1]
+            )
+            ?>
+            <!--<a href="#" class="view-btn">Inquire</a>-->
+          </div>
+          <div class="whatsapp-chat">
+            <a href="https://wa.me/919606024617" target="_blank" rel="noopener noreferrer">
+              <img src="<?=Yii::$app->homeUrl."images/WhatsApp_icon.png"?>" alt="WhatsApp Chat">
+            </a>
+          </div>
+          <div class="find-us-sec" id ='contact-us'>
+            <h3>FIND US ON</h3>
+            <div class="social-icon">
+              <a href="https://www.facebook.com/profile.php?id=61556551333251&mibextid=kFxxJD" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/fb.png" class="img-fluid" alt="" /></a>
+              <a href="https://www.instagram.com/gopravasa?igsh=YmEwOWI5ZXh3aXBk" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/insta.png" class="img-fluid" alt="" /></a>
+              <a href="https://x.com/go_pravasa?s=21" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/twitter.png" class="img-fluid" alt="" /></a>
+              <a href="https://youtube.com/@gopravasa?si=taiGvKqI7NykCv_x" target="_blank"><img src="<?= Yii::$app->homeUrl ?>images/youtube.png" class="img-fluid" alt="" /></a>
+            </div>
+            <h3>Contact Us On</h3>
+            <ul>
+              <li>
+                <a href="mailto:info@gopravasa.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/mail-icon.svg" alt="" />info@gopravasa.com</a>
+              </li>
+              <li>
+                <a href="mailto:info@gopravasa.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/phone-icon.svg" alt="" />+91
+                  9739734452 /
+                  9739744456</a>
+                  <p class="para">©  <?= date('Y');?> Pushpaka Vimana Travels and Tours Pvt Ltd. All rights reserved.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
   <?php Modal::begin([
   "id" => "ajaxCrudModal",
   //   'titleOptions' => [
@@ -272,7 +272,7 @@ CrudAsset::register($this);
         e.preventDefault();
           setTimeout(() => {
             document.getElementById($(this).data('target')).scrollIntoView();
-          }, 5000); // Delay to ensure modal is fully closed before scrolling
+          }, 500); // Delay to ensure modal is fully closed before scrolling
       }
       
     });
