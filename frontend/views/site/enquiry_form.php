@@ -46,11 +46,11 @@ use kartik\select2\Select2;
                     ->where(['category' => 'Vacation Type'])
                     ->indexBy('id')
                     ->column(),
-                'options' => ['placeholder' => 'Select Vacation Type'],
+                'options' => ['placeholder' => 'Vacation Type'],
                 'pluginOptions' => [
                     'allowClear' => true
                 ],
-            ]); ?>
+            ])->label(false); ?>
 
         </div>
     </div>

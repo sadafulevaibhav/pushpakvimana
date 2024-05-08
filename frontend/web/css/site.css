@@ -105,7 +105,7 @@ a.desc:after {
 
 .enq-sec {
     position: fixed;
-    bottom: 340px;
+    bottom: 105px;
     /* Adjust as needed */
     right: 20px;
     /* Adjust as needed */
@@ -124,7 +124,7 @@ a.desc:after {
     position: fixed;
     bottom: 20px;
     /* Adjust as needed */
-    left: 20px;
+    right: 25px;
     /* Adjust as needed */
     z-index: 1000;
     /* Ensure it appears above other content */
@@ -134,7 +134,7 @@ a.desc:after {
     width: 50px;
     /* Adjust the size of the icon */
     height: auto;
-    border-radius: 50%;
+    border-radius: 30%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
 }
@@ -172,6 +172,25 @@ a.desc:after {
 .modal-header .btn-close {
     position: absolute;
     left: 10px;
+}
+.btn-custom {
+    background-color: #F60;
+    color: #461e55;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 1;
+    font-family: "Mont Heavy DEMO";
+    font-size: 20px;
+}
+
+/* Bootstrap 5 utility class for line break */
+.br-sm {
+    display: none;
 }
 
 .theam-btn {

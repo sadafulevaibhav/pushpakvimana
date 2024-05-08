@@ -12,18 +12,18 @@ $this->title = 'Pushpaka Vimana';
   <div class="owl-carousel welcome-carousel owl-theme">
     <div class="item">
       <div class="img-wrap">
-        <!-- <img src="images/main-hero-slider-1.png" class="img-fluid" alt=""> -->
-        <video loop muted autoplay class="d-block w-100">
+        <img src="images/ayodhya06.jpg" class="img-fluid" alt="">
+        <!-- <video loop muted autoplay class="d-block w-100">
           <source src="videos/about-top-video.mp4" type="video/mp4">
-        </video>
+        </video> -->
       </div>
     </div>
     <div class="item">
       <div class="img-wrap">
-        <!-- <img src="images/main-hero-slider-1.png" class="img-fluid" alt=""> -->
-        <video loop muted autoplay class="d-block w-100">
+        <img src="images/ayodhya06.jpg" class="img-fluid" alt="">
+        <!-- <video loop muted autoplay class="d-block w-100">
           <source src="videos/about-top-video.mp4" type="video/mp4">
-        </video>
+        </video> -->
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@ $this->title = 'Pushpaka Vimana';
   <h2 class="secondary-heading">UPCOMING TOURS IN 2024</h2>
   <div class="upcomming-tours-wrap">
     <div class="container-fluid">
-      <div class="row" style="overflow-x: auto;">
+      <div class="row upcomming-tours-flex">
       <!-- <div class="upcomming-tours-flex"> -->
         <?php foreach ($dataCountryProvider->getModels() as $country) : ?>
           <div class="col-md-3 upcomming-card mt-3">
@@ -86,8 +86,9 @@ $this->title = 'Pushpaka Vimana';
             }
             ?>
             <?php if ($country->id) { ?>
-                <a href="<?= Yii::$app->homeUrl . 'traveler-booking/packages-page?id=' ?><?= Html::encode($country->id) ?>">
-                  <?= Html::img($imageSource, ['class' => 'img-fluid rounded-5 h-100', 'alt' => $country->country_name]) ?>
+                <!-- <a href="<?= Yii::$app->homeUrl . 'traveler-booking/packages-page?id=' ?><?= Html::encode($country->id) ?>"> -->
+                <a href="#">
+                  <?= Html::img($imageSource, ['class' => 'img-fluid rounded-3', 'alt' => $country->country_name]) ?>
                 </a>
                 <!-- <div style="position: absolute; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 15px;">sdsdsd</div> -->
               <span style="position: absolute; bottom: 15px; left: 25px;"><?= Html::encode($country->country_name) ?></span>
@@ -145,7 +146,7 @@ $this->title = 'Pushpaka Vimana';
           <div class="about-card">
             <div class="about-card-content">
               <h6><?= Html::encode($aboutus->title) ?></h6>
-              <p><?= Html::encode($aboutus->content) ?></p>
+              <p><?= Html::encode($aboutus->content,false) ?></p>
             </div>
           </div>
         <?php endforeach; ?>
@@ -206,9 +207,7 @@ $this->title = 'Pushpaka Vimana';
                 $imageSource = Yii::getAlias('@web/backend/' . str_replace(Yii::getAlias('@backend'), '', $defaultImagePath));
               }
               ?>
-              <div class="image-container">
-                <?= Html::img($imageSource, ['class' => 'img-fluid rounded-5', 'alt' => 'destination-media']) ?>
-              </div>
+                <?= Html::img($imageSource, ['class' => 'img-fluid rounded-3', 'alt' => 'destination-media']) ?>
             </div>
           <?php endforeach; ?>
         </div>
