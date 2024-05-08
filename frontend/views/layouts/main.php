@@ -29,8 +29,8 @@ CrudAsset::register($this);
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no,maximum-scale=1">
   <?php $this->registerCsrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
-  <link rel="shortcut icon" href="<?= Yii::$app->homeUrl ?>/icons/favicon.ico" />
-  <link rel="icon" type="image/x-icon" href="<?= Yii::$app->homeUrl ?>/icons/favicon.ico" />
+  <link rel="shortcut icon" href="<?= Yii::$app->homeUrl ?>icons/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="<?= Yii::$app->homeUrl ?>icons/favicon.ico" />
   <?php $this->head() ?>
 </head>
 
