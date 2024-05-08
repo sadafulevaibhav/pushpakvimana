@@ -113,6 +113,9 @@ class DestinationMediaController extends Controller
                     $model->media_file->saveAs($uploadPath . '/' . $fileName);
                     $model->media_file = $fileName;
                 }
+
+                $model->display_banner = Yii::$app->request->post('DestinationMedia')['display_banner'] ? 1 : 0;
+
                 if ($model->save()) {
                     return [
                         'forceReload' => '#crud-datatable-pjax',
@@ -148,6 +151,8 @@ class DestinationMediaController extends Controller
                     $model->media_file->saveAs($uploadPath . '/' . $fileName);
                     $model->media_file = $fileName;
                 }
+
+                $model->display_banner = Yii::$app->request->post('DestinationMedia')['display_banner'] ? 1 : 0;
 
                 if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
@@ -201,6 +206,8 @@ class DestinationMediaController extends Controller
                     $model->media_file = $fileName;
                 }
 
+                $model->display_banner = Yii::$app->request->post('DestinationMedia')['display_banner'] ? 1 : 0;
+
                 if ($model->save()) {
                     return [
                         'forceReload' => '#crud-datatable-pjax',
@@ -240,6 +247,8 @@ class DestinationMediaController extends Controller
                     $model->media_file->saveAs($uploadPath . '/' . $fileName);
                     $model->media_file = $fileName;
                 }
+
+                $model->display_banner = Yii::$app->request->post('DestinationMedia')['display_banner'] ? 1 : 0;
 
                 if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);

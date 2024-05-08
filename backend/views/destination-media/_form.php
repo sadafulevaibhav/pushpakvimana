@@ -56,6 +56,8 @@ use common\models\TourPackage;
         </div>
     <?php } ?>
 
+    <?= $form->field($model, 'display_banner')->checkbox(['label' => 'Display Banner']) ?>
+
     <?php ActiveForm::end(); ?>
 
 </div>
