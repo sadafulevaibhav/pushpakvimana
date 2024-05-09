@@ -10,7 +10,7 @@ $mediaItems = DestinationMedia::find()
   ->where(['display_banner' => 1])
   ->all();
 
-$this->title = 'Pushpaka Vimana';
+$this->title = 'Go Pravasa';
 ?>
 <!-- ********* Home page start ********* -->
 
