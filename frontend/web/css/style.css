@@ -388,7 +388,7 @@ header .upcoming-btn {
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  max-height: 32px;
+  max-height: 36px;
 }
 header .mobile-header {
   /* padding: 16px; */
@@ -516,11 +516,11 @@ footer .find-us-sec ul a {
   align-items: center;
   gap: 11px;
 }
-
+@media (min-width: 768px) {
 .welcome-page {
   position: relative;
-  margin-top: 104px;
-}
+  margin-top: 96px;
+}}
 .welcome-page .img-wrap {
   position: relative;
 }

@@ -153,10 +153,10 @@ CrudAsset::register($this);
         <div class="modal-header">
           <div class="container-fluid">
             <div class="row align-items-center justify-content-between">
-              <div class="col-auto">
+              <div class="col-4">
                 <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/Gplogo.png" class="img-fluid" alt="" /></a>
               </div>
-              <div class="col-auto text-end">
+              <div class="col-2 text-end">
                 <button type="button" class="btn-closed" data-bs-dismiss="modal" aria-label="Close">
                   <img src="<?= Yii::$app->homeUrl ?>images/cross-icon.svg" class="img-fluid" alt="" />
                 </button>
@@ -196,7 +196,7 @@ CrudAsset::register($this);
     <div class="container-fluid">
       <div class="row align-items-center justify-content-center justify-content-lg-between">
         <div class="col-auto">
-          <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/go-pravasa-logo-03.png" class="logo" alt="" /></a>
+          <a href="<?= Yii::$app->homeUrl ?>"><img src="<?= Yii::$app->homeUrl ?>images/go-pravasa-logo4-03.png" class="logo" alt="" /></a>
           <!-- <form action="" class="common-form">
             <input type="email" class="form-control" placeholder="Enter Email......." />
             <button class="primary-btn">SUBSCRIBE</button>
@@ -236,10 +236,15 @@ CrudAsset::register($this);
                 <a href="mailto:info@gopravasa.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/phone-icon.svg" alt="" />+91
                   9739734452 /
                   9739744456</a>
-                  <p class="para">©  <?= date('Y');?> Pushpaka Vimana Travels and Tours Pvt Ltd. All rights reserved.</p>
+                  <!-- <p class="para">©  <?= date('Y');?> Pushpaka Vimana Travels and Tours Pvt Ltd. All rights reserved.</p> -->
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+           <span class="para">©  <?= date('Y');?> Pushpaka Vimana Travels and Tours Pvt Ltd. All rights reserved.</span>
         </div>
       </div>
     </div>
@@ -266,7 +271,7 @@ CrudAsset::register($this);
   $script = <<< JS
     $(document).on('click','.click-nav', function(e){
       
-      $('#menu-modal').modal('hide');
+      $('.btn-closed').trigger('click');
       var ele = $(this).data('target'); 
       if(typeof $('#'+ele).html() != 'undefined' ) {
         e.preventDefault();
