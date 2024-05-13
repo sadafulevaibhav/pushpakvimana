@@ -215,7 +215,7 @@ CrudAsset::register($this);
             <!--<a href="#" class="view-btn">Inquire</a>-->
           </div>
           <div class="whatsapp-chat">
-            <a href="https://wa.me/919606024617" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919606024613" target="_blank" rel="noopener noreferrer">
               <img src="<?=Yii::$app->homeUrl."images/WhatsApp_icon.png"?>" alt="WhatsApp Chat">
             </a>
           </div>

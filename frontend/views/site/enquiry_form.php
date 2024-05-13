@@ -21,9 +21,7 @@ use kartik\select2\Select2;
         <div class="col-md-12 enq-section-1">
             <!-- Content for Section 1 -->
             <?= $form->field($model, 'full_name')->textInput(['maxlength' => true, 'placeholder' => "Full Name"])->label(false) ?>
-            <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'placeholder' => "Email"])->label(false) ?>
             <?= $form->field($model, 'mobile')->textInput(['maxlength' => true, 'placeholder' => "Phone Number"])->label(false) ?>
-            <?= $form->field($model, 'whats_app')->textInput(['maxlength' => true, 'placeholder' => "WhatsApp"])->label(false) ?>
         </div>
 
         <div class="col-md-12 enq-section-2">
@@ -37,20 +35,19 @@ use kartik\select2\Select2;
                 ]
             ])->label(false); ?>
             <?= $form->field($model, 'travellers_count')->textInput(['type' => 'number', 'placeholder' => "No. of people"])->label(false) ?>
-            <!--
-            <?= $form->field($model, 'vacation_type')->textInput(['maxlength' => true, 'placeholder' => "Vacation Type"])->label(false) ?>
-            -->
-            <?= $form->field($model, 'vacation_type')->widget(Select2::classname(), [
-                'data' => GeneralPicklist::find()
-                    ->select(['name', 'id'])
-                    ->where(['category' => 'Vacation Type'])
-                    ->indexBy('id')
-                    ->column(),
-                'options' => ['placeholder' => 'Vacation Type'],
-                'pluginOptions' => [
-                    'allowClear' => true
-                ],
-            ])->label(false); ?>
+            <?php  
+            // $form->field($model, 'vacation_type')->widget(Select2::classname(), [
+            //     'data' => GeneralPicklist::find()
+            //         ->select(['name', 'id'])
+            //         ->where(['category' => 'Vacation Type'])
+            //         ->indexBy('id')
+            //         ->column(),
+            //     'options' => ['placeholder' => 'Vacation Type'],
+            //     'pluginOptions' => [
+            //         'allowClear' => true
+            //     ],
+            // ])->label(false); 
+            ?>
 
         </div>
     </div>
