@@ -5,7 +5,8 @@ namespace backend\controllers;
 use Yii;
 use common\models\GeneralPicklist;
 use common\models\GeneralPicklistSearch;
-use yii\web\Controller;
+//use yii\web\Controller;
+use backend\controllers\BaseController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
@@ -14,24 +15,8 @@ use yii\helpers\Html;
 /**
  * GeneralPicklistController implements the CRUD actions for GeneralPicklist model.
  */
-class GeneralPicklistController extends Controller
+class GeneralPicklistController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                    'bulkdelete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all GeneralPicklist models.
      * @return mixed

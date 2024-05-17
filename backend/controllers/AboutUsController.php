@@ -5,7 +5,8 @@ namespace backend\controllers;
 use Yii;
 use backend\models\AboutUs;
 use backend\models\AboutUsSearch;
-use yii\web\Controller;
+//use yii\web\Controller;
+use backend\controllers\BaseController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
@@ -14,24 +15,8 @@ use yii\helpers\Html;
 /**
  * AboutUsController implements the CRUD actions for AboutUs model.
  */
-class AboutUsController extends Controller
+class AboutUsController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                    'bulkdelete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all AboutUs models.
      * @return mixed

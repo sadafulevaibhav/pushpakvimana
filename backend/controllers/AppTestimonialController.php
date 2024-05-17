@@ -5,7 +5,8 @@ namespace backend\controllers;
 use Yii;
 use backend\models\AppTestimonial;
 use backend\models\AppTestimonialSearch;
-use yii\web\Controller;
+//use yii\web\Controller;
+use backend\controllers\BaseController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
@@ -16,24 +17,8 @@ use common\components\ImageHelper;
 /**
  * AppTestimonialController implements the CRUD actions for AppTestimonial model.
  */
-class AppTestimonialController extends Controller
+class AppTestimonialController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                    'bulkdelete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all AppTestimonial models.
      * @return mixed

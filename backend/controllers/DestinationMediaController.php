@@ -5,7 +5,8 @@ namespace backend\controllers;
 use Yii;
 use common\models\DestinationMedia;
 use common\models\DestinationMediaSearch;
-use yii\web\Controller;
+//use yii\web\Controller;
+use backend\controllers\BaseController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
@@ -17,24 +18,8 @@ use yii\helpers\FileHelper;
 /**
  * DestinationMediaController implements the CRUD actions for DestinationMedia model.
  */
-class DestinationMediaController extends Controller
+class DestinationMediaController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                    'bulkdelete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all DestinationMedia models.
      * @return mixed

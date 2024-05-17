@@ -5,7 +5,8 @@ namespace backend\controllers;
 use Yii;
 use common\models\TourPackage;
 use common\models\TourPackageSearch;
-use yii\web\Controller;
+//use yii\web\Controller;
+use backend\controllers\BaseController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
@@ -16,24 +17,8 @@ use common\components\ImageHelper;
 /**
  * TourPackageController implements the CRUD actions for TourPackage model.
  */
-class TourPackageController extends Controller
+class TourPackageController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                    'bulkdelete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all TourPackage models.
      * @return mixed
