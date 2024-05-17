@@ -97,7 +97,7 @@ class SiteController extends Controller
         ]);
 
         $dataDestinationMediaProvider = new ActiveDataProvider([
-            'query' => DestinationMedia::find(),
+            'query' => DestinationMedia::find()->andWhere(['display_banner' => 0]),
         ]);
 
         $dataAppTestimonialsProvider = new ActiveDataProvider([

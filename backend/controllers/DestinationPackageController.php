@@ -6,7 +6,8 @@ use Yii;
 use common\models\DestinationPackage;
 use common\models\DestinationPackageSearch;
 use common\models\Addon;
-use yii\web\Controller;
+//use yii\web\Controller;
+use backend\controllers\BaseController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
@@ -18,24 +19,8 @@ use common\components\ImageHelper;
 /**
  * DestinationPackageController implements the CRUD actions for DestinationPackage model.
  */
-class DestinationPackageController extends Controller
+class DestinationPackageController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                    'bulkdelete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all DestinationPackage models.
      * @return mixed

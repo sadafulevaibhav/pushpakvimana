@@ -16,20 +16,20 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
             'class' => 'common\components\Request',
-            'web'=> '/frontend/web',
+            'web' => '/frontend/web',
             'cookieValidationKey' => 'fasdsad557574dfsdsxxxsdsfnklc58',
         ],
-    //     'view' => [
-    //         'theme' => [
-    //             'pathMap' => [
-    //                '@app/views' => '@vendor/hail812/yii2-adminlte3/src/views'
-    //             ],
-    //         ],
-    //    ],
+        //     'view' => [
+        //         'theme' => [
+        //             'pathMap' => [
+        //                '@app/views' => '@vendor/hail812/yii2-adminlte3/src/views'
+        //             ],
+        //         ],
+        //    ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            //'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
@@ -50,8 +50,12 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'rules' => [
+                '' => 'site/login',
+                // Other rules...
+            ],
         ],
-        
+
     ],
     'params' => $params,
 ];

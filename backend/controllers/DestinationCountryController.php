@@ -5,7 +5,8 @@ namespace backend\controllers;
 use Yii;
 use common\models\DestinationCountry;
 use common\models\DestinationCountrySearch;
-use yii\web\Controller;
+//use yii\web\Controller;
+use backend\controllers\BaseController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
@@ -16,23 +17,8 @@ use common\components\ImageHelper;
 /**
  * DestinationCountryController implements the CRUD actions for DestinationCountry model.
  */
-class DestinationCountryController extends Controller
+class DestinationCountryController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                    'bulkdelete' => ['post'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all DestinationCountry models.

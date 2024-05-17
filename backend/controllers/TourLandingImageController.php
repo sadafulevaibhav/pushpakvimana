@@ -5,7 +5,8 @@ namespace backend\controllers;
 use Yii;
 use common\models\TourLandingImage;
 use common\models\TourLandingImageSearch;
-use yii\web\Controller;
+//use yii\web\Controller;
+use backend\controllers\BaseController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
@@ -16,24 +17,8 @@ use common\components\ImageHelper;
 /**
  * TourLandingImageController implements the CRUD actions for TourLandingImage model.
  */
-class TourLandingImageController extends Controller
+class TourLandingImageController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                    'bulkdelete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all TourLandingImage models.
      * @return mixed
