@@ -2,7 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\tinymce\TinyMce;
+use dosamigos\ckeditor\CKEditorAsset;
+
+CKEditorAsset::register($this);
 
 /* @var $this yii\web\View */
 /* @var $model common\models\StaticPage */
@@ -17,16 +19,9 @@ use dosamigos\tinymce\TinyMce;
 
     <?= $form->field($model, 'heading')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->widget(TinyMce::className(), [
+    <?= $form->field($model, 'description')->widget(\dosamigos\ckeditor\CKEditor::className(), [
         'options' => ['rows' => 6],
-        'clientOptions' => [
-            'plugins' => [
-                "advlist autolink lists link charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table contextmenu paste"
-            ],
-            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-        ]
+        'preset' => 'basic'
     ]) ?>
 
     <?= $form->field($model, 'seo_title')->textInput(['maxlength' => true]) ?>

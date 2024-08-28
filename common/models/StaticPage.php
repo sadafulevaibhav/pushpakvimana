@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\SluggableBehavior;
 
 /**
  * This is the model class for table "static_page".
@@ -50,6 +51,17 @@ class StaticPage extends \yii\db\ActiveRecord
             'seo_title' => 'Seo Title',
             'seo_keywords' => 'Seo Keywords',
             'seo_description' => 'Seo Description',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'name',
+                'slugAttribute' => 'slug',
+            ],
         ];
     }
 }
