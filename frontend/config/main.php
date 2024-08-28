@@ -46,6 +46,8 @@ return [
             'enableStrictParsing' => false,
             'rules' => [
                 // ...
+                '<name:[\w-]+>' => 'static-page/view',
+                //'page/<slug:[\w-]+>' => 'static-page/view',
             ],
         ],
         'urlManagerAdmin' => [
