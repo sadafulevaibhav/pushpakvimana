@@ -13,6 +13,7 @@ use \yii\web\Response;
 use yii\helpers\Html;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\StaticPage;
 use common\models\DestinationCountry;
 use common\models\TourLandingImage;
 use common\models\DestinationPackage;
@@ -182,7 +183,9 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $aboutUs =  StaticPage::find()->where(['name'=>'About Us'])->one();
+        // echo "<pre>";print_r($aboutUs->description);exit;
+        return $this->render('about',['model'=>$aboutUs]);
     }
 
     /**

@@ -63,7 +63,7 @@ CrudAsset::register($this);
               <nav>
                 <ul>
                   <li><a href="<?= Yii::$app->homeUrl ?>">HOME</a></li>
-                  <li><a href="<?= Yii::$app->homeUrl ?>#about-us">ABOUT US</a></li>
+                  <li><a href="<?= Yii::$app->homeUrl.'site/about' ?>">ABOUT US</a></li>
                   <li><a href="<?= Yii::$app->homeUrl ?>#contact-us">CONTACT US</a></li>
                   <li>
                   <a href="<?= Yii::$app->homeUrl ?>#upcomming-tours">TOURS</a>
@@ -234,8 +234,7 @@ CrudAsset::register($this);
               </li>
               <li>
                 <a href="mailto:info@gopravasa.com" class="para"><img src="<?= Yii::$app->homeUrl ?>images/phone-icon.svg" alt="" />+91
-                  9739734452 /
-                  9739744456</a>
+                9606024616/9606024613</a>
                   <!-- <p class="para">©  <?= date('Y');?> Pushpaka Vimana Travels and Tours Pvt Ltd. All rights reserved.</p> -->
               </li>
             </ul>

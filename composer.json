@@ -30,7 +30,8 @@
         "kartik-v/yii2-widget-select2": "@dev",
         "kartik-v/yii2-widget-datepicker": "dev-master",
         "unclead/yii2-multiple-input": "~2.0",
-        "stripe/stripe-php": "^14.3"
+        "stripe/stripe-php": "^14.3",
+        "2amigos/yii2-ckeditor-widget": "^2.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

@@ -101,6 +101,8 @@
                         ],
 
                         ['label' => 'About Us', 'url' => ['about-us/'], 'iconStyle' => 'far'],
+                        ['label' => 'Static Pages', 'url' => ['static-page/'], 'iconStyle' => 'far'],
+                        
                         ['label' => 'App Testimonials', 'url' => ['app-testimonial/'], 'iconStyle' => 'far'],
                     ],
                 ]);
