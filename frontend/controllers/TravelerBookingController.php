@@ -4,17 +4,21 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\TravelerBooking;
+use common\models\BookerDetails;
 use common\models\TravelerBookingSearch;
 use common\models\TourLandingImage;
 use common\models\TourItinerary;
 use common\models\DestinationCountry;
 use common\models\DestinationMedia;
+use common\models\DestinationPackage;
+use common\models\TourInclusionExclusion;
 use common\models\Addon;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 
 /**
  * TravelerBookingController implements the CRUD actions for TravelerBooking model.
@@ -90,7 +94,6 @@ class TravelerBookingController extends Controller
         $tourItineraries = TourItinerary::find()
             ->where(['country_id' => $country->id])
             ->all();
-
         $tourLandingImage = TourLandingImage::find()
             ->where(['country_id' => $country->id])
             ->one();
@@ -99,12 +102,17 @@ class TravelerBookingController extends Controller
             ->where(['country_id' => $country->id])
             ->all();
 
-        /*
+        
         $destinationPackage = DestinationPackage::find()
             ->where(['country_id' => $country->id])
-            ->andWhere(['package_id' => $packageId]) // Add this line
+            // ->andWhere(['package_id' => $packageId]) // Add this line
             ->all();
-        */
+
+     $destinationPackageList = ArrayHelper::map($destinationPackage, 'id', 'package_name');
+     $inclusions = TourInclusionExclusion::find()->where(['type' => 'inclusion','country_id' => $country->id])->all();
+    $exclusions = TourInclusionExclusion::find()->where(['type' => 'exclusion','country_id' => $country->id])->all();
+
+    //  echo "<pre>";print_r($destinationPackageList);exit;
 
         $addons = Addon::find()->all();
 
@@ -114,8 +122,11 @@ class TravelerBookingController extends Controller
             'tourItineraries' => $tourItineraries,
             'destinationMediaList' => $destinationMedia,
             'model' => $model,
+            'destinationPackageList'=>$destinationPackageList,
             //'destinationPackage' => $destinationPackage,
             'addons' => $addons,
+            'inclusions' => $inclusions,
+        'exclusions' => $exclusions,
         ]);
     }
 
@@ -171,39 +182,56 @@ class TravelerBookingController extends Controller
             */
             if ($model->load($request->post())) {
                 $requestData = $request->post();
+                $BookerDetailsmodel = new BookerDetails();
+                $BookerDetailsmodel->full_name = $requestData['TravelerBooking']['full_name'];
+                $BookerDetailsmodel->email = $requestData['TravelerBooking']['email'];
+                $BookerDetailsmodel->mobile = $requestData['TravelerBooking']['mobile'];
+                $BookerDetailsmodel->whats_app = $requestData['TravelerBooking']['whats_app'];
+                $BookerDetailsmodel->travel_destination = $requestData['TravelerBooking']['travel_destination'];
+                $BookerDetailsmodel->travel_date = $requestData['TravelerBooking']['travel_date'];
+                $BookerDetailsmodel->package = $requestData['TravelerBooking']['package'];
+                
+                $BookerDetailsmodel->save(false);
+
                 foreach ($requestData['TravelerBooking']['travellers'] as $key => $val) {
                     $modelNew = new TravelerBooking();
                     $modelNew->traveler_name = $val['traveler_name'];
                     $modelNew->traveler_age = $val['traveler_age'];
                     $modelNew->traveler_gender = $val['traveler_gender'];
                     $modelNew->traveler_passport = $val['traveler_passport'];
+                    $modelNew->booker_id = $BookerDetailsmodel->id;
+                    $modelNew->package_id = $BookerDetailsmodel->package;
                     $modelNew->save(false);
                     // echo "<pre>";print_r($val);exit; 
                 }
+                Yii::$app->session->setFlash('success', 'Your booking is sent to GoPravasa');
+
+
                 // echo "<pre>";print_r($request->post());exit;
                 // $model->batchInsert('traveler_booking',['traveler_name', 'traveler_age', 'traveler_gender', 'traveler_passport'],$requestData['TravelerBooking']['travellers']);
-                // && $model->save()
-                $stripe = new \Stripe\StripeClient('sk_test_51P7XjLSJAgaJ3Mvs7bm4XXfWAEd19wgT4Bj2ZNqMcT0beVYnGF7nivoG01CrA8NCZqbyvxsfBrM5Ll9XyGTMh2uM007a3J4UXu');
+                // $model->save();
+                // $stripe = new \Stripe\StripeClient('sk_test_51P7XjLSJAgaJ3Mvs7bm4XXfWAEd19wgT4Bj2ZNqMcT0beVYnGF7nivoG01CrA8NCZqbyvxsfBrM5Ll9XyGTMh2uM007a3J4UXu');
 
-                $checkout_session = $stripe->checkout->sessions->create([
-                    'line_items' => [[
-                        'price_data' => [
-                            'currency' => 'inr',
-                            'product_data' => [
-                                'name' => 'Packagge',
-                            ],
-                            'unit_amount' => 2000,
-                        ],
-                        'quantity' => 1,
-                    ]],
-                    'mode' => 'payment',
-                    'success_url' => 'http://localhost:4242/success',
-                    'cancel_url' => 'http://localhost:4242/cancel',
-                ]);
+                // $checkout_session = $stripe->checkout->sessions->create([
+                //     'line_items' => [[
+                //         'price_data' => [
+                //             'currency' => 'inr',
+                //             'product_data' => [
+                //                 'name' => 'Packagge',
+                //             ],
+                //             'unit_amount' => 2000,
+                //         ],
+                //         'quantity' => 1,
+                //     ]],
+                //     'mode' => 'payment',
+                //     'success_url' => 'http://localhost:4242/success',
+                //     'cancel_url' => 'http://localhost:4242/cancel',
+                // ]);
 
-                header("HTTP/1.1 303 See Other");
-                header("Location: " . $checkout_session->url);
-                exit;
+                // header("HTTP/1.1 303 See Other");
+                // header("Location: " . $checkout_session->url);
+                // exit;
+                return Yii::$app->response->redirect(Yii::$app->homeUrl);
                 // return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [

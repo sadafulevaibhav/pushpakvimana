@@ -52,6 +52,7 @@ CrudAsset::register($this);
       // ]);
       // NavBar::end();
     ?>
+   
     <div class="d-none d-sm-none d-md-none d-lg-block fixed-top">
       <div class="desktop-header">
         <div class="container-fluid">
@@ -141,6 +142,11 @@ CrudAsset::register($this);
       'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
     ]) ?>
     <?= Alert::widget() ?>
+    <?php if (Yii::$app->session->hasFlash('success')): ?>
+    <div class="alert alert-success">
+        <?= Yii::$app->session->getFlash('success') ?>
+    </div>
+<?php endif; ?>
     <?= $content ?>
 
   </main>

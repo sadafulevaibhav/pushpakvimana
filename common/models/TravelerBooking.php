@@ -1,6 +1,7 @@
 <?php
 
 namespace common\models;
+use yii\data\ActiveDataProvider;
 
 use Yii;
 
@@ -19,6 +20,16 @@ use Yii;
  */
 class TravelerBooking extends \yii\db\ActiveRecord
 {
+   public $full_name =''; 
+   public $email =''; 
+   public $mobile = '';
+   public $whats_app = '';
+   public $travel_date = '';
+   public $travellers_count = '';
+   public $vacation_type = '';
+   public $travel_destination = '';
+   public $package = '';
+   
     /**
      * {@inheritdoc}
      */
@@ -34,7 +45,7 @@ class TravelerBooking extends \yii\db\ActiveRecord
     {
         return [
             [['traveler_name', 'traveler_age', 'traveler_gender', 'traveler_passport', 'booking_date', 'group_id', 'package_id', 'tour_detail_id'], 'required'],
-            [['traveler_age', 'group_id', 'package_id', 'tour_detail_id'], 'integer'],
+            [['traveler_age', 'group_id', 'package_id', 'tour_detail_id', 'booker_id'], 'integer'],
             [['booking_date'], 'safe'],
             [['traveler_name'], 'string', 'max' => 50],
             [['traveler_gender'], 'string', 'max' => 10],
@@ -57,6 +68,8 @@ class TravelerBooking extends \yii\db\ActiveRecord
             'group_id' => 'Group ID',
             'package_id' => 'Package ID',
             'tour_detail_id' => 'Tour Detail ID',
+            'booker_id' => 'Booker ID',
+            'package' => 'Package'
         ];
     }
 
@@ -69,6 +82,16 @@ class TravelerBooking extends \yii\db\ActiveRecord
         return new TravelerBookingQuery(get_called_class());
     }
 
+    /**
+     * Gets query for [[Country]].
+     *
+     * @return \yii\db\ActiveQuery|BookerDetails
+     */
+    public function getBooker()
+    {
+        return $this->hasOne(BookerDetails::class, ['booker_id' => 'id']);
+    }
+
     public function batchInsert($table, $columns, $rows)
     {
         // $table = $this->db->quoteSql($table);
@@ -76,7 +99,7 @@ class TravelerBooking extends \yii\db\ActiveRecord
         $columns = array_map(function ($column) {
             return $this->db->quoteSql($column);
         }, $columns);
-        echo "<pre>";print_r(array_values($rows));exit;
+        // echo "<pre>";print_r(array_values($rows));exit;
 
         $params = [];
         $sql = $this->db->createCommand()->insert($table,$columns,$rows)->execute();
@@ -85,6 +108,26 @@ class TravelerBooking extends \yii\db\ActiveRecord
         return $this;
 
 	
+
+    }
+
+     /**
+     * Creates data provider instance with search query applied
+     *
+     * @param array $params
+     *
+     * @return ActiveDataProvider
+     */
+    public static function findTravellers($booker_id)
+    {
+        $query = TravelerBooking::find();
+        $query->where(['booker_id'=>$booker_id])
+           ->all();
+       $provider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+      
+        return $provider;
 
     }
 }

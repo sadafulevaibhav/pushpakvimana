@@ -84,6 +84,7 @@
                             'items' => [
                                 ['label' => 'Addon', 'url' => ['addon/'], 'iconStyle' => 'far'],
                                 ['label' => 'Country', 'url' => ['destination-country/'], 'iconStyle' => 'far'],
+                                ['label' => 'Inclusion/Exclusion', 'url' => ['tour-inclusion-exclusion/'], 'iconStyle' => 'far'],
                                 ['label' => 'Destination Media', 'url' => ['destination-media/'], 'iconStyle' => 'far'],
                                 ['label' => 'Destination Packages', 'url' => ['destination-package/'], 'iconStyle' => 'far'],
                                 ['label' => 'General Picklists', 'url' => ['general-picklist/'], 'iconStyle' => 'far'],
@@ -97,6 +98,8 @@
                                 ['label' => 'Tour Details', 'url' => ['tour-detail/'], 'iconStyle' => 'far'],
                                 ['label' => 'Tour Landing Images', 'url' => ['tour-landing-image/'], 'iconStyle' => 'far'],
                                 ['label' => 'Tour Enquiries', 'url' => ['tour-enquiries/'], 'iconStyle' => 'far'],
+                                ['label' => 'Booking Requests', 'url' => ['booking-details/'], 'iconStyle' => 'far'],
+                                
                             ]
                         ],
 

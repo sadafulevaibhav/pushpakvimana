@@ -1,10 +1,14 @@
 <?php
 
-/** @var yii\web\View $this */
-
-use unclead\multipleinput\MultipleInput;
-use yii\bootstrap5\Html;
+use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\DestinationPackage;
+use common\models\TourPackage;
+use unclead\multipleinput\MultipleInput;
+use unclead\multipleinput\MultipleInputColumn;
+use kartik\date\DatePicker;
+use kartik\select2\Select2;
+
 
 $this->title = 'Pushpaka Vimana';
 ?>
@@ -49,19 +53,172 @@ $this->title = 'Pushpaka Vimana';
         <div class="d-none d-sm-none d-md-block d-lg-block">
             <div class="top-tab-sec">
                 <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                    
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#one-month" type="button" role="tab" aria-controls="one-month" aria-selected="true">SUMMARY</button>
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#one-month" type="button" role="tab" aria-controls="one-month" aria-selected="false">SUMMARY</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#two-month" type="button" role="tab" aria-controls="three-month" aria-selected="false">ITINERARY</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking" type="button" role="tab" aria-controls="booking" aria-selected="true">BOOKING</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contacts-tab" data-bs-toggle="tab" data-bs-target="#three-month" type="button" role="tab" aria-controls="sixmonth" aria-selected="false">PRIVACY POLICY</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show" id="booking" role="tabpanel" aria-labelledby="booking-tab">
+                <div class="adventures-sec">
+                <div class="travellers-wrap-flex">
+                                                <div class="travellers-wrap">
+                                                    <div class="h3">TRAVELLERS BOOKING</div>
+                                                    <?php $form = ActiveForm::begin($actions ?? [
+    'action' => ['/traveler-booking/create'],
+    'method' => 'post',
+    'options' => ['enctype' => 'multipart/form-data']
+]); ?>
+
+<?= $form->field($model, 'full_name')->textInput(['maxlength' => true]) ?>
+
+<?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+<?= $form->field($model, 'mobile')->textInput(['maxlength' => true]) ?>
+
+<?= $form->field($model, 'whats_app')->textInput(['maxlength' => true]) ?>
+
+<?= $form->field($model, 'package')->dropdownList(
+    DestinationPackage::find()->select(['package_name', 'id'])->indexBy('id')->column(),
+    ['prompt' => 'Select Tour Package']
+) ?>
+
+
+<?= $form->field($model, 'travel_date')->widget(DatePicker::classname(), [
+    'options' => ['placeholder' => 'Travel Date'],
+    'pluginOptions' => [
+        'autoclose' => true,
+        'format' => 'yyyy-mm-dd'
+    ]
+])->label(false); ?>
+
+<?php
+echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
+    'id' => 'model-scales',
+    'cloneButton' => true,
+    'columns' => [
+        [
+            'name' => 'traveler_name',
+            'type' => 'textInput',
+            'title' => 'Guest Name',
+            'defaultValue' => '',
+            'options' => [],
+        ],
+        [
+            'name' => 'traveler_age',
+            'type' => 'textInput',
+            'title' => 'Age',
+            'defaultValue' => 5,
+            'options' => [],
+        ],
+        [
+            'name' => 'traveler_gender',
+            'type' => 'dropDownList',
+            'title' => 'Gender',
+            'items' => ['Male', 'Female'],
+        ],
+        [
+            'name' => 'traveler_passport',
+            'type' => 'textInput',
+            'title' => 'Passport Number',
+            'defaultValue' => '',
+            'options' => [],
+        ],
+    ],
+    'max' => 10,
+    'min' => 1, // should be at least 2 rows
+    'allowEmptyList' => false,
+    'enableGuessTitle' => true,
+    'addButtonPosition' => MultipleInput::POS_HEADER, // show add button in the header
+    'cloneButtonOptions' => [
+        'label' => '<i class="fa fa-plus"></i>', // Custom icon for clone button
+        'class' => 'btn btn-success', // Add Bootstrap class for button styling
+    ],
+    'removeButtonOptions' => [
+        'label' => '<i class="fa fa-trash"></i>', // Custom icon for remove button
+        'class' => 'btn btn-danger', // Add Bootstrap class for button styling
+    ],
+])->label(false);
+?> 
+
+<div class="form-group text-center">
+    <?= Html::submitButton($model->isNewRecord ? 'Get a call back' : 'Update', [
+        'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
+    ]) ?>
+</div>
+
+<?php ActiveForm::end(); ?>
+
+                                                </div>
+                                        </div>
+                </div>
+                </div>
                     <div class="tab-pane fade show active" id="one-month" role="tabpanel" aria-labelledby="home-tab">
+                    
                         <div class="adventures-sec">
+                        <div class="container my-4">
+                        <div class="row">
+                            <!-- Inclusions List -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header bg-success text-white">
+                                        <h4>Inclusions</h4>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <?php foreach ($inclusions as $inclusion): ?>
+                                            <li class="list-group-item">
+                                                <?php if ($inclusion->icon){
+                                                    $imagePath = Yii::getAlias('@backend/web/uploads/AddonIcon/' . $inclusion->icon);
+                                                    if (file_exists($imagePath)) {
+                                                        $imageSource = Yii::getAlias('@web/backend/' . str_replace(Yii::getAlias('@backend'), '', $imagePath));
+                                                    }
+                                                     ?>
+                                                    <img src="<?= $imageSource ?>" 
+                                                        alt="Icon" style="width:24px;height:24px;margin-right:10px;">
+                                                <?php } ?>
+                                                <?= $inclusion->description ?>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Exclusions List -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header bg-danger text-white">
+                                        <h4>Exclusions</h4>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <?php foreach ($exclusions as $exclusion): ?>
+                                            <li class="list-group-item">
+                                                 <?php if ($exclusion->icon){
+                                                    $imagePath = Yii::getAlias('@backend/web/uploads/AddonIcon/' . $exclusion->icon);
+                                                    if (file_exists($imagePath)) {
+                                                        $imageSource = Yii::getAlias('@web/backend/' . str_replace(Yii::getAlias('@backend'), '', $imagePath));
+                                                    }
+
+                                                     ?>
+                                                    <img src="<?= $imageSource ?>" 
+                                                        alt="Icon" style="width:24px;height:24px;margin-right:10px;">
+                                                <?php } ?>
+                                                <?= $exclusion->description ?>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                             <h2>ADVENTURES TO EMBARK ON</h2>
                             <div class="adventures-img-flex">
                                 <?php foreach ($destinationMediaList as $destinationMedia) : ?>
@@ -88,7 +245,7 @@ $this->title = 'Pushpaka Vimana';
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                            <div class="text-center text-lg-end">
+                            <div class="text-center text-lg-end d-none">
                                 <a href="#" class="view-btn">VIEW MORE</a>
                             </div>
                             <div class="about-trip">
@@ -192,50 +349,48 @@ $this->title = 'Pushpaka Vimana';
                                                         'cloneButton' => true,
                                                         'columns' => [
                                                             [
-                                                                'name'  => 'traveler_name',
-                                                                'type'  => 'textInput',
+                                                                'name' => 'traveler_name',
+                                                                'type' => 'textInput',
                                                                 'title' => 'Guest Name',
                                                                 'defaultValue' => '',
-                                                                'options' => [
-                                                                    // 'options' => ['class' => ,]
-                                                                ],
-
+                                                                'options' => [],
                                                             ],
                                                             [
-                                                                'name'  => 'traveler_age',
-                                                                'type'  => 'textInput',
+                                                                'name' => 'traveler_age',
+                                                                'type' => 'textInput',
                                                                 'title' => 'Age',
                                                                 'defaultValue' => 5,
-                                                                'options' => [
-                                                                    // 'options' => ['class' => 'time-end','data-duration' => 30,]
-                                                                ],
+                                                                'options' => [],
                                                             ],
                                                             [
-                                                                'name'  => 'traveler_gender',
-                                                                'type'  => 'dropDownList',
+                                                                'name' => 'traveler_gender',
+                                                                'type' => 'dropDownList',
                                                                 'title' => 'Gender',
-                                                                // 'defaultValue' => 1,
                                                                 'items' => ['Male', 'Female'],
-                                                                // 'options' => [$defaultDay => ['Selected'=>'selected'],'style' => 'width: 100px']
                                                             ],
                                                             [
-                                                                'name'  => 'traveler_passport',
-                                                                'type'  => 'textInput',
-                                                                'title' => 'Pasport Number',
+                                                                'name' => 'traveler_passport',
+                                                                'type' => 'textInput',
+                                                                'title' => 'Passport Number',
                                                                 'defaultValue' => '',
-                                                                'options' => [
-                                                                    // 'options' => ['class' => 'time-end','data-duration' => 30,]
-                                                                ],
+                                                                'options' => [],
                                                             ],
                                                         ],
-                                                        'max'               => 10,
-                                                        'min'               => 1, // should be at least 2 rows
-                                                        'allowEmptyList'    => false,
-                                                        'enableGuessTitle'  => true,
+                                                        'max' => 10,
+                                                        'min' => 1, // should be at least 2 rows
+                                                        'allowEmptyList' => false,
+                                                        'enableGuessTitle' => true,
                                                         'addButtonPosition' => MultipleInput::POS_HEADER, // show add button in the header
-                                                    ])
-                                                        ->label(false);
-                                                    ?> <div class="form-group">
+                                                        'cloneButtonOptions' => [
+                                                            'label' => '<i class="fa fa-plus"></i>', // Custom icon for clone button
+                                                            'class' => 'btn btn-success', // Add Bootstrap class for button styling
+                                                        ],
+                                                        'removeButtonOptions' => [
+                                                            'label' => '<i class="fa fa-trash"></i>', // Custom icon for remove button
+                                                            'class' => 'btn btn-danger', // Add Bootstrap class for button styling
+                                                        ],
+                                                    ])->label(false);
+                                                    ?>  <div class="form-group">
                                                         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
                                                     </div>
                                                     <?php ActiveForm::end(); ?>
@@ -477,7 +632,7 @@ $this->title = 'Pushpaka Vimana';
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center text-lg-end">
+                        <div class="text-center text-lg-end d-none">
                             <a href="#" class="view-btn">VIEW MORE</a>
                         </div>
                         <div class="about-trip">
