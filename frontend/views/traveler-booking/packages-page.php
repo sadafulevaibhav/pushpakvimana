@@ -924,28 +924,28 @@ echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
 <!-- ********* Packages page end ********* -->
 <script>
     // Initialize Stripe.js
-    const stripe = Stripe('pk_test_51P7XjLSJAgaJ3Mvs9TVC9MR4h3mRgH58wOBy0eYmlQPGdS6F1gE7RQzAI0UNzsTgbG6q78WRPMj3PiwULt8UuuRS006v7BgwBQ');
+    // const stripe = Stripe('pk_test_51P7XjLSJAgaJ3Mvs9TVC9MR4h3mRgH58wOBy0eYmlQPGdS6F1gE7RQzAI0UNzsTgbG6q78WRPMj3PiwULt8UuuRS006v7BgwBQ');
 
-    initialize();
+    // initialize();
 
-    // Fetch Checkout Session and retrieve the client secret
-    async function initialize() {
-        const fetchClientSecret = async () => {
-            const response = await fetch("/pushpakvimana/traveler-booking/create-checkout-session", {
-                method: "GET",
-            });
-            const {
-                clientSecret
-            } = await response.json();
-            return clientSecret;
-        };
+    // // Fetch Checkout Session and retrieve the client secret
+    // async function initialize() {
+    //     const fetchClientSecret = async () => {
+    //         const response = await fetch("/pushpakvimana/traveler-booking/create-checkout-session", {
+    //             method: "GET",
+    //         });
+    //         const {
+    //             clientSecret
+    //         } = await response.json();
+    //         return clientSecret;
+    //     };
 
-        // Initialize Checkout
-        const checkout = await stripe.initEmbeddedCheckout({
-            fetchClientSecret,
-        });
+    //     // Initialize Checkout
+    //     const checkout = await stripe.initEmbeddedCheckout({
+    //         fetchClientSecret,
+    //     });
 
-        // Mount Checkout
-        checkout.mount('#checkout');
-    }
+    //     // Mount Checkout
+    //     checkout.mount('#checkout');
+    // }
 </script>

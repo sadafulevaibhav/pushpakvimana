@@ -75,7 +75,7 @@ $this->title = 'Go Pravasa';
   </div>
 </div>
 <div class="upcomming-tours-sec" id="upcomming-tours">
-  <h2 class="secondary-heading">UPCOMING TOURS IN 2024</h2>
+  <h2 class="secondary-heading">UPCOMING TOURS IN <?= date('Y');?></h2>
   <div class="upcomming-tours-wrap">
     <div class="container-fluid">
       <div class="row upcomming-tours-flex">
