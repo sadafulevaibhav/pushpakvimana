@@ -1,5 +1,6 @@
 <?php
 
+/** @var yii\web\View $this */
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\models\DestinationPackage;
@@ -53,164 +54,19 @@ $this->title = 'Pushpaka Vimana';
         <div class="d-none d-sm-none d-md-block d-lg-block">
             <div class="top-tab-sec">
                 <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                    
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#one-month" type="button" role="tab" aria-controls="one-month" aria-selected="false">SUMMARY</button>
+                        <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button" role="tab" aria-controls="one-month" aria-selected="true">SUMMARY</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#two-month" type="button" role="tab" aria-controls="three-month" aria-selected="false">ITINERARY</button>
+                        <button class="nav-link" id="itinerary-tab" data-bs-toggle="tab" data-bs-target="#itinerary" type="button" role="tab" aria-controls="three-month" aria-selected="false">ITINERARY</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking" type="button" role="tab" aria-controls="booking" aria-selected="true">BOOKING</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="contacts-tab" data-bs-toggle="tab" data-bs-target="#three-month" type="button" role="tab" aria-controls="sixmonth" aria-selected="false">PRIVACY POLICY</button>
+                        <button class="nav-link" id="privacy-tab" data-bs-toggle="tab" data-bs-target="#privacy" type="button" role="tab" aria-controls="sixmonth" aria-selected="false">PRIVACY POLICY</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show" id="booking" role="tabpanel" aria-labelledby="booking-tab">
-                <div class="adventures-sec">
-                <div class="travellers-wrap-flex">
-                                                <div class="travellers-wrap">
-                                                    <div class="h3">TRAVELLERS BOOKING</div>
-                                                    <?php $form = ActiveForm::begin($actions?? ['id'=>'create-booking',
-    'method' => 'post',
-    'options' => ['enctype' => 'multipart/form-data']]); ?>
-
-<?= $form->field($model, 'full_name')->textInput(['maxlength' => true]) ?>
-
-<?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-
-<?= $form->field($model, 'mobile')->textInput(['maxlength' => true]) ?>
-
-<?= $form->field($model, 'whats_app')->textInput(['maxlength' => true]) ?>
-
-<?= $form->field($model, 'package')->dropdownList(
-    DestinationPackage::find()->select(['package_name', 'id'])->indexBy('id')->column(),
-    ['prompt' => 'Select Tour Package']
-) ?>
-
-
-<?= $form->field($model, 'travel_date')->widget(DatePicker::classname(), [
-    'options' => ['placeholder' => 'Travel Date'],
-    'pluginOptions' => [
-        'autoclose' => true,
-        'format' => 'yyyy-mm-dd'
-    ]
-])->label(false); ?>
-
-<?php
-echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
-    'id' => 'model-scales',
-    'cloneButton' => true,
-    'columns' => [
-        [
-            'name' => 'traveler_name',
-            'type' => 'textInput',
-            'title' => 'Guest Name',
-            'defaultValue' => '',
-            'options' => [],
-        ],
-        [
-            'name' => 'traveler_age',
-            'type' => 'textInput',
-            'title' => 'Age',
-            'defaultValue' => 5,
-            'options' => [],
-        ],
-        [
-            'name' => 'traveler_gender',
-            'type' => 'dropDownList',
-            'title' => 'Gender',
-            'items' => ['Male', 'Female'],
-        ],
-       
-    ],
-    'max' => 10,
-    'min' => 1, // should be at least 2 rows
-    'allowEmptyList' => false,
-    'enableGuessTitle' => true,
-    'addButtonPosition' => MultipleInput::POS_HEADER, // show add button in the header
-    'cloneButtonOptions' => [
-        'label' => '<i class="fa fa-plus"></i>', // Custom icon for clone button
-        'class' => 'btn btn-success', // Add Bootstrap class for button styling
-    ],
-    'removeButtonOptions' => [
-        'label' => '<i class="fa fa-trash"></i>', // Custom icon for remove button
-        'class' => 'btn btn-danger', // Add Bootstrap class for button styling
-    ],
-])->label(false);
-?> 
-
-<div class="form-group text-center">
-    <?= Html::submitButton($model->isNewRecord ? 'Get a call back' : 'Update', [
-        'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
-    ]) ?>
-</div>
-
-<?php ActiveForm::end(); ?>
-
-                                                </div>
-                                        </div>
-                </div>
-                </div>
-                    <div class="tab-pane fade show active" id="one-month" role="tabpanel" aria-labelledby="home-tab">
-                    
+                    <div class="tab-pane fade show active" id="summary" role="tabpanel" aria-labelledby="summary-tab">
                         <div class="adventures-sec">
-                        <div class="container my-4">
-                        <div class="row">
-                            <!-- Inclusions List -->
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header bg-success text-white">
-                                        <h4>Inclusions</h4>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <?php foreach ($inclusions as $inclusion): ?>
-                                            <li class="list-group-item">
-                                                <?php if ($inclusion->icon){
-                                                    $imagePath = Yii::getAlias('@backend/web/uploads/AddonIcon/' . $inclusion->icon);
-                                                    if (file_exists($imagePath)) {
-                                                        $imageSource = Yii::getAlias('@web/backend/' . str_replace(Yii::getAlias('@backend'), '', $imagePath));
-                                                    }
-                                                     ?>
-                                                    <img src="<?= $imageSource ?>" 
-                                                        alt="Icon" style="width:24px;height:24px;margin-right:10px;">
-                                                <?php } ?>
-                                                <?= $inclusion->description ?>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Exclusions List -->
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header bg-danger text-white">
-                                        <h4>Exclusions</h4>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <?php foreach ($exclusions as $exclusion): ?>
-                                            <li class="list-group-item">
-                                                 <?php if ($exclusion->icon){
-                                                    $imagePath = Yii::getAlias('@backend/web/uploads/AddonIcon/' . $exclusion->icon);
-                                                    if (file_exists($imagePath)) {
-                                                        $imageSource = Yii::getAlias('@web/backend/' . str_replace(Yii::getAlias('@backend'), '', $imagePath));
-                                                    }
-
-                                                     ?>
-                                                    <img src="<?= $imageSource ?>" 
-                                                        alt="Icon" style="width:24px;height:24px;margin-right:10px;">
-                                                <?php } ?>
-                                                <?= $exclusion->description ?>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                             <h2>ADVENTURES TO EMBARK ON</h2>
                             <div class="adventures-img-flex">
                                 <?php foreach ($destinationMediaList as $destinationMedia) : ?>
@@ -237,9 +93,9 @@ echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                            <div class="text-center text-lg-end d-none">
+                            <!-- <div class="text-center text-lg-end">
                                 <a href="#" class="view-btn">VIEW MORE</a>
-                            </div>
+                            </div> -->
                             <div class="about-trip">
                                 <h3 class="h3">ABOUT THE TRIP</h3>
                                 <p>
@@ -251,7 +107,7 @@ echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
                                     of innovation and heritage
                                 </p>
                             </div>
-                            <div class="packages-details-sec d-none">
+                            <div class="packages-details-sec">
                                 <h3 class="h3">PACKAGE DETAILS</h3>
                                 <div class="packages-list">
                                     <?php if (!empty($addons)) : ?>
@@ -280,12 +136,13 @@ echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
                                     <?php endif; ?>
                                 </div>
                             </div>
-                            <div class="flight-details-wrap d-none">
-                                <h3 class="h3">FLIGHT DETAILS</h3>
+                            <div class="flight-details-wrap d-block">
+                                <!-- <h3 class="h3">FLIGHT DETAILS</h3> -->
                                 <div class="container g-0 g-sm-0 g-md-5 g-lg-5">
                                     <div class="row g-0 g-sm-0 g-md-5 g-lg-5">
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-7">
-                                            <div class="flight-card">
+                                        <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-7"> -->
+                                        <div class="col">
+                                            <div class="flight-card d-none">
                                                 <div class="row justify-content-between">
                                                     <div class="col-auto">
                                                         <h3>BANGALORE</h3>
@@ -326,215 +183,104 @@ echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
                                             </div>
                                             <div class="travellers-wrap-flex">
                                                 <div class="travellers-wrap">
-                                                    <div class="h3">TRAVELLERS</div>
-                                                    <!-- <script src="https://js.stripe.com/v3/"></script>
-                                                        <div id="checkout">
-                                                        </div> -->
+                                                    <div class="h3">TRAVELLERS BOOKING</div>
                                                     <?php $form = ActiveForm::begin($actions ?? [
-                                                        'action' => ['/traveler-booking/create'],
-                                                        'method' => 'post',
-                                                        'options' => ['enctype' => 'multipart/form-data']
-                                                    ]); ?>
-                                                    <?php
-                                                    echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
-                                                        'id' => 'model-scales',
-                                                        'cloneButton' => true,
-                                                        'columns' => [
-                                                            [
-                                                                'name' => 'traveler_name',
-                                                                'type' => 'textInput',
-                                                                'title' => 'Guest Name',
-                                                                'defaultValue' => '',
-                                                                'options' => [],
-                                                            ],
-                                                            [
-                                                                'name' => 'traveler_age',
-                                                                'type' => 'textInput',
-                                                                'title' => 'Age',
-                                                                'defaultValue' => 5,
-                                                                'options' => [],
-                                                            ],
-                                                            [
-                                                                'name' => 'traveler_gender',
-                                                                'type' => 'dropDownList',
-                                                                'title' => 'Gender',
-                                                                'items' => ['Male', 'Female'],
-                                                            ],
-                                                            [
-                                                                'name' => 'traveler_passport',
-                                                                'type' => 'textInput',
-                                                                'title' => 'Passport Number',
-                                                                'defaultValue' => '',
-                                                                'options' => [],
-                                                            ],
-                                                        ],
-                                                        'max' => 10,
-                                                        'min' => 1, // should be at least 2 rows
-                                                        'allowEmptyList' => false,
-                                                        'enableGuessTitle' => true,
-                                                        'addButtonPosition' => MultipleInput::POS_HEADER, // show add button in the header
-                                                        'cloneButtonOptions' => [
-                                                            'label' => '<i class="fa fa-plus"></i>', // Custom icon for clone button
-                                                            'class' => 'btn btn-success', // Add Bootstrap class for button styling
-                                                        ],
-                                                        'removeButtonOptions' => [
-                                                            'label' => '<i class="fa fa-trash"></i>', // Custom icon for remove button
-                                                            'class' => 'btn btn-danger', // Add Bootstrap class for button styling
-                                                        ],
-                                                    ])->label(false);
-                                                    ?>  <div class="form-group">
-                                                        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-                                                    </div>
-                                                    <?php ActiveForm::end(); ?>
-                                                    <h4>PERSONS</h4>
-                                                    <div class="box-wrap mb-4">
-                                                        <div class="d-flex">
-                                                            <img src="images/person-icon.svg" class="img-fluid" alt="" />
-                                                            <div class="input-wrap">
-                                                                <button>
-                                                                    <!-- <img src="images/minus.svg" class="img-fluid" alt=""> -->
-                                                                    -
-                                                                </button>
-                                                                <input type="number" value="05" />
-                                                                <button>
-                                                                    <!-- <img src="images/plus.svg" class="img-fluid" alt=""> -->
-                                                                    +
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-table">
-                                                        <div class="box-wrap">
-                                                            <div class="text-wrap">
-                                                                <h5>no</h5>
-                                                                <h5>Guest Name</h5>
-                                                            </div>
-                                                            <div class="text-wrap">
-                                                                <h5>Age</h5>
-                                                                <h5>Gender</h5>
-                                                                <h5>Passport <br> Number</h5>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box-wrap">
-                                                            <div class="text-wrap">
-                                                                <h5>1</h5>
-                                                                <h5>Champakali Gowda</h5>
-                                                            </div>
-                                                            <div class="text-wrap">
-                                                                <h5>69Yrs</h5>
-                                                                <h5>Male</h5>
-                                                                <h5>PARX231</h5>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box-wrap">
-                                                            <div class="text-wrap">
-                                                                <h5>2</h5>
-                                                                <h5>Champakali Gowda</h5>
-                                                            </div>
-                                                            <div class="text-wrap">
-                                                                <h5>69Yrs</h5>
-                                                                <h5>Male</h5>
-                                                                <h5>PARX231</h5>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box-wrap">
-                                                            <div class="text-wrap">
-                                                                <h5>3</h5>
-                                                                <h5>Champakali Gowda</h5>
-                                                            </div>
-                                                            <div class="text-wrap">
-                                                                <h5>69Yrs</h5>
-                                                                <h5>Male</h5>
-                                                                <h5>PARX231</h5>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box-wrap">
-                                                            <div class="text-wrap">
-                                                                <h5>4</h5>
-                                                                <h5>Champakali Gowda</h5>
-                                                            </div>
-                                                            <div class="text-wrap">
-                                                                <h5>69Yrs</h5>
-                                                                <h5>Male</h5>
-                                                                <h5>PARX231</h5>
-                                                            </div>
-                                                        </div>
-                                                        <div class="box-wrap">
-                                                            <div class="text-wrap">
-                                                                <h5>5</h5>
-                                                                <h5>Champakali Gowda</h5>
-                                                            </div>
-                                                            <div class="text-wrap">
-                                                                <h5>69Yrs</h5>
-                                                                <h5>Male</h5>
-                                                                <h5>PARX231</h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+    'action' => ['/traveler-booking/create'],
+    'method' => 'post',
+    'options' => ['enctype' => 'multipart/form-data']
+]); ?>
+
+<?= $form->field($model, 'full_name')->textInput(['maxlength' => true]) ?>
+
+<?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+<?= $form->field($model, 'mobile')->textInput(['maxlength' => true]) ?>
+
+<?= $form->field($model, 'whats_app')->textInput(['maxlength' => true]) ?>
+
+<?= $form->field($model, 'package')->dropdownList(
+    DestinationPackage::find()->select(['package_name', 'id'])->indexBy('id')->column(),
+    ['prompt' => 'Select Tour Package']
+) ?>
+
+<?= $form->field($model, 'travel_destination')->textInput(['maxlength' => true]) ?>
+
+<?= $form->field($model, 'travel_date')->widget(DatePicker::classname(), [
+    'options' => ['placeholder' => 'Travel Date'],
+    'pluginOptions' => [
+        'autoclose' => true,
+        'format' => 'yyyy-mm-dd'
+    ]
+])->label(false); ?>
+
+<?php
+echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
+    'id' => 'model-scales',
+    'cloneButton' => true,
+    'columns' => [
+        [
+            'name' => 'traveler_name',
+            'type' => 'textInput',
+            'title' => 'Guest Name',
+            'defaultValue' => '',
+            'options' => [],
+        ],
+        [
+            'name' => 'traveler_age',
+            'type' => 'textInput',
+            'title' => 'Age',
+            'defaultValue' => 5,
+            'options' => [],
+        ],
+        [
+            'name' => 'traveler_gender',
+            'type' => 'dropDownList',
+            'title' => 'Gender',
+            'items' => ['Male', 'Female'],
+        ],
+        [
+            'name' => 'traveler_passport',
+            'type' => 'textInput',
+            'title' => 'Passport Number',
+            'defaultValue' => '',
+            'options' => [],
+        ],
+    ],
+    'max' => 10,
+    'min' => 1, // should be at least 2 rows
+    'allowEmptyList' => false,
+    'enableGuessTitle' => true,
+    'addButtonPosition' => MultipleInput::POS_HEADER, // show add button in the header
+    'cloneButtonOptions' => [
+        'label' => '<i class="fa fa-plus"></i>', // Custom icon for clone button
+        'class' => 'btn btn-success', // Add Bootstrap class for button styling
+    ],
+    'removeButtonOptions' => [
+        'label' => '<i class="fa fa-trash"></i>', // Custom icon for remove button
+        'class' => 'btn btn-danger', // Add Bootstrap class for button styling
+    ],
+])->label(false);
+?> 
+
+<div class="form-group">
+    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', [
+        'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
+    ]) ?>
+</div>
+
+<?php ActiveForm::end(); ?>
+
                                                 </div>
-                                                <div class="travellers-date-wrap">
-                                                    <h3 class="h3">DATE</h3>
-                                                    <div class="box-wrap mb-4">
-                                                        <h6>TOUR 01</h6>
-                                                        <p>MARCH 23 - APRIL 03</p>
-                                                    </div>
-                                                    <div class="box-wrap mb-4">
-                                                        <h6>TOUR 02</h6>
-                                                        <p>MARCH 23 - APRIL 03</p>
-                                                    </div>
-                                                    <div class="box-wrap mb-4">
-                                                        <h6>TOUR 03</h6>
-                                                        <p>MARCH 23 - APRIL 03</p>
-                                                    </div>
-                                                    <div class="box-wrap mb-4">
-                                                        <h6>TOUR 04</h6>
-                                                        <p>MARCH 23 - APRIL 03</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-                                            <div class="things-packages-wrap">
-                                                <h3>THINGS IN THIS PACKAGE</h3>
-                                                <h6>INCLUDED</h6>
-                                                <ul>
-                                                    <li>3 Meals a day</li>
-                                                    <li>Wifi Availability </li>
-                                                    <li>Non-veg and Veg food options</li>
-                                                    <li>Tour Guide</li>
-                                                    <li>Local SIM card</li>
-                                                    <li>Tour Photographer / Videographer</li>
-                                                </ul>
-                                                <h6>EXCLUDED</h6>
-                                                <ul class="mb-0">
-                                                    <li>Visa</li>
-                                                    <li>Personal Expences </li>
-                                                    <li>Additional Room</li>
-                                                    <li>Alcohol</li>
-                                                    <li>Camp Fire</li>
-                                                    <li>Personal Transport</li>
-                                                </ul>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="click-agree-sec mt-4 d-none">
-                                <div class="text-center text-lg-end">
-                                    <a href="#">Click agree to terms and conditions to proceed further and checkout</a>
-                                </div>
-                                <form action="">
-                                    <div class="btn-wrap">
-                                        <input type="text" placeholder="XX,XXX,xx">
-                                        <button>BUY NOW</button>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="two-month" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="itinerary" role="tabpanel" aria-labelledby="itinerary-tab">
                         <div class="adventures-sec">
+                           
                             <?php foreach ($tourItineraries as $key => $itinerary) : ?>
                                 <div class="activies-wrap">
                                     <div class="actives-num">
@@ -555,7 +301,7 @@ echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="three-month" role="tabpanel" aria-labelledby="contacts-tab">
+                    <div class="tab-pane fade" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
                         <div class="adventures-sec">
                             <h1>Privacy Policy</h1>
                             <p>At Pushpaka Vimana we are committed to safeguarding the privacy of our website visitors. This Privacy Policy outlines how we collect, use, disclose, and protect your personal information. By using our website, you consent to the terms outlined in this policy.</p>
@@ -624,7 +370,7 @@ echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center text-lg-end d-none">
+                        <div class="text-center text-lg-end">
                             <a href="#" class="view-btn">VIEW MORE</a>
                         </div>
                         <div class="about-trip">
@@ -664,7 +410,7 @@ echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
                             </div>
                         </div>
                         <div class="flight-details-wrap d-none">
-                            <h3 class="h3">FLIGHT DETAILS</h3>
+                            <h3 class="h3 d-none">FLIGHT DETAILS</h3>
                             <div class="container g-0 g-sm-0 g-md-5 g-lg-5">
                                 <div class="row g-0 g-sm-0 g-md-5 g-lg-5">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-7">
@@ -709,7 +455,7 @@ echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
                                         </div>
                                         <div class="travellers-wrap-flex">
                                             <div class="travellers-wrap">
-                                                <div class="h3">TRAVELLERS</div>
+                                                <div class="h3">TRAVELLERS BOOKING</div>
                                                 <h4>PERSONS</h4>
                                                 <div class="box-wrap mb-4">
                                                     <div class="d-flex">
@@ -914,33 +660,7 @@ echo $form->field($model, 'travellers')->widget(MultipleInput::className(), [
     </div>
 </div>
 <!-- ********* Packages page end ********* -->
-<?php
-$baseUrl = Yii::$app->request->baseUrl;
-$script= <<< JS
-    $(document).ready(function(){
-    $(document).on('beforeSubmit', '#create-booking', function(e) {
-            var form = $(this);
-            $.post(
-                '{$baseUrl}/traveler-booking/create',
-                form.serialize()
-            )
-            .done(function(result){
-                
-            }).fail(function()
-            {
-                console.log('server error');
-            });
-            return false;
-
-      }).on('submit', '#delete-session', function(e){
-
-            e.preventDefault();
-      });
-    });
-    JS; 
-    $this->registerJs($script);
-    ?>
-    <script>
+<script>
     // Initialize Stripe.js
     // const stripe = Stripe('pk_test_51P7XjLSJAgaJ3Mvs9TVC9MR4h3mRgH58wOBy0eYmlQPGdS6F1gE7RQzAI0UNzsTgbG6q78WRPMj3PiwULt8UuuRS006v7BgwBQ');
 
