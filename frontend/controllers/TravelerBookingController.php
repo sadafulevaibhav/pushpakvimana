@@ -155,7 +155,31 @@ class TravelerBookingController extends Controller
                         Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
-            } else if ($model->load($request->post()) && $model->save()) {
+            } else if ($model->load($request->post())) {
+                $requestData = $request->post();
+
+                $BookerDetailsmodel = new BookerDetails();
+                $BookerDetailsmodel->full_name = $requestData['TravelerBooking']['full_name'];
+                $BookerDetailsmodel->email = $requestData['TravelerBooking']['email'];
+                $BookerDetailsmodel->mobile = $requestData['TravelerBooking']['mobile'];
+                $BookerDetailsmodel->whats_app = $requestData['TravelerBooking']['whats_app'];
+                $BookerDetailsmodel->travel_destination = $requestData['TravelerBooking']['travel_destination'];
+                $BookerDetailsmodel->travel_date = $requestData['TravelerBooking']['travel_date'];
+                $BookerDetailsmodel->package = $requestData['TravelerBooking']['package'];
+                
+                $BookerDetailsmodel->save(false);
+
+                foreach ($requestData['TravelerBooking']['travellers'] as $key => $val) {
+                    $modelNew = new TravelerBooking();
+                    $modelNew->traveler_name = $val['traveler_name'];
+                    $modelNew->traveler_age = $val['traveler_age'];
+                    $modelNew->traveler_gender = $val['traveler_gender'];
+                    $modelNew->traveler_passport = $val['traveler_passport'];
+                    $modelNew->booker_id = $BookerDetailsmodel->id;
+                    $modelNew->package_id = $BookerDetailsmodel->package;
+                    $modelNew->save(false);
+                }
+                Yii::$app->session->setFlash('success', 'Your booking is sent to GoPravasa');
 
                 return [
                     'forceReload' => '#crud-datatable-pjax',
@@ -163,16 +187,6 @@ class TravelerBookingController extends Controller
                     'content' => '<span class="text-success">Create TravelerBooking success</span>',
                     'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
                         Html::a('Create More', ['create'], ['class' => 'btn btn-primary', 'role' => 'modal-remote'])
-
-                ];
-            } else {
-                return [
-                    'title' => "Create new TravelerBooking",
-                    'content' => $this->renderAjax('create', [
-                        'model' => $model,
-                    ]),
-                    'footer' => Html::button('Close', ['class' => 'btn btn-secondary float-left', 'data-dismiss' => "modal"]) .
-                        Html::button('Save', ['class' => 'btn btn-primary', 'type' => "submit"])
 
                 ];
             }
